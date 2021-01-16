@@ -1,0 +1,25 @@
+.favorites{
+    @include titles;
+    
+
+    .buttonFavorites{
+        @include titles;
+        @include button;
+    }
+}
+
+
+// CODIGO LAURA GRID
+// box-sizing: border-box;
+//             padding-top: 10%;
+//             display: grid;
+//             grid-template-columns: repeat(2, 1fr);
+//             grid-template-rows: repeat(6, 1fr);
+//             grid-gap: 5vw;
+//                 grid-template-columns: repeat(4, 1fr);
+//                 grid-template-rows: repeat(3, 1fr);
+// (desktop)
+
+
+
+// grid-template: repeat(2, 1fr) / repeat(2, 1fr);

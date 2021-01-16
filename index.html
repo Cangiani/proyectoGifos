@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProyectoGifos</title> 
+    <link rel="stylesheet" href="./styles/style.css">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- AGREGAR LAS IMAGENES Y NO FONTAWESOME -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<!--API KEY u97suGng8xUtL28uyoZRwdmODNFgxzIY-->
+
+
+<body>
+    <!--Sección header -->
+    <header>
+        <div class="logo">
+            <img src="./images/logo-desktop.svg" alt="logo">
+        </div>
+
+        <nav class="menu">
+            <input type="checkbox" id="menu" class="checkbox">
+            <label for="menu" class="open"> <i class="fas fa-bars"></i> </label>
+            <label for="menu" class="close"> <i class="fas fa-times"></i> </label>
+            <ul>
+                <li><a href="#">MODO NOCTURNO</a></li>
+                <li><a href="./favoritos">FAVORITOS</a></li>
+                <li><a href="#">MIS GIFOS</a></li>
+                <li><input type="image" src="./images/button-crear-gifo.svg" class="btnCreate"></li>  
+            </ul>
+        </nav>
+    </header>
+
+    <!--Sección main -->
+    <main>
+        <div class="maincontainer">
+            <!--Sección Home-->
+            <section>
+                <div class="home">
+                    <div class="title">
+                        <h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1>
+                    </div>
+
+                    <div class="browser">  <!--deeria ponerlo en el div home?-->
+                        <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
+                    
+                        <div class="search">
+                            <input type="search" id="search" placeholder="Busca GIFOS y más" list="examples">
+                            <!-- <datalist id="examples">
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                                <option value=""></option>
+                            </datalist> -->
+
+                            <img src="./images/icon-search.svg" class="imageSearch" alt="searchimage">
+                        </div>
+                    
+                    </div>
+
+                    <div class="subtitle">
+                        <h2>Trending:</h2>
+                        <h3>Reactions, Entertainment, <span class="span">Sports, Stickers, Artists</span></h3>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!--Sección Trending Gifos-->
+            <section>
+                <div class="trendingGifos">
+                    <h2>Trending Gifos</h2>
+                    <h3>Mirá los últimos <span>GIFOS de nuestra comunidad</span></h3>
+
+                    <ul class="slider">
+                        <li id="slide1"> insertar gif 1</li>
+                        <li id="slide2"> insertar gif 2</li>
+                        <li id="slide3"> insertar gif 3</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--Sección Favoritos-->
+            <div class="favorites"> 
+                <div class="titleFavorite">
+                    <img src="images/icon-favoritos.svg" alt="imgHeart">
+                    <h2>Favoritos</h2>
+                </div>
+                
+                <div class="imagesFavorites">
+    
+                    <img src="" alt="" class="img1">
+                    <img src="" alt="" class="img2">
+                    <img src="" alt="" class="img3">
+                    <img src="" alt="" class="img4">
+                    <img src="" alt="" class="img5">
+                    <img src="" alt="" class="img6">
+                    <img src="" alt="" class="img7">
+                    <img src="" alt="" class="img8">
+                    <img src="" alt="" class="img9">
+                    <img src="" alt="" class="img10">
+                    <img src="" alt="" class="img11">
+                    <img src="" alt="" class="img12">
+
+                </div>
+                
+                <button class="buttonFavorites">VER MÁS</button>
+    
+            </div>
+           
+            <!--Sección Crear Gifos-->
+            <div>
+                <h2><span>Aquí podrás</span> crear tus propios <span>GIFOS</span></h2>
+                <p>¡Crea tu GIFO en sólo 3 pasos! <span>(sólo necesitas una cámara para grabar un video)</span></p>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!--Sección footer -->
+    <footer>
+        <p>Compartir en:</p>
+
+        <p>© GIFOS 2020 All Rights Reserved.</p>
+    </footer>
+
+
+    <script src="./javaScript/index.js"></script>
+</body>
+</html>

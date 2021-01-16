@@ -1,0 +1,73 @@
+header{    
+    width: 100vw;
+    height: 5.94em;
+    // line-height: 8vh;
+    font-family: 'Open Sans';     /*o pongo include mixin?*/ 
+    font-size: 13px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    .logo {
+        display: inline-block;
+        width: 3.05em;
+        height: 3.05em;
+        margin-left: 1.375em;
+        margin-top: 2.125em;
+        margin-bottom: 1.08em;
+    }
+
+    nav{
+        input{
+            display:none;   
+        }
+        
+        .open{                      //NO APARECE LAS 3 BARRAS
+            display: block;
+            color: $color-principal;        
+        }
+        
+        .close{                     //NO APARECE LA CRUZ        
+            display: none;
+            color: $color-principal;
+        }
+
+        input:checked ~ .open{      
+            display: none;
+        }
+
+        input:checked ~ .close{    
+            display: block;
+        }
+
+        input:checked ~ ul{  
+            display:block;
+        }  
+
+        ul {
+            width: 100vw;
+            height: 100vh;
+            list-style: none;
+            display: none;
+            position: absolute;
+            right: 0;
+            z-index: 1;
+            
+            li { 
+                width: 100vw;
+                height: 6vh;
+                padding: .5em; 
+                background-color: $color-principal;  
+                opacity: 90%;
+
+                a{
+                    color: $color-blanco;
+                    text-decoration: none;  
+                    // line-height: 1.375em;       
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'header';
+@import 'home';
+@import 'trendingGifos';
+@import 'favorites';
+@import 'footer';
+@import 'desktop'; /*Breakpoint 768px*/
+
+*{
+    margin: 0;   
+    padding: 0; 
+}
