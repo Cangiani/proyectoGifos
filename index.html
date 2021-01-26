@@ -5,33 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProyectoGifos</title> 
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <!-- AGREGAR LAS IMAGENES Y NO FONTAWESOME -->
-    
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->   
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <!--API KEY u97suGng8xUtL28uyoZRwdmODNFgxzIY-->
 
-
 <body>
+    <hr>
     <!--Sección header -->
     <header>
-        <div class="logo">
-            <img src="./images/logo-desktop.svg" alt="logo">
-        </div>
+        <div class="logoMobile"><img src="./images/logo-mobile.svg" alt="logoMobile"></div>
+        <div class="logoDesktop"><img src="./images/logo-desktop.svg" alt="logoDesktop"></div>
 
         <nav class="menu">
             <input type="checkbox" id="menu" class="checkbox">
-            <label for="menu" class="open"> <i class="fas fa-bars"></i> </label>
-            <label for="menu" class="close"> <i class="fas fa-times"></i> </label>
+            <label for="menu" class="open"><img src="./images/burger.svg" alt="open"></label>
+            <label for="menu" class="close"><img src="./images/close.svg" alt="close"></i> </label>
+            
             <ul>
-                <li><a href="#">MODO NOCTURNO</a></li>
-                <li><a href="./favoritos">FAVORITOS</a></li>
-                <li><a href="#">MIS GIFOS</a></li>
-                <li><input type="image" src="./images/button-crear-gifo.svg" class="btnCreate"></li>  
-            </ul>
+                <li><a href="#">Modo Nocturno</a></li>
+                <li><a href="./favoritos.html">Favoritos</a></li>
+                <li><a href="./misGifos.html">Mis GIFOS</a></li>
+                <li><a href="./crearGifos.html"><input type="image" src="./images/button-crear-gifo.svg" alt="btnCreate" class="btnCreate"></a></li>
+            </ul>   
         </nav>
     </header>
 
@@ -41,25 +38,22 @@
             <!--Sección Home-->
             <section>
                 <div class="home">
-                    <div class="title">
-                        <h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1>
-                    </div>
+                    <div class="title"><h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
 
                     <div class="browser">  <!--deeria ponerlo en el div home?-->
                         <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
                     
                         <div class="search">
                             <input type="search" id="search" placeholder="Busca GIFOS y más" list="examples">
-                            <!-- <datalist id="examples">
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                                <option value=""></option>
-                            </datalist> -->
+                            <datalist id="examples">
+                                <option value="The Office"></option>               
+                                <option value="Gatos"></option>
+                                <option value="El señor de los anillos"></option>
+                                <option value="Doctor Who"></option>
+                            </datalist>
 
                             <img src="./images/icon-search.svg" class="imageSearch" alt="searchimage">
                         </div>
-                    
                     </div>
 
                     <div class="subtitle">
@@ -67,7 +61,6 @@
                         <h3>Reactions, Entertainment, <span class="span">Sports, Stickers, Artists</span></h3>
                     </div>
                 </div>
-                
             </section>
 
             <!--Sección Trending Gifos-->
@@ -113,22 +106,67 @@
             </div>
            
             <!--Sección Crear Gifos-->
-            <div>
-                <h2><span>Aquí podrás</span> crear tus propios <span>GIFOS</span></h2>
-                <p>¡Crea tu GIFO en sólo 3 pasos! <span>(sólo necesitas una cámara para grabar un video)</span></p>
+            <div class="createGifos">
+               
+                <div class="animation">
+                    <img src="./images/camara.svg" alt="camara" class="camara">
+                    <img src="./images/element-luz-camara.svg" alt="luz" class="light">
+                </div>
+
+                <div class="stepByStep">
+                    
+                    <div class="boxTitle">
+                        
+                        <div class="corner1"></div>
+                        <div class="corner2"></div>
+
+                        <div class="text">
+                            <h2><span class="blockSpan">Aquí podrás</span> crear tus propios <span class="coloredSpan">GIFOS</span></h2>
+                            <p>¡Crea tu GIFO en sólo 3 pasos! <span class="blockSpan">(sólo necesitas una cámara para grabar un video)</span></p>    
+                        </div>
+                        
+                        <div class="corner3"></div>
+                        <div class="corner4"></div>
+    
+                    </div>
+
+                    <div class="buttonsNumber">
+                        <button class="number 1">1</button>
+                        <button class="number 2">2</button>
+                        <button class="number 3">3</button>
+                    </div>
+    
+                    <hr>
+
+                    <button class="buttonStart">COMENZAR</button>
+                </div>
+                
+                <div class="imageFilm">
+                    <img src="./images/pelicula.svg" alt="pelicula" class="film">
+                </div>
+        
             </div>
-
-
         </div>
     </main>
 
     <!--Sección footer -->
     <footer>
-        <p>Compartir en:</p>
+        <div class="footer">
+            <div class="socialMedia">
+                <h4>Compartir en:</h4>
 
-        <p>© GIFOS 2020 All Rights Reserved.</p>
+                <div class="icons">
+                    <div><a href="https://www.facebook.com/"></a> <img src="./images/icon_facebook.svg" alt="facebook"></div>
+                    <div><a href="https://twitter.com/"></a> <img src="./images/icon-twitter.svg" alt="twitter"></div>
+                    <div><a href="https://www.instagram.com/"></a> <img src="./images/icon_instagram.svg" alt="instagram"></div>
+                </div>  
+            </div>
+            
+            <!-- <div class="copyright"></div> -->
+            <p>© GIFOS 2020 All Rights Reserved.</p>
+            <hr>
+        </div>
     </footer>
-
 
     <script src="./javaScript/index.js"></script>
 </body>

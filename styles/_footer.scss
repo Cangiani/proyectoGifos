@@ -1,0 +1,31 @@
+.footer{
+    width: 100vw;
+    // height: 12.25em;   
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+
+    h4{
+        font-size: 15px;
+        padding-top: 2.9em;
+    }
+
+    .icons{
+        width: 6em;
+        padding-top: 1.4em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    p{
+        font-size: 14px;
+        padding-top: 2.9em;
+    }
+
+    hr{
+        @include hr; 
+        bottom: 0; 
+    }
+}

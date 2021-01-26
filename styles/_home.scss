@@ -11,9 +11,9 @@
 }
 
 .home{
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   //???????''
     box-sizing: border-box;
 
     .title{
@@ -76,10 +76,10 @@
     }
 
     .subtitle{
+        width: 100vw;
         padding-top: 1.9em;
         padding-bottom: 2.8em;
         @include titles;
-        text-align: center;
 
         h2{
         font-size: 16px;

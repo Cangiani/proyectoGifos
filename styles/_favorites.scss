@@ -1,6 +1,6 @@
 .favorites{
     @include titles;
-    
+    display: inline-block;
 
     .buttonFavorites{
         @include titles;

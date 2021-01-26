@@ -6,16 +6,22 @@
     }
 
     header{
-        height: 5.6em;                       /*poner en vh?*/
-        justify-content: space-between;    //no funciona
-        position: sticky;                   //no funciona
-        background: transparent;
+        height: 5.6em;                       /*poner en vh?   7em?*/
+        padding-top: 0;
+        padding-bottom: 0.75em;
+        background: transparent;           //???
         display: flex;
-        justify-content: space-between;   //es este?
-        align-items: center; 
+        justify-content: space-between;  
+        background-color: $color-blanco;
+        position: sticky;
+        top: 0%;
 
-        .logo {
-            display: inline-block;
+        .logoMobile{
+            display: none;
+        }
+
+        .logoDesktop {
+            display: inline;
             width: 3.7em;
             height: 3.7em;
             margin-left: 9.75em;
@@ -38,47 +44,64 @@
 
             ul {
                 width: 50vw;
-                height: 10vh;
+                height: 2.8em;
                 // margin-right: 3rem;
+                margin-top: 0;
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: space-evenly;
                 text-align: center;
-                
-                li{
-                    background-color: $color-blanco;
-                    // opacity: 50%;
-                    a{
-                        font-size: 13px;
-                        color: $color-principal;
-                        // opacity: 100%;
+                background-color: $color-blanco;
+
+                li a{
+                    font-size: 13px;
+                    text-transform: uppercase;
+                    color: $color-principal;
+                    // opacity: 100%;
+
+                    &:hover{
+                        text-decoration:underline;
+                        text-decoration-color:$color-celeste;
+                        text-decoration-thickness: 2px;       
                     }
                 
+                    &:active{
+                        color:$color-gris;
+                        text-decoration: none;
+                    }
                     .btnCreate{
-                        color: $color-principal;
                         width: 3.4em;
                         height: 3.4em;
-                    }   
+                        display: inline-block;
+                        // margin-left: auto;
+                        // margin-right: auto;
+                        // &:hover
+                    } 
                 }
             }
         }
     }
 
     .home{
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: space-between;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-content: center;          //no sirve?
+        align-items: center;
+        justify-content: space-between;
         box-sizing: border-box;
     
         .title{
-            width: 58.4em;
+            // width: 58.4em;
             height: 6.25em;
             margin-left: 15.8rem;
             margin-top: 4.8em;   
             
             h1{
-                font-size: 25px;     
+                font-size: 35px;     //font-family: Montserrat-Bold;
                 // font-weight:   
+                // line-height: 3.2em;
+                text-align: center;
                 
                 .space{
                     display: block;
@@ -90,19 +113,22 @@
         }
     
         .browser{
-            padding-left: 32.6em;
             margin-top: 1.5em; 
+            margin-left: 0px;
+            box-sizing: border-box;
 
             .imageHome{
-                width: 399px;   /*   24.9em  NO CAMBIA TAMAÑO IMAGEN*/
-                height: 190px;  /*11.9em*/
+                width: 399px;   
+                height: 190px;  
+                // padding-left: 32.6em;
+                margin: auto;
             }
 
             .search{
                 width: 34.4em;
-                border-radius: 30px;
-
                 // margin-left: 27.8em;
+                margin: auto;
+
             
                 // #search{
                     
@@ -112,7 +138,7 @@
     
         .subtitle{        
             h2{
-            font-size: 18px;
+                font-size: 18px;
             }
     
             h3{
@@ -138,86 +164,113 @@
         }
     }
 
-    .favorites{
-        // .titleFavorite{
-        //     @include titles;     cambiar tamaño
+    // .favorites{
+    //     // .titleFavorite{
+    //     //     @include titles;     cambiar tamaño
+    //     // }
+        
+    //     .imagesFavorites{
+    //         width:70.4em;
+    //         height: 41.75em;
+    //         box-sizing: border-box;
+    //         margin: auto;
+
+    //         border: 1px solid black;    //ELIMINAR
+
+    //         display: grid;
+    //         grid-template: repeat(5,16.3em) / repeat(4,12.5em);
+    //         grid-gap: 2.2em 1.8em;
+
+    //         justify-content: center;
+            
+    //         // .img{    EL TAMAÑO QUE DEBERIA SER
+    //         //     width: 16.3em;
+    //         //     height: 12.5em;
+    //         // }
+            
+    //         .img1{
+    //             grid-area: 1/1/2/2;     //box 1
+    //             border: 1px solid black;    //ELIMINAR
+    //             background-color: chocolate;
+    //         }
+    //         .img2{
+    //             grid-area: 1/2/2/3;     
+    //             border: 1px solid black;    //ELIMINAR
+    //             background-color: darkgreen;
+    //         }
+    //         .img3{
+    //             grid-area: 1/3/2/4;     
+    //             border: 1px solid black;    //ELIMINAR
+    //             background-color: darkorange;
+    //         }
+    //         .img4{
+    //             grid-area: 1/4/2/5;  
+    //             border: 1px solid black;    //ELIMINAR  
+    //         }
+    //         .img5{
+    //             grid-area: 2/1/3/2; 
+    //             border: 1px solid black;    //ELIMINAR      
+    //         }
+    //         .img6{
+    //             grid-area: 2/2/3/3;
+    //             border: 1px solid black;    //ELIMINAR
+    //         }
+    //         .img7{
+    //             grid-area: 2/3/3/4;
+    //             border: 1px solid black;    //ELIMINAR
+    //         }
+    //         .img8{
+    //             grid-area: 2/4/3/5;
+    //             border: 1px solid black;    //ELIMINAR
+    //         }
+    //         .img9{
+    //             grid-area: 3/1/4/2;
+    //             border: 1px solid black;    //ELIMINAR
+    //         }
+    //         .img10{
+    //             grid-area: 3/2/4/3; 
+    //             border: 1px solid black;    //ELIMINAR
+    //         }
+    //         .img11{
+    //             grid-area: 3/3/4/4;  
+    //             border: 1px solid black;    //ELIMINAR
+    //         }
+    //         .img12{
+    //             grid-area: 3/4/4/5;
+    //             border: 1px solid black;    //ELIMINAR
+    //         }   
+    //     }
+
+    //     .buttonFavorites{
+    //         font-size: 13px;
+    //     }
+    // }
+
+    .footer{
+        width: 100vw;
+        height: 7.25em;
+        // padding: 0 9.8em;            QUEDA POR FUERA DE LA PAG
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+
+        .socialMedia{
+            width: 13em;
+            display: flex;                  //es necesario?
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+
+            .icons{
+                padding-top: 2.9em;
+                padding-left: 1em;
+            }
+        }
+        // .socialMedia:hover{
+        //     color: $color-principal;
         // }
-        
-        
-        .imagesFavorites{
-            width:70.4em;
-            height: 41.75em;
-            box-sizing: border-box;
-            margin: auto;
-
-            border: 1px solid black;    //ELIMINAR
-
-            display: grid;
-            grid-template: repeat(5,16.3em) / repeat(4,12.5em);
-            grid-gap: 2.2em 1.8em;
-
-            justify-content: center;
-            
-            // .img{    EL TAMAÑO QUE DEBERIA SER
-            //     width: 16.3em;
-            //     height: 12.5em;
-            // }
-            
-            .img1{
-                grid-area: 1/1/2/2;     //box 1
-                border: 1px solid black;    //ELIMINAR
-                background-color: chocolate;
-            }
-            .img2{
-                grid-area: 1/2/2/3;     
-                border: 1px solid black;    //ELIMINAR
-                background-color: darkgreen;
-            }
-            .img3{
-                grid-area: 1/3/2/4;     
-                border: 1px solid black;    //ELIMINAR
-                background-color: darkorange;
-            }
-            .img4{
-                grid-area: 1/4/2/5;  
-                border: 1px solid black;    //ELIMINAR  
-            }
-            .img5{
-                grid-area: 2/1/3/2; 
-                border: 1px solid black;    //ELIMINAR      
-            }
-            .img6{
-                grid-area: 2/2/3/3;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img7{
-                grid-area: 2/3/3/4;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img8{
-                grid-area: 2/4/3/5;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img9{
-                grid-area: 3/1/4/2;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img10{
-                grid-area: 3/2/4/3; 
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img11{
-                grid-area: 3/3/4/4;  
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img12{
-                grid-area: 3/4/4/5;
-                border: 1px solid black;    //ELIMINAR
-            }   
-        }
-
-        .buttonFavorites{
-            font-size: 13px;
-        }
     }
 }
