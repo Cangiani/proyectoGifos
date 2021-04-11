@@ -333,9 +333,26 @@ header {
         width: 399px;
         height: 190px;
         margin: auto; }
-      .home .browser .search {
+      .home .browser #containerSearchGifos .autocomplete {
         width: 34.4em;
         margin: auto; }
+      .home .browser .noResultSearchGifos {
+        font-size: 22px;
+        text-align: center;
+        color: #50E3C2; }
+    .home #listGifs {
+      width: 65em;
+      padding-top: 3em;
+      margin: auto;
+      display: grid;
+      grid-template: repeat(3, 1fr)/repeat(4, 1fr);
+      grid-gap: 2.19em 1.81em;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center; }
+      .home #listGifs .containSearchGif img {
+        width: 13.25em;
+        height: 9.5em; }
     .home .subtitle h2 {
       font-size: 18px; }
     .home .subtitle h3 {
@@ -395,11 +412,30 @@ header {
     .sliderGifos #trendingGifos {
       height: 25em;
       display: grid;
-      grid-template: 15em/repeat(3, 21em);
+      grid-template: 15em/repeat(3, 20em);
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
       grid-gap: .8em; }
+      .sliderGifos #trendingGifos .singleGifo {
+        position: relative; }
+        .sliderGifos #trendingGifos .singleGifo .singleImg {
+          width: 20em;
+          height: 17em; }
+        .sliderGifos #trendingGifos .singleGifo .trendingInfo {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          display: none; }
+          .sliderGifos #trendingGifos .singleGifo .trendingInfo .hoverIcons {
+            top: 0;
+            right: 0; }
+          .sliderGifos #trendingGifos .singleGifo .trendingInfo .user {
+            font-size: 15px;
+            color: #FFFFFF; }
+          .sliderGifos #trendingGifos .singleGifo .trendingInfo .title {
+            font-size: 16px;
+            color: #FFFFFF; }
       .sliderGifos #trendingGifos #modal {
         position: absolute;
         background-color: white;
@@ -409,9 +445,9 @@ header {
         display: none; }
         .sliderGifos #trendingGifos #modal img {
           max-width: 500px; }
-      .sliderGifos #trendingGifos .buttonModal {
-        top: 0;
-        right: 0; }
+        .sliderGifos #trendingGifos #modal .buttonModal {
+          top: 0;
+          right: 0; }
 
   .favorites {
     width: 100vw;

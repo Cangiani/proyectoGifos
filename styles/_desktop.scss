@@ -133,14 +133,36 @@
                 margin: auto;
             }
 
-            .search{
-                width: 34.4em;
-                // margin-left: 27.8em;
-                margin: auto;
+            #containerSearchGifos{
 
-                // #search{
-                    
-                // }
+                .autocomplete{
+                    width: 34.4em;
+                    // margin-left: 27.8em;
+                    margin: auto;
+                }
+            }
+
+            .noResultSearchGifos{
+                font-size: 22px;
+                text-align: center;
+                color: #50E3C2;
+            }
+        }
+
+        #listGifs{
+            width: 65em;  
+            padding-top: 3em;
+            margin: auto;           //????
+            display: grid;
+            grid-template: repeat(3,1fr) / repeat(4,1fr);
+            grid-gap: 2.19em 1.81em;
+            justify-content: center;   
+
+            .containSearchGif img{                    
+                // width: 16.25em;
+                // height: 12.5em;
+                width: 13.25em;
+                height: 9.5em;
             }
         }
     
@@ -159,7 +181,8 @@
         }
     }
 
-    //SECCIÓN TRENDING GIFOS
+    //---------------------------------------SECCIÓN TRENDING GIFOS-----------------------------------
+
     .trendingTitle{
         width: 100vw;
         background: $color-background; 
@@ -211,23 +234,40 @@
         #trendingGifos{
             height: 25em;               //deberia ser 40em?         
             display: grid;
-            grid-template: 15em / repeat(3, 21em);  
+            grid-template: 15em / repeat(3, 20em);  
             justify-content: center;
             grid-gap: .8em;
         
-            // .singleGifo {
+            .singleGifo {
+                position: relative;
 
-            //     img{
-            //         max-width: 15em;
-            //         height: 17em;  
-            //     }
+                .singleImg{
+                    width: 20em;
+                    height: 17em;  
+                }
 
-            //     .trendingInfo .contentInfo{
-            //         // font-family: Roboto-Bold;        //tipografia
-            //         font-size: 16px;
-            //         color: $color-blanco;
-            //     }
-            // }
+                .trendingInfo{
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    display: none;
+
+                    .hoverIcons{
+                        top: 0;
+                        right: 0;
+                    }
+
+                    .user{
+                        // font-family: Roboto-Bold;        //tipografia
+                        font-size: 15px;
+                        color: $color-blanco;
+                    }
+                    .title{
+                        font-size: 16px;
+                        color: $color-blanco;  
+                    }
+                }
+            }
 
             #modal {
                 position:absolute;
@@ -240,12 +280,12 @@
                 img {
                     max-width: 500px;
                 }
-            }
 
-            .buttonModal{
-                top: 0;
-                right: 0;
-            }
+                .buttonModal{
+                    top: 0;
+                    right: 0;
+                }
+            } 
         }
     }
 

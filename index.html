@@ -36,24 +36,21 @@
         <class="maincontainer">
             <!--Sección Home-->
             <section>
+
                 <div class="home">
                     <div class="title"><h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
-
+                    
                     <div class="browser">  <!--deeria ponerlo en el div home?-->
                         <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
                     
-                        <div class="search">
-                            <input type="search" id="search" placeholder="Busca GIFOS y más" list="examples">
-                            <datalist id="examples">
-                                <option value="The Office"></option>               
-                                <option value="Gatos"></option>
-                                <option value="El señor de los anillos"></option>
-                                <option value="Doctor Who"></option>
-                            </datalist>
-
+                        <div id="containerSearchGifos" class="search">
+                            <input type="search" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
                             <img src="./images/icon-search.svg" class="imageSearch" alt="searchimage">
                         </div>
+
                     </div>
+
+                    <div id="listGifs"></div>
 
                     <div class="subtitle">
                         <h2>Trending:</h2>
@@ -69,7 +66,7 @@
                     <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
                 </div>
 
-                <div class="sliderGifos">
+                <div class="sliderGifos">               <!--NO ES NECESARIO???-->
                     
                     <button class="arrowPrevious"></button>
 
