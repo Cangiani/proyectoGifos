@@ -1,13 +1,14 @@
 @mixin titles{
-    color: $color-principal;
-    font-family: 'Open Sans';
+    color: $color-principal;   
     text-align: center;
 }
 
 @mixin button{
+    color: $color-principal;
     border: 1px solid $color-principal;
     border-radius: 30px;
     padding: 0 1em;
+    // font-family: Montserrat-Bold;                //????
 }
 
 .home{
@@ -26,7 +27,9 @@
         
         h1{ 
             @include titles;
-            font-size: 25px;     
+            font-family: 'Montserrat';  
+            font-size: 25px;   
+            font-weight: bold;  
             text-align: center;
             font-weight: bold;          /*NO FUNCIONA*/
             
@@ -61,13 +64,13 @@
             flex-direction: row;
             justify-content: space-between;
         
-            #search{
-                background-color: transparent;
-                border: 0px solid;
-                width: 13.4em;
-                // height: 1.4em;
-                // align-items: center;
-            }
+            // #search{
+            //     background-color: transparent;
+            //     border: 0px solid;
+            //     width: 13.4em;
+            //     // height: 1.4em;
+            //     // align-items: center;
+            // }
 
             // .imageSearch{
             //     justify-content: flex-end;
@@ -80,13 +83,16 @@
         padding-top: 1.9em;
         padding-bottom: 2.8em;
         @include titles;
+        font-family: 'Montserrat'; 
 
         h2{
-        font-size: 16px;
+            font-size: 16px;
+            font-weight: bold;
         }
 
         h3{
             font-size: 14px;
+            font-weight: 500;
         }
 
         .span{

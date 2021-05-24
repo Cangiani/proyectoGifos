@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProyectoGifos</title> 
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->   
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
 </head>
-
 
 <body>
     <hr>
     <!--Sección header -->
     <header>
-        <div class="logoMobile"><img src="./images/logo-mobile.svg" alt="logoMobile"></div>
-        <div class="logoDesktop"><img src="./images/logo-desktop.svg" alt="logoDesktop"></div>
+        <div class="logoMobile">
+            <a href="./index.html"> <img src="./images/logo-mobile.svg" alt="logoMobile" </a>>
+        </div>
+        <div class="logoDesktop">
+            <a href="./index.html"> <img src="./images/logo-desktop.svg" alt="logoDesktop"> </a>
+            
+        </div>
 
         <nav class="menu">
             <input type="checkbox" id="menu" class="checkbox">
@@ -23,7 +28,7 @@
             <label for="menu" class="close"><img src="./images/close.svg" alt="close"></i> </label>
             
             <ul>
-                <li><a  href="#" id="nightMode">Modo Nocturno</a></li>
+                <li><a  href="#" id="nightModeBtn">Modo Nocturno</a></li>
                 <li><a href="./favoritos.html">Favoritos</a></li>
                 <li><a href="./misGifos.html">Mis GIFOS</a></li>
                 <li><a href="./crearGifos.html"> <button alt="btnCreate" class="btnCreate"></button></a></li>
@@ -31,92 +36,71 @@
         </nav>
     </header>
 
-    <!--Sección main -->
-    <main>
-        <class="maincontainer">
-            <!--Sección Home-->
-            <section>
+    <main>            
+        <!--Sección Home-->
+        <section>
+            <div class="home">
+                <div class="title"><h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
+                
+                <div class="browser"> 
+                    <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
+                
+                    <div id="containerSearchGifos" class="search">
+                        <input type="search" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
+                        <img src="./images/icon-search.svg" class="imageSearch" alt="imgLupa">
 
-                <div class="home">
-                    <div class="title"><h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
-                    
-                    <div class="browser">  <!--deeria ponerlo en el div home?-->
-                        <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
-                    
-                        <div id="containerSearchGifos" class="search">
-                            <input type="search" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
-                            <img src="./images/icon-search.svg" class="imageSearch" alt="searchimage">
-                        </div>
-
+                        <hr class="borderBottomSearch">
+                        <ul id="containerSuggestions"></ul>
                     </div>
 
-                    <div id="listGifs"></div>
-
-                    <div class="subtitle">
-                        <h2>Trending:</h2>
-                        <h3>Reactions, Entertainment, <span class="span">Sports, Stickers, Artists</span></h3>
+                    <div class="containerImgNoResult">
+                        <img src="./images/icon-busqueda-sin-resultado.svg" alt="noResult">
                     </div>
                 </div>
-            </section>
 
-            <!--Sección Trending Gifos-->
-            <section>
+                <div id="listGifs">
+                    <h2 id="titleGifs"></h2>
+                    <div id="showSearchGif"></div>
+                    <button class="btnSearchGif">VER MÁS</button>
+                </div>
+
+                <div class="subtitle">
+                    <h2>Trending:</h2>
+                    <h3>Reactions, Entertainment, <span class="span">Sports, Stickers, Artists</span></h3>
+                </div>
+            </div>
+        </section>
+
+        <!--Sección Trending Gifos-->
+        <section>
+            <div id="containerTrending">
+
                 <div class="trendingTitle">
-                    <h2>Trending Gifos</h2>
+                    <h2>Trending GIFOS</h2>
                     <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
                 </div>
-
-                <div class="sliderGifos">               <!--NO ES NECESARIO???-->
-                    
-                    <button class="arrowPrevious"></button>
-
-                    <div id="trendingGifos">
-
-                        <div id="modal">
-                            <div class="buttonModal"> <button class="btnClose">X</button> </div>
+    
+                <div id="trendingGifos">
+                    <!--  js elemento dinamico 
+                        <div class="singleGifo">      
+                        <div class="singleGifo">
+                            <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
+                            <div class="trendingInfo"> 
+                                <div class="hoverIcons>
+                                    <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
+                                    <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
+                                    <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
+                                </div>
+                                <div class="pInfo">
+                                    <p class="user">User: ${trending.username}</p>
+                                    <p class="title">Título: ${trending.title}</p> 
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <button class="arrowNext"></button>
+                    </div> -->
                 </div>
-            </section>
-
-
-            <!--Sección Favoritos-->
-            <div class="favorites"> 
-                <div class="titleFavorite">
-                    <img src="images/icon-favoritos.svg" alt="imgHeart">
-                    <h2>Favoritos</h2>
-                </div>
-
-                <div class="noContentFavorites">
-                    <div class="iconHeart"><img src="./images/icon-fav-sin-contenido.svg" alt=""></div>
-                    
-                    <h3>"¡Guarda tu primer GIFO en Favoritos <span class="spanFavorites">para que se muestre aquí!"</span></h3>
-                </div>
-                
-                <div class="imagesFavorites">
-
-                    <img src="" alt="" class="img1">
-                    <img src="" alt="" class="img2">
-                    <img src="" alt="" class="img3">
-                    <img src="" alt="" class="img4">
-                    <img src="" alt="" class="img5">
-                    <img src="" alt="" class="img6">
-                    <img src="" alt="" class="img7">
-                    <img src="" alt="" class="img8">
-                    <img src="" alt="" class="img9">
-                    <img src="" alt="" class="img10">
-                    <img src="" alt="" class="img11">
-                    <img src="" alt="" class="img12">
-
-                </div>
-                
-                <button class="buttonFavorites">VER MAS</button>
-
             </div>
-        </div>
-
+        </section>
     </main>
 
     <!--Sección footer -->
@@ -138,9 +122,10 @@
         </div>
     </footer>
 
-    
-    <!-- <script src="./js/trendingGifos.js"></script> -->
 
+    <script src="./js/funciones.js"></script>
+    <script src="./js/trendingGifos.js"></script>
     <script src="./js/main.js"></script>
+
 </body>
 </html>

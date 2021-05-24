@@ -1,175 +1,136 @@
-// MAIN.JS
+// MAIN.JS -> logica de inicializacion puntual de la aplicacion (dom contentloaded y eventlisteners iniciales)
+//en main solo agregar eventos
+
+const API_URL = "https://api.giphy.com/v1/gifs";
+const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
+// https://api.giphy.com/v1/gifs/search/tags?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY
+// trending: https://api.giphy.com/v1/gifs/trending?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY&limit=3&rating=g
 
 
+let clickCounter = 0;
 
-//trending gifos
+const getMoreGifs = async () =>{
+    clickCounter += 1;
+    const inputSuggestions = document.querySelector("#searchGifos");
+    const gifs = await getSearchGifsByKeyword(inputSuggestions.value, clickCounter);
+    const containerNewImg = document.querySelector("#showSearchGif");
+    
+    gifs.data.forEach(gif => {
+        const newImg = document.createElement('img');
+        newImg.setAttribute("src", gif.images.fixed_height.url) 
+        containerNewImg.appendChild(newImg);
+    });
+}
 
+//TRENDING GIFOS:
 //en cada pagina de html que se repita el trendingGifos tengo que copiar el script de trending, no el codigo.
 
-const getTrendingGifos = async (apiUrl,apiKey) => {
+const getTrendingGifos = async () => {
     try {
-        const gifs = await fetch(`${apiUrl}?api_key=${apiKey}&limit=3&rating=g`);
+        const gifs = await fetch(`${API_URL}/trending?api_key=${API_KEY}&limit=3&rating=g`);
         return gifs.json()
     } catch (error) {
         console.log("ocurrio un error",error)
     }
 }
-// const getTrendingGifos =  async (apiUrl,apiKey,query) => {
-//     try {
-//         const gifs = await fetch(`${apiUrl}?api_key=${apiKey}&q=${query}`);
-//         return gifs.json()
-//     } catch (error) {
-//         console.log("ocurrio un error",error)
-//     }
+
+
+
+// const showModal = (ev) => {
+//     // parametros -->  trendingUrl, username, title
+//     // imagesLatestGifos.querySelector(".singleImg") = ev.target.src;
+
+//     const modal = document.createElement("div");
+//     modal.classList.add("modalShow");
+//     modal.innerHTML = `
+//     <a class="btnCloseModal"> <img src="./images/close.svg"> </a>
+
+//     `  
+    // <div class=gifExpand>
+    //     <img class="modalImg" src="${trendingUrl}"">
+    // </div>
+    // <div class="info">
+    //     <p class="user">User: ${username}</p>
+    //     <p class="title">Título: ${title}</p> 
+    //     <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
+    //     <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
+    // </div>
+    // modal.style.display = "block";
+    // const btnModal = document.querySelector(".btnCloseModal")
+    // btnModal.addEventListener("click", closeModal);
 // }
 
-// const showModal=  (ev) => {
-//     document.querySelector("#modal img").src = ev.target.src    //ese ev.target se refiere a la img que se clikea
-//     document.querySelector("#modal").classList.add("show");
+//const closeModal = (ev) =>{
+//    const xClickeada = ev.target;
+//   modal.style.display = "none";
+//     xClickeada.closest('#modal').classList.remove('modalShow');
 // }
 
 
-// BUSCADOR AUTOCOMPLETE:
-
-const getSearchTags =  async (apiKey,query) => {
-    const API_URL = "https://api.giphy.com/v1/gifs/search/tags";
-    try {
-      const tags = await fetch(`${API_URL}?api_key=${apiKey}&q=${query}`);
-      return tags.json()
-    } catch (error) {
-      console.log("ocurrio un error",error)
-    }
+const trendingHover = (ev) => {
+    ev.target.classList.toggle("trendingHover");
+    // const icons = document.querySelector(".trendingInfo .hover")
+    document.querySelector("#trendingGifos .pInfo").style.display = "block";
 }
-
-const getSearchGifsByKeyword =  async (apiKey,keyword) => {
-    const API_URL = "https://api.giphy.com/v1/gifs/search";
-    try {
-      const tags = await fetch(`${API_URL}?api_key=${apiKey}&q=${keyword}&limit=12`);
-      return tags.json()
-    } catch (error) {
-      console.log("ocurrio un error",error)
-    }
+const trendingHideHover = (ev) => {
+    ev.target.classList.toggle("trendingHover");
+    document.querySelector("#trendingGifos .pInfo").style.display = "none";
 }
-
-const getSuggestionsGifos = async (ev) => {
-    // const API_URL = "https://api.giphy.com/v1/gifs/search/tags";
-    const API_KEY =  "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
-
-    const containerSuggestions = document.querySelector("#searchGifos");
-    const containerGifs = document.querySelector('#listGifs');
-    containerSuggestions.innerHTML = "";                    //para que las sugerencias esten vacias y no se vayan concatenando un monton de li de las cosas que se busquen. blanquea
-    containerGifs.innerHTML = "";                     //matiene el contenedor vacio, cuando se apreta enter se vacia de lo que tenia así no se acumula (cuando se vuelve a buscar algo, se borra los gifs que ya se habian buscado antes)
-
-    if(ev.target.value.length >= 3 && ev.keyCode !== '13') {                        //cuando se presiona tres letras
-        const tags = await getSearchTags(API_KEY,ev.target.value);   //el ev.target.value es lo que el usuario escribió en el input
-        tags.data.forEach(tag => {
-            const newLi = document.createElement("li");
-            newLi.textContent = tag.name;
-            containerSuggestions.appendChild(newLi);
-        });
-    }
-    if (ev.keyCode === 13) {                 //significa que si presiona ENTER va a traer los gifs y los va a pintar
-        const gifs = await getSearchGifsByKeyword(API_KEY,ev.target.value);
-        gifs.data.forEach(gif => {
-            const containerNewImg = document.createElement("div");
-            containerNewImg.classList.add("containSearchGif");
-            const newImg = document.createElement('img');
-            newImg.setAttribute("src",gif.images.fixed_height.url) 
-            containerNewImg.appendChild(newImg);
-            containerGifs.appendChild(containerNewImg);
-        });
-    }
-    //BUSQUEDA SIN RESULTADO, QUE APAREZCA LA IMAGEN:
-    //                                                 NO FUNCIONA!!!!!!!!!!!!!!!!!!!!!!
-    if(ev.target === null){
-        const messageSearch = document.createElement("h3");
-        messageSearch.classList.add(".noResultSearchGifos")
-        messageSearch.textContent = "Intenta con otra búsqueda.";
-    }
-}
-
-// BOTON VER MAS NO FUNCIONA
-
-// const btnVerMasGifos = document.querySelector(".btn-suggestions-gifos");
-// const btnVerMas = document.createElement("button");
-// // btnVerMas.classList.add("btn-suggestions-gifos");
-// btnVerMas.innerText = "VER MÁS";
-// containerNewImg.appendChild(btnVerMas);
-
-// btnVerMasGifos.addEventListener("click", (ev)=> {
-//     const containerBtnGifos = document.querySelector('#listGifs');
-//     getSuggestionsGifos(containerBtnGifos);
-// });
-
-//                                         otra opcion:
-// const verMas = (ev) => {
-//     offsetPokemon += 3;
-//     getPokemonesGeneral();
-// }
-
-// //create botón "ver mas"
-// const createButton = () => {
-//     const main = document.querySelector('.main')
-//     const verMasBtn = document.createElement("BUTTON");
-//     verMasBtn.classList.add("buttonVerMas");   
-//     verMasBtn.innerHTML = "Ver más";   
-//     main.appendChild(verMasBtn)
-
-//     verMasBtn.addEventListener('click', verMas)
-// }
-
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-    
-    const API_URL = "https://api.giphy.com/v1/gifs/trending";
-    const API_KEY =  "u97suGng8xUtL28uyoZRwdmODNFgxzIY"; 
-    const imagesApiTrending = await getTrendingGifos(API_URL,API_KEY);
+    const imagesApiTrending = await getTrendingGifos();
       
     const trendingImages = imagesApiTrending.data.map(async trending => {                
+        
+        const trendingUrl = trending.images.fixed_height.url;           //?????
+
         const containerTrending = document.querySelector("#trendingGifos");
         const imagesLatestGifos = document.createElement("div");
         imagesLatestGifos.classList.add("singleGifo");
         imagesLatestGifos.innerHTML = `
-        <img class="singleImg" src="${trending.images.fixed_height.url}" alt="">
-        <div class="trendingInfo">
+        <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
+        <div class="trendingInfo"> 
             <div class="hoverIcons>
-                <img src="./images/icon-fav.svg" alt="heart">
-                <img src="./images/icon-fav.svg" alt="heart">
-                <img src="./images/icon-download.svg" alt="download">
-                <img src="./images/icon-max-normal.svg" alt="max">
+                <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
+                <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
+                <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
             </div>
-            <p class="user">User: ${trending.username}</p>
-            <p class="title">Título: ${trending.title}</p> 
+            <div class="pInfo">
+                <p class="user">${trending.username}</p>
+                <p class="title">${trending.title}</p> 
+            </div>
         </div>`
         containerTrending.appendChild(imagesLatestGifos);
-
-        // imagesLatestGifos.querySelector("img").addEventListener("click",showModal);
     })
 
-    // createButton()
-    document.querySelector(".autocomplete").addEventListener("keyup",getSuggestionsGifos);   //buscador autocomplete
+    // imagesLatestGifos.querySelector(".trendingInfo .expand img").addEventListener("click", showModal);
+        
+    document.querySelector("#trendingGifos .singleGifo .pInfo").addEventListener("mouseover", trendingHover);     //o mousemove??
+    document.querySelector("#trendingGifos .singleGifo .pInfo").addEventListener("mouseout", trendingHideHover);
+    
+    //los escuchadores de eventos tienen que estar en la función que pinta/trae los gifs
+
+    document.querySelector(".autocomplete").addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
+    
+    document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);
 })
 
-//      NO   FUNCIONA     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//Para que aparezcan los botones sobre los gifs del trending:
-const showInfoTrending = (ev) => {
-    ev.target.style.color = "#572EE5";
-    ev.target.style.display = 'block';
-};
-const showMouseover = document.querySelector("#trendingGifos .trendingInfo");
-showMouseover.addEventListener('mouseover', showInfoTrending); 
-
-
-
-// const closeModal = (ev) =>{
-  
-//     const xClickeada = ev.target;
-//     xClickeada.closest('#modal').classList.remove('show');
-// }
-  
-// addEventListener("click", closeModal);
-  
+// DOWNLOAD GIF
+// (async () => {
+//     //create new a element
+//     let a = document.createElement('a');
+//     // get image as blob
+//     let response = await fetch('https://media2.giphy.com/media/DvyLQztQwmyAM/giphy.gif?cid=e9ff928175irq2ybzjyiuicjuxk21vv4jyyn0ut5o0d7co50&rid=giphy.gif');
+//     let file = await response.blob();
+//     // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+//     a.download = 'myGif';
+//     a.href = window.URL.createObjectURL(file);
+//     //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+//     a.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
+//     //click on element to start download
+//     a.click();
+//   })();
 
 
 
@@ -185,23 +146,67 @@ showMouseover.addEventListener('mouseover', showInfoTrending);
 
 
 
-
 //MODO NOCTURNO
 
-// const bodyContainer =  document.querySelector('body');                      //body
-// const headerNocturno = document.querySelector('header');                    //header
-// const divHomeNocturno = document.querySelector('main > .home');     //home (bground principal)
-// const divTrendingNocturno = document.querySelector('main > .tendingGifos')
+//el boton "modo nocturno" tiene que decir "modo diurno"
 
-// const elementsNigthMode = [bodyContainer, headerNocturno, divHomeNocturno, divTrendingNocturno];
+const bodyNightMode =  document.querySelector("body");                    
+const headerNightMode = document.querySelector("body > header");    
+const navBarNightMode = document.querySelector("body > header > nav > ul");
+const divHomeNightMode = document.querySelector("body > main > .home");   
+const elementsNigthMode = [bodyNightMode, headerNightMode, navBarNightMode, divHomeNightMode];
 
-// document.getElementById("nightMode").addEventListener("click", () => {
-//     elementsNigthMode.forEach(elem => {
-//         elem.classList.toggle('nightMode');              //establecer caracteristicas de night-mode????????
-//         console.log("nightMode", elementsNigthMode);
+const titleTrendingNocturno = document.querySelector("body > main > .trendingTitle");   
+const sliderTrendingNocturno = document.querySelector("body > main > .sliderGifos");
+const trendingNight = [titleTrendingNocturno, sliderTrendingNocturno];
+
+const liNightMode =  document.querySelector("body > header > nav > ul > li"); 
+
+document.getElementById("nightModeBtn").addEventListener("click", () => {
+    elementsNigthMode.forEach(elem => {
+        elem.classList.toggle("nightMode");        
+    });
+       
+    document.querySelector("#containerTrending").classList.toggle("nightModeTrending");
+});
+
+
+// document.getElementById("nightModeBtn").addEventListener("click", () => {
+//     const trendingNightMode = document.querySelector("#containerTrending");
+//     trendingNightMode.classList.toggle("nightModeTrending");
+    
+// });             
+
+
+
+//   elem.classList.toggle("titlesNightMode");    CAMBIAR COLOR H1S
+// document.getElementById("nightModeBtn").addEventListener("click", () => {
+//     titlesNightMode.forEach(elem => {
+//         elem.classList.toggle("titlesNightMode");        
 //     });
+//     // document.querySelector("#containerTrending").classList.toggle("nightModeTrending");
 // });
 
+
+
+
+
+//HEADER:  cuando scrolleas aparece sombra en el header
+
+// const shadowHeader = () => {
+//     document.querySelector("header .menu").classList.add("scrollActive");
+// }
+// document.addEventListener("scroll", shadowHeader);
+
+// window.onscroll = function() {shadowNavBar()};
+
+// function shadowNavBar() {
+//   if (document.body.scrollTop > 2 || document.documentElement.scrollTop > 50) {
+//     document.querySelector("header .menu").classList.add("scrollActive");
+//   } else {
+//     // document.querySelector("header .menu").style.
+//   }
+// }
 
 // document.addEventListener('sticky-change', e => {
 //     const header = e.detail.target;  // header became sticky or stopped sticking.
@@ -210,3 +215,53 @@ showMouseover.addEventListener('mouseover', showInfoTrending);
   
 //     document.querySelector('.who-is-sticking').textContent = header.textContent;
 //   });
+
+
+// const scrollDown = (ev) =>{
+//     if (window.onscroll) {
+//         ev.target.classList.add("scrollActive");
+//     }    
+// }
+// document.querySelector("header").addEventListener("scroll", scrollDown);
+//window.addEventListener("scroll", scrollDown);
+
+
+// window.onscroll = function() {
+//     let distanceScrolled = document.documentElement.scrollTop;
+//     if (distanceScrolled > 10) {
+//         document.querySelector("header").add("scrollActive");
+//     }
+// }
+
+// if (ev.target.pageYOffset > sticky) {
+//     ev.target.classList.add("scrollActive");
+// }    
+//   else {
+//     header.classList.remove("sticky");
+//   }
+
+// const triggerMenu = document.querySelector(".page-header .trigger-menu");
+
+// // const scrollUp = "scroll-up";
+// const scrollDown = "scroll-down";
+// let lastScroll = 0;
+
+
+// window.addEventListener("scroll", () => {
+//   const currentScroll = window.pageYOffset;
+//   if (currentScroll <= 0) {
+//     body.classList.remove(scrollUp);
+//     return;
+//   }
+  
+//   if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
+//     // down
+//     body.classList.remove(scrollUp);
+//     body.classList.add(scrollDown);
+//   } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
+//     // up
+//     body.classList.remove(scrollDown);
+//     body.classList.add(scrollUp);
+//   }
+//   lastScroll = currentScroll;
+// });

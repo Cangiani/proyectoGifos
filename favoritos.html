@@ -35,15 +35,13 @@
     <!--Sección MAIN -->
     <main>
 
+        <!--Sección Favoritos-->
         <div class="favorites"> 
             <div class="titleFavorite">
                 <img src="images/icon-favoritos.svg" alt="imgHeart">
                 <h2>Favoritos</h2>
             </div>
-            
-            <div class="grid"></div>
 
-    
             <div class="noContentFavorites">
                 <div class="iconHeart"><img src="./images/icon-fav-sin-contenido.svg" alt=""></div>
                 
@@ -51,7 +49,7 @@
             </div>
             
             <div class="imagesFavorites">
-    
+
                 <img src="" alt="" class="img1">
                 <img src="" alt="" class="img2">
                 <img src="" alt="" class="img3">
@@ -64,12 +62,51 @@
                 <img src="" alt="" class="img10">
                 <img src="" alt="" class="img11">
                 <img src="" alt="" class="img12">
-    
             </div>
             
             <button class="buttonFavorites">VER MAS</button>
-
         </div>
+
+        <!--Sección Trending Gifos-->
+        <section>
+
+            <div id="containerTrending">
+                <div class="trendingTitle">
+                    <h2>Trending Gifos</h2>
+                    <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
+                </div>
+    
+                <div class="sliderGifos">               <!--NO ES NECESARIO???-->
+                    
+                    <button class="arrowPrevious"></button>
+    
+                    <div id="trendingGifos">
+    
+                        <!-- <div class="singleGifo">       ESTO ES LO QUE CREA JS EN EL DOM
+                            <img class="singleImg" src="${trending.images.fixed_height.url}" alt="">
+                            <div class="trendingInfo">
+                                <div class="hoverIcons>
+                                    <span class="btnClose">X</span>
+                                    <img src="./images/icon-fav.svg" alt="heart">
+                                    <img src="./images/icon-fav.svg" alt="heart">
+                                    <img src="./images/icon-download.svg" alt="download">
+                                    <img src="./images/icon-max-normal.svg" alt="max">
+                                </div>
+                                <p class="user">User: ${trending.username}</p>
+                                <p class="title">Título: ${trending.title}</p> 
+                            </div>
+                        </div> -->
+    
+                        <div id="modal">
+                            <!-- <div class="imgModal"></div> ESTO LO CREA EN EL DOM -->
+                        </div>
+                    </div>
+    
+                    <button class="arrowNext"></button>
+                </div>
+            </div>
+            
+        </section>
 
     </main>
 

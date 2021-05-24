@@ -9,8 +9,9 @@ header {
   width: 100vw;
   height: 5.94em;
   padding-top: 1.8em;
-  font-family: 'Open Sans';
+  font-family: 'Montserrat';
   /*o pongo include mixin?*/
+  font-weight: bold;
   font-size: 13px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -89,9 +90,10 @@ header {
     margin-top: 0.4em; }
     .home .title h1 {
       color: #572EE5;
-      font-family: 'Open Sans';
       text-align: center;
+      font-family: 'Montserrat';
       font-size: 25px;
+      font-weight: bold;
       text-align: center;
       font-weight: bold;
       /*NO FUNCIONA*/ }
@@ -117,6 +119,7 @@ header {
     .home .browser .search {
       width: 20.9em;
       height: 3.1em;
+      color: #572EE5;
       border: 1px solid #572EE5;
       border-radius: 30px;
       padding: 0 1em;
@@ -130,47 +133,48 @@ header {
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between; }
-      .home .browser .search #search {
-        background-color: transparent;
-        border: 0px solid;
-        width: 13.4em; }
   .home .subtitle {
     width: 100vw;
     padding-top: 1.9em;
     padding-bottom: 2.8em;
     color: #572EE5;
-    font-family: 'Open Sans';
-    text-align: center; }
+    text-align: center;
+    font-family: 'Montserrat'; }
     .home .subtitle h2 {
-      font-size: 16px; }
+      font-size: 16px;
+      font-weight: bold; }
     .home .subtitle h3 {
-      font-size: 14px; }
+      font-size: 14px;
+      font-weight: 500; }
     .home .subtitle .span {
       display: block; }
 
-.trendingGifos {
+#containerTrending {
   color: #572EE5;
-  font-family: 'Open Sans';
   text-align: center;
   width: 100vw;
   height: 26.9em;
-  background-color: #F3F5F8; }
-  .trendingGifos h2 {
+  background-color: #F3F5F8;
+  padding-bottom: 11.38em; }
+  #containerTrending h2 {
+    font-family: 'Montserrat';
     font-size: 20px; }
-  .trendingGifos h3 {
+  #containerTrending h3 {
+    font-family: 'Roboto';
+    font-weight: 400;
     font-size: 16px;
+    line-height: 23px;
     color: #000000;
     display: block; }
 
 .favorites {
   color: #572EE5;
-  font-family: 'Open Sans';
   text-align: center;
   display: inline-block; }
   .favorites .buttonFavorites {
     color: #572EE5;
-    font-family: 'Open Sans';
     text-align: center;
+    color: #572EE5;
     border: 1px solid #572EE5;
     border-radius: 30px;
     padding: 0 1em; }
@@ -190,6 +194,8 @@ header {
       -ms-flex-align: center;
           align-items: center; }
   .footer h4 {
+    font-family: 'Roboto';
+    font-weight: 400;
     font-size: 15px;
     padding-top: 2.9em; }
   .footer .icons {
@@ -206,8 +212,11 @@ header {
         -ms-flex-pack: justify;
             justify-content: space-between; }
   .footer p {
+    font-family: 'Roboto';
+    font-weight: 400;
     font-size: 14px;
-    padding-top: 2.9em; }
+    padding-top: 2.9em;
+    line-height: 20px; }
   .footer hr {
     width: 100vw;
     height: 5px;
@@ -226,6 +235,7 @@ header {
     padding-top: 0;
     padding-bottom: 0.75em;
     background: transparent;
+    font-weight: bold;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -236,8 +246,7 @@ header {
     position: -webkit-sticky;
     position: sticky;
     top: 0%;
-    -webkit-box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
-            box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55); }
+    z-index: 50; }
     header .logoMobile {
       display: none; }
     header .logoDesktop {
@@ -293,6 +302,23 @@ header {
           header nav ul li a .btnCreate:hover {
             background-image: url("../images/CTA-crear-gifo-hover.svg"); }
 
+  .scrollActive {
+    -webkit-box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55);
+            box-shadow: 0 2px 4px 1px rgba(156, 175, 195, 0.55); }
+
+  .toggleShowBtnVerMas {
+    display: inline-block; }
+
+  .nightMode * {
+    background-color: #37383C;
+    color: #FFFFFF; }
+    .nightMode * h1 {
+      color: #FFFFFF; }
+  .nightMode #containerTrending {
+    background-color: #222326; }
+  .nightMode .nightModeTrending {
+    background-color: #222326; }
+
   .home {
     width: 100vw;
     display: -webkit-box;
@@ -333,14 +359,50 @@ header {
         width: 399px;
         height: 190px;
         margin: auto; }
-      .home .browser #containerSearchGifos .autocomplete {
+      .home .browser .search {
         width: 34.4em;
-        margin: auto; }
+        display: block; }
+        .home .browser .search .autocomplete {
+          width: 30em;
+          height: 3.3em;
+          top: 2em;
+          border: none;
+          outline: none;
+          margin-left: 3em; }
+        .home .browser .search .imageSearch {
+          width: 1.3em;
+          height: 2em;
+          top: 2em;
+          color: black; }
+        .home .browser .search #containerSuggestions {
+          width: 30em;
+          height: 6em;
+          font-family: 'Roboto';
+          font-weight: 400;
+          font-size: 16px; }
+          .home .browser .search #containerSuggestions ul {
+            list-style-image: url("../images/icon-search-modo-noct.svg");
+            padding-left: 2em; }
+      .home .browser .searchActive {
+        height: 12em; }
+      .home .browser .borderBottomSearch {
+        display: none;
+        width: 32em;
+        height: 1px;
+        opacity: 0.5;
+        color: #9CAFC3; }
+      .home .browser .containerImgNoResult {
+        display: none; }
       .home .browser .noResultSearchGifos {
         font-size: 22px;
         text-align: center;
         color: #50E3C2; }
-    .home #listGifs {
+    .home #listGifs #titleGifs {
+      color: #572EE5;
+      text-align: center;
+      font-size: 30px;
+      line-height: 30px; }
+    .home #listGifs #showSearchGif {
       width: 65em;
       padding-top: 3em;
       margin: auto;
@@ -350,66 +412,47 @@ header {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      .home #listGifs .containSearchGif img {
-        width: 13.25em;
-        height: 9.5em; }
+      .home #listGifs #showSearchGif img {
+        width: 16.25em;
+        height: 12.5em; }
+    .home #listGifs .btnSearchGif {
+      color: #572EE5;
+      border: 1px solid #572EE5;
+      border-radius: 30px;
+      padding: 0 1em;
+      font-size: 13px;
+      font-family: Montserrat-Bold;
+      padding: 1.4em 1.5em 1em 1.5em;
+      margin-top: 1.3em;
+      background-color: #FFFFFF;
+      margin-left: 50%;
+      display: none; }
     .home .subtitle h2 {
-      font-size: 18px; }
+      font-size: 18px;
+      line-height: 25px; }
     .home .subtitle h3 {
-      font-size: 16px; }
+      font-size: 16px;
+      line-height: 25px; }
     .home .subtitle .span {
       display: inline; }
 
-  .trendingTitle {
+  #containerTrending {
     width: 100vw;
-    background: #F3F5F8;
-    padding-bottom: 3em;
-    text-align: center; }
-    .trendingTitle h2 {
-      font-size: 25px;
-      padding-top: 3em;
-      color: #572EE5;
-      font-family: 'Open Sans';
+    background: #F3F5F8; }
+    #containerTrending .trendingTitle {
+      padding-bottom: 3em;
       text-align: center; }
-    .trendingTitle h3 {
-      font-size: 18px;
-      color: #000000; }
-
-  .sliderGifos {
-    width: 100vw;
-    background: #F3F5F8;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-line-pack: center;
-        align-content: center; }
-    .sliderGifos .arrowPrevious {
-      width: 2.5em;
-      height: 2.5em;
-      background-image: url("../images/button-slider-left.svg");
-      background-position: center;
-      border: 1px solid #572EE5; }
-      .sliderGifos .arrowPrevious:hover {
-        background-image: url("../images/button-slider-left-hover.svg"); }
-    .sliderGifos .arrowNext {
-      width: 2.5em;
-      height: 2.5em;
-      background-image: url("../images/Button-Slider-right.svg");
-      background-position: center;
-      border: 1px solid #572EE5; }
-      .sliderGifos .arrowNext:hover {
-        background-image: url("../images/Button-Slider-right-hover.svg"); }
-    .sliderGifos #trendingGifos {
+      #containerTrending .trendingTitle h2 {
+        color: #572EE5;
+        text-align: center;
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 30px;
+        padding-top: 3em; }
+      #containerTrending .trendingTitle h3 {
+        font-size: 18px;
+        color: #000000; }
+    #containerTrending #trendingGifos {
       height: 25em;
       display: grid;
       grid-template: 15em/repeat(3, 20em);
@@ -417,44 +460,86 @@ header {
           -ms-flex-pack: center;
               justify-content: center;
       grid-gap: .8em; }
-      .sliderGifos #trendingGifos .singleGifo {
-        position: relative; }
-        .sliderGifos #trendingGifos .singleGifo .singleImg {
-          width: 20em;
-          height: 17em; }
-        .sliderGifos #trendingGifos .singleGifo .trendingInfo {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          display: none; }
-          .sliderGifos #trendingGifos .singleGifo .trendingInfo .hoverIcons {
+      #containerTrending #trendingGifos .singleGifo .singleImg {
+        width: 20em;
+        height: 17em; }
+      #containerTrending #trendingGifos .singleGifo .trendingInfo {
+        position: relative;
+        width: 20em;
+        height: 17em;
+        top: -115%;
+        left: 0;
+        z-index: 5; }
+        #containerTrending #trendingGifos .singleGifo .trendingInfo .hoverIcons {
+          width: 100%;
+          height: 100%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-box-pack: end;
+              -ms-flex-pack: end;
+                  justify-content: end;
+          -webkit-box-align: end;
+              -ms-flex-align: end;
+                  align-items: flex-end;
+          padding: 1em; }
+          #containerTrending #trendingGifos .singleGifo .trendingInfo .hoverIcons a img {
             top: 0;
-            right: 0; }
-          .sliderGifos #trendingGifos .singleGifo .trendingInfo .user {
+            right: -4em;
+            display: none;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: end;
+            -webkit-box-align: end;
+                -ms-flex-align: end;
+                    align-items: flex-end;
+            padding: 1em; }
+        #containerTrending #trendingGifos .singleGifo .trendingInfo .pInfo {
+          width: 100%;
+          height: 100%;
+          display: none; }
+          #containerTrending #trendingGifos .singleGifo .trendingInfo .pInfo .user {
+            font-family: 'Roboto';
+            font-weight: 400;
             font-size: 15px;
-            color: #FFFFFF; }
-          .sliderGifos #trendingGifos .singleGifo .trendingInfo .title {
+            color: #FFFFFF;
+            bottom: 0;
+            left: 0; }
+          #containerTrending #trendingGifos .singleGifo .trendingInfo .pInfo .title {
+            font-family: 'Roboto';
+            font-weight: 900;
             font-size: 16px;
-            color: #FFFFFF; }
-      .sliderGifos #trendingGifos #modal {
-        position: absolute;
-        background-color: white;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        display: none; }
-        .sliderGifos #trendingGifos #modal img {
-          max-width: 500px; }
-        .sliderGifos #trendingGifos #modal .buttonModal {
-          top: 0;
-          right: 0; }
+            color: #FFFFFF;
+            bottom: 0;
+            left: 0; }
+
+  .trendingHover {
+    width: 20em;
+    height: 17em;
+    background-color: #572EE5;
+    opacity: 0.7; }
+
+  .modalShow {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    top: 0;
+    z-index: 30; }
 
   .favorites {
     width: 100vw;
     height: 61.5em; }
     .favorites .titleFavorite {
       color: #572EE5;
-      font-family: 'Open Sans';
       text-align: center;
       font-size: 25px;
       line-height: 30px;
@@ -671,6 +756,7 @@ header {
             align-self: flex-end;
         border-radius: 10px 10px 10px 10px; }
       .createGifos .stepByStep .buttonStart {
+        color: #572EE5;
         border: 1px solid #572EE5;
         border-radius: 30px;
         padding: 0 1em;
@@ -700,7 +786,8 @@ header {
         -ms-flex-align: center;
             align-items: center;
     -ms-flex-line-pack: center;
-        align-content: center; }
+        align-content: center;
+    padding-bottom: 3.21em; }
     .footer .socialMedia {
       width: 13em;
       display: -webkit-box;

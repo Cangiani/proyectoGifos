@@ -10,19 +10,21 @@
         padding-top: 0;
         padding-bottom: 0.75em;
         background: transparent;           //???
+        font-weight: bold;              
         display: flex;
         justify-content: space-between;  
         background-color: $color-blanco;
         position: sticky;
         top: 0%;
-
-        box-shadow: 0 2px 4px 1px rgba(156,175,195,0.55);
+        z-index: 50;
 
         .logoMobile{
             display: none;
         }
 
         .logoDesktop {
+            // font-family: 'Roboto';  //???
+            // font-weight: 900;
             display: inline;
             width: 3.7em;
             height: 3.7em;
@@ -91,6 +93,45 @@
         }
     }
 
+    //cuando scrolleas aparece sombra en el header
+    .scrollActive{
+        box-shadow: 0 2px 4px 1px rgba(156,175,195,0.55);
+    }
+
+    //----------------------------------TOGGLE---------------------------------------------
+    
+    .toggleShowBtnVerMas{
+        // @include button;
+        // font-size: 13px;
+        // font-family: Montserrat-Bold;                //????????????????
+        // padding: 1.4em 1.5em 1em 1.5em;
+        // margin-top: 1.3em;
+        // background-color: $color-blanco;
+        // margin-left: 50%; 
+        display: inline-block;
+    }
+
+    .nightMode{
+        *{
+            background-color: $color-bg-nocturno;
+            color: $color-blanco;    
+
+            h1{
+                color: $color-blanco;   
+            }
+        }
+
+        #containerTrending{
+            background-color: $color-bg-nocturno-trending;
+        }
+
+        .nightModeTrending{
+            background-color: $color-bg-nocturno-trending;
+        }
+    }
+
+
+
     .home{
         width: 100vw;
         display: flex;
@@ -133,13 +174,55 @@
                 margin: auto;
             }
 
-            #containerSearchGifos{
+            .search{
+                width: 34.4em;
+                display: block;                
 
                 .autocomplete{
-                    width: 34.4em;
-                    // margin-left: 27.8em;
-                    margin: auto;
+                    width: 30em;
+                    height: 3.3em;
+                    top: 2em;       //es necesario?
+                    border: none;
+                    outline: none;
+                    margin-left: 3em;
+                    //CAMBIAR LETRA
                 }
+
+                .imageSearch{
+                    width: 1.3em;
+                    height: 2em;
+                    top: 2em;       //es necesario?
+                    color: black;
+                }
+
+                #containerSuggestions{
+                    width: 30em;
+                    height: 6em;
+                    font-family: 'Roboto';
+                    font-weight: 400;
+                    font-size: 16px;
+
+                    ul{
+                        list-style-image: url('../images/icon-search-modo-noct.svg');
+                        padding-left: 2em;
+                    }
+                }
+            }
+
+            .searchActive{
+                height: 12em;
+            }
+
+            .borderBottomSearch{
+                display: none;
+                width: 32em;
+                height: 1px;
+                opacity: 0.5;
+                color: #9CAFC3;
+            }
+
+            .containerImgNoResult{          //IMG NO RESULT OUCH
+                display: none;
             }
 
             .noResultSearchGifos{
@@ -150,87 +233,81 @@
         }
 
         #listGifs{
-            width: 65em;  
-            padding-top: 3em;
-            margin: auto;           //????
-            display: grid;
-            grid-template: repeat(3,1fr) / repeat(4,1fr);
-            grid-gap: 2.19em 1.81em;
-            justify-content: center;   
+            #titleGifs{
+                @include titles;            //PONERLE EL ESTILO CORRESPONDIENTE
+                // font-family: Montserrat-Bold;
+                font-size: 30px;
+                line-height: 30px;
+            }
 
-            .containSearchGif img{                    
-                // width: 16.25em;
-                // height: 12.5em;
-                width: 13.25em;
-                height: 9.5em;
+            #showSearchGif{
+                width: 65em;  
+                padding-top: 3em;
+                margin: auto;           //????
+                display: grid;
+                grid-template: repeat(3,1fr) / repeat(4,1fr);
+                grid-gap: 2.19em 1.81em;
+                justify-content: center;   
+            
+                img{                    
+                width: 16.25em;
+                height: 12.5em;
+                }
+            }
+
+            .btnSearchGif{              //hacerlo invisible y cambiarlo con un toggle(al apretar enter)
+                @include button;
+                font-size: 13px;
+                font-family: Montserrat-Bold;                //????????????????
+                padding: 1.4em 1.5em 1em 1.5em;
+                margin-top: 1.3em;
+                background-color: $color-blanco;
+                margin-left: 50%;                           //???????
+                display: none;
             }
         }
     
         .subtitle{        
             h2{
                 font-size: 18px;
+                line-height: 25px;           //px????
             }
     
             h3{
                 font-size: 16px;
+                line-height: 25px;           //px????
             }
 
             .span{
                 display: inline;
             }
         }
+
     }
 
     //---------------------------------------SECCIÓN TRENDING GIFOS-----------------------------------
+    // HOVER BOTONES TRENDING GIFOS
+    
+    #containerTrending{
+        width: 100vw; 
+        background: $color-background;
 
-    .trendingTitle{
-        width: 100vw;
-        background: $color-background; 
-        padding-bottom: 3em;
-        text-align: center;
-        h2{
-            font-size: 25px;
-            padding-top: 3em;
-            @include titles;      
-        }
-        h3{
-            font-size: 18px;                //FONT FAMILY ????
-            color: $color-negro;
-        }
-    }
-
-    .sliderGifos{
-        width: 100vw;
-        background: $color-background;  
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-
-        .arrowPrevious {
-            width: 2.5em;
-            height: 2.5em;
-            background-image: url("../images/button-slider-left.svg");
-            background-position: center;
-            border: 1px solid $color-principal;
-
-            &:hover{
-                background-image: url("../images/button-slider-left-hover.svg");
+        .trendingTitle{
+            padding-bottom: 3em;
+            text-align: center;
+            h2{
+                @include titles; 
+                font-weight: bold;
+                font-size: 25px;
+                line-height: 30px;              //px????
+                padding-top: 3em;  
+            }
+            h3{
+                font-size: 18px;                //FONT FAMILY ????
+                color: $color-negro;
             }
         }
-        .arrowNext{
-            width: 2.5em;
-            height: 2.5em;
-            background-image: url("../images/Button-Slider-right.svg");
-            background-position: center;
-            border: 1px solid $color-principal;
 
-            &:hover{
-                background-image: url("../images/Button-Slider-right-hover.svg");
-            }
-        }
-            
         #trendingGifos{
             height: 25em;               //deberia ser 40em?         
             display: grid;
@@ -239,7 +316,6 @@
             grid-gap: .8em;
         
             .singleGifo {
-                position: relative;
 
                 .singleImg{
                     width: 20em;
@@ -247,50 +323,89 @@
                 }
 
                 .trendingInfo{
-                    position: absolute;
-                    bottom: 0;
+                    position: relative;
+                    width: 20em;
+                    height: 17em;
+                    top: -115%;
                     left: 0;
-                    display: none;
+                    z-index: 5;
 
                     .hoverIcons{
-                        top: 0;
-                        right: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: end;
+                        align-items: flex-end;
+                        padding: 1em;
+
+                        a img{
+                            top: 0;
+                            right: -4em; 
+                            display: none;
+                            flex-direction: row;
+                            justify-content: end;
+                            align-items: flex-end;
+                            padding: 1em;
+                        }
                     }
 
-                    .user{
-                        // font-family: Roboto-Bold;        //tipografia
-                        font-size: 15px;
-                        color: $color-blanco;
-                    }
-                    .title{
-                        font-size: 16px;
-                        color: $color-blanco;  
+                    .pInfo{
+                        width: 100%;
+                        height: 100%;
+                        display: none;
+
+                        .user{
+                            font-family: 'Roboto';   
+                            font-weight: 400;     
+                            font-size: 15px;
+                            color: $color-blanco;
+                            bottom: 0;
+                            left: 0;
+                        }
+                        .title{
+                            font-family: 'Roboto';   
+                            font-weight: 900;  
+                            font-size: 16px;
+                            color: $color-blanco;  
+                            bottom: 0;
+                            left: 0;
+                        } 
                     }
                 }
             }
-
-            #modal {
-                position:absolute;
-                background-color: white;
-                width:100vw;
-                height: 100vh;
-                top:0;
-                display:none;
-
-                img {
-                    max-width: 500px;
-                }
-
-                .buttonModal{
-                    top: 0;
-                    right: 0;
-                }
-            } 
         }
     }
 
+    .trendingHover{
+        width: 20em;
+        height: 17em;
+        background-color: $color-principal;
+        opacity: 0.7;
+        // z-index: 20;
+    }
+    
+    .modalShow{
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: white;
+        top:0;
+        z-index: 30;
+        // display: none;
+        
+        // .modalImg {
+        //     width: 43.4em;
+        //     height: 24.1em;
+            
+        //     .btnCloseModal{
+        //     top: 0;
+        //     right: 0;
+        //     }
+        // } 
+    }
 
-    //SECCIÓN FAVORITOS
+    //------------------------------------------SECCIÓN FAVORITOS---------------------------------------
 
     .favorites{
        width: 100vw;
@@ -574,6 +689,7 @@
         justify-content: space-around;
         align-items: center;
         align-content: center;
+        padding-bottom: 3.21em;             //PERO QUE LA LINEA AZUL QUEDE POR DEBAJO
 
         .socialMedia{
             width: 13em;
