@@ -67,17 +67,6 @@ const getTrendingGifos = async () => {
 // }
 
 
-const trendingHover = (ev) => {
-    ev.target.classList.toggle("trendingHover");
-    // const icons = document.querySelector(".trendingInfo .hover")
-    document.querySelector("#trendingGifos .pInfo").style.display = "block";
-}
-const trendingHideHover = (ev) => {
-    ev.target.classList.toggle("trendingHover");
-    document.querySelector("#trendingGifos .pInfo").style.display = "none";
-}
-
-
 document.addEventListener("DOMContentLoaded", async () => {
     const imagesApiTrending = await getTrendingGifos();
       
@@ -90,6 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         imagesLatestGifos.classList.add("singleGifo");
         imagesLatestGifos.innerHTML = `
         <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
+
         <div class="trendingInfo"> 
             <div class="hoverIcons>
                 <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
@@ -104,13 +94,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         containerTrending.appendChild(imagesLatestGifos);
     })
 
-    // imagesLatestGifos.querySelector(".trendingInfo .expand img").addEventListener("click", showModal);
-        
-    document.querySelector("#trendingGifos .singleGifo .pInfo").addEventListener("mouseover", trendingHover);     //o mousemove??
-    document.querySelector("#trendingGifos .singleGifo .pInfo").addEventListener("mouseout", trendingHideHover);
-    
     //los escuchadores de eventos tienen que estar en la función que pinta/trae los gifs
-
+    // imagesLatestGifos.querySelector(".trendingInfo .expand img").addEventListener("click", showModal);
+    
     document.querySelector(".autocomplete").addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
     
     document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);

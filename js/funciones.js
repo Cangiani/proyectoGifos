@@ -31,18 +31,18 @@ const getSuggestionsGifos = async (ev) => {
     const divContainerSearch = document.querySelector(".search"); 
 
     if (ev.target.value.length >= 3 && ev.keyCode !== 13) {  //cuando presiona 3 letras  || ev.keyCode !== "Enter")
-        const tags = await getSearchTags(API_KEY, ev.target.value);   
-        document.querySelector(".borderBottomSearch").style.display = "block";
+      const tags = await getSearchTags(API_KEY, ev.target.value);   
+      document.querySelector(".borderBottomSearch").style.display = "block";
 
-        tags.data.forEach(tag => {
-            const newLi = document.createElement("li");
-            newLi.textContent = tag.name;
-            containerSuggestions.appendChild(newLi);
-        });
+      tags.data.forEach(tag => {
+        const newLi = document.createElement("li");
+        newLi.textContent = tag.name; 
+        containerSuggestions.appendChild(newLi);
+      });
 
-        // <img src="./images/close.svg">
-        divContainerSearch.classList.add("searchActive");
-        // divContainerSearch.appendChild(containerSuggestions);
+      // <img src="./images/close.svg">
+      divContainerSearch.classList.add("searchActive");
+      // divContainerSearch.appendChild(containerSuggestions);
     }
     if (ev.keyCode === 13 || ev.keyCode == "Enter") {      //si presiona ENTER va a traer los gifs y los va a pintar
         const gifs = await getSearchGifsByKeyword(ev.target.value, 0); //0 significa la primer pagina (0*12,1*12,2*12...)
