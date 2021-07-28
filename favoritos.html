@@ -13,24 +13,22 @@
 <body>
     <!--Sección header -->
     <header>
-        <div class="logo">
-            <img src="./images/logo-desktop.svg" alt="logo">
-        </div>
+        <div class="logoDesktop"> <a href="./index.html"> <img src="./images/logo-desktop.svg" alt="logoDesktop"> </a> </div>
 
+        <!-- logo modo noc -->
         <nav class="menu">
-            <input type="checkbox" id="menu">
+            <input type="checkbox" id="menu" class="checkbox">
+            <label for="menu" class="open"><img src="./images/burger.svg" alt="open"></label>
+            <label for="menu" class="close"><img src="./images/close.svg" alt="close"></i> </label>
+            
             <ul>
-                <li><a href="#">MODO NOCTURNO</a></li>
-                <li><a href="#">FAVORITOS</a></li>
-                <li><a href="#">MIS GIFOS</a></li>
-            </ul>
+                <li><a href="#" id="nightModeBtn">Modo Nocturno</a></li>
+                <li><a href="./favoritos.html">Favoritos</a></li>
+                <li><a href="./misGifos.html">Mis GIFOS</a></li>
+                <li class="buttonCrear"><a href="./crearGifos.html"> <button alt="btnCreate" class="btnCreate"></button></a></li>
+            </ul>   
         </nav>
-
-        <div class="createGifo">
-            <button id="createGifo"></button>   <!--PONER icon search-->>
-        </div>
     </header>
-
 
     <!--Sección MAIN -->
     <main>
@@ -69,47 +67,33 @@
 
         <!--Sección Trending Gifos-->
         <section>
-
             <div id="containerTrending">
+
                 <div class="trendingTitle">
-                    <h2>Trending Gifos</h2>
+                    <h2>Trending GIFOS</h2>
                     <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
                 </div>
     
-                <div class="sliderGifos">               <!--NO ES NECESARIO???-->
-                    
-                    <button class="arrowPrevious"></button>
-    
-                    <div id="trendingGifos">
-    
-                        <!-- <div class="singleGifo">       ESTO ES LO QUE CREA JS EN EL DOM
-                            <img class="singleImg" src="${trending.images.fixed_height.url}" alt="">
-                            <div class="trendingInfo">
-                                <div class="hoverIcons>
-                                    <span class="btnClose">X</span>
-                                    <img src="./images/icon-fav.svg" alt="heart">
-                                    <img src="./images/icon-fav.svg" alt="heart">
-                                    <img src="./images/icon-download.svg" alt="download">
-                                    <img src="./images/icon-max-normal.svg" alt="max">
-                                </div>
+                <div id="trendingGifos"><!--    
+                    <div class="singleGifo">
+                        <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
+
+                        <div class="trendingInfo"> 
+                            <div class="hoverIcons>
+                                <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
+                                <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
+                                <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
+                            </div>
+                            <div class="pInfo">
                                 <p class="user">User: ${trending.username}</p>
                                 <p class="title">Título: ${trending.title}</p> 
                             </div>
-                        </div> -->
-    
-                        <div id="modal">
-                            <!-- <div class="imgModal"></div> ESTO LO CREA EN EL DOM -->
                         </div>
-                    </div>
-    
-                    <button class="arrowNext"></button>
+                    </div> -->
                 </div>
             </div>
-            
         </section>
-
     </main>
-
 
     <!--Sección footer -->
     <footer>
@@ -129,8 +113,14 @@
             <hr>
         </div>
     </footer>
+    
+    
+    <script src="./js/functions.js"></script>
+    <script src="./js/trendingGifos.js"></script>
+    <script src="./js/main.js"></script>
 
-
-    <!--<script src="./js/main.js"></script> -->
+    <script src="./js/nightMode.js"></script>
+    <script src="./js/favorites.js"></script>
+    <script src="./js/createGifos.js"></script>
 </body>
 </html>

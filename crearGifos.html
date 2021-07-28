@@ -9,52 +9,82 @@
 </head>
 <body>
     
-    <!--Sección Crear Gifos-->
-    <div class="createGifos">
-            
-        <div class="animation">
-            <img src="./images/camara.svg" alt="camara" class="camara">
-            <img src="./images/element-luz-camara.svg" alt="luz" class="light">
-        </div>
+    <hr>
+    <!--Sección header -->
+    <header>
+        <div class="logoDesktop"> <a href="./index.html"> <img src="./images/logo-desktop.svg" alt="logoDesktop"> </a> </div>
 
-        <div class="stepByStep">
+        <!-- logo modo noc -->
+        <nav class="menu">
+            <input type="checkbox" id="menu" class="checkbox">
+            <label for="menu" class="open"><img src="./images/burger.svg" alt="open"></label>
+            <label for="menu" class="close"><img src="./images/close.svg" alt="close"></i> </label>
             
-            <div class="boxTitle">
+            <ul>
+                <li><a href="#" id="nightModeBtn">Modo Nocturno</a></li>
+                <li><a href="./favoritos.html">Favoritos</a></li>
+                <li><a href="./misGifos.html">Mis GIFOS</a></li>
+                <li class="buttonCrear"><a href="./crearGifos.html"> <button alt="btnCreate" class="btnCreate"></button></a></li>
+            </ul>   
+        </nav>
+    </header>
+
+    <main>
+        <!--Sección Crear Gifos-->
+        <section>
+            
+            <div class="createGifos">
                 
-                <div class="corner1"></div>
-                <div class="corner2"></div>
+                <div class="animation">
+                    <img src="./images/camara.svg" alt="camara" class="camara">
+                    <img src="./images/element-luz-camara.svg" alt="luz" class="light">
+                </div>
 
-                <div class="text">
-                    <h2><span class="blockSpan">Aquí podrás</span> crear tus propios <span class="coloredSpan">GIFOS</span></h2>
-                    <p>¡Crea tu GIFO en sólo 3 pasos! <span class="blockSpan">(sólo necesitas una cámara para grabar un video)</span></p>    
+                <div class="stepByStep">
+                    
+                    <div class="boxTitle">
+                        
+                        <div class="corner1"></div>
+                        <div class="corner2"></div>
+
+                        <div class="text">
+                            <h2><span class="blockSpan">Aquí podrás</span> crear tus propios <span class="coloredSpan">GIFOS</span></h2>
+                            <p>¡Crea tu GIFO en sólo 3 pasos! <span class="blockSpan">(sólo necesitas una cámara para grabar un video)</span></p>    
+                        </div>
+                        
+                        <div class="corner3"></div>
+                        <div class="corner4"></div>
+
+                    </div>
+
+                    <div class="buttonsNumber">
+                        <button class="number 1">1</button>
+                        <button class="number 2">2</button>
+                        <button class="number 3">3</button>
+                    </div>
+
+                    <hr>
+
+                    <button class="buttonStart">COMENZAR</button>
                 </div>
                 
-                <div class="corner3"></div>
-                <div class="corner4"></div>
+                    <div class="imageFilm">
+                        <img src="./images/pelicula.svg" alt="pelicula" class="film">
+                    </div>
 
+                    <!--Seccion Create Gifos Boton 1-->
+
+                    <!-- <h2>¿Nos das acceso <span>a tu cámara?</span></h2>
+                    <p>El acceso a tu camara será válido sólo <span>por el tiempo en el que estés creando el GIFO.</span></p>-->
+                </div>
             </div>
 
-            <div class="buttonsNumber">
-                <button class="number 1">1</button>
-                <button class="number 2">2</button>
-                <button class="number 3">3</button>
-            </div>
+        </section>
 
-            <hr>
+    </main>
 
-            <button class="buttonStart">COMENZAR</button>
-        </div>
-        
-        <div class="imageFilm">
-            <img src="./images/pelicula.svg" alt="pelicula" class="film">
-        </div>
-
-            <!--Seccion Create Gifos Boton 1-->
-
-            <!-- <h2>¿Nos das acceso <span>a tu cámara?</span></h2>
-            <p>El acceso a tu camara será válido sólo <span>por el tiempo en el que estés creando el GIFO.</span></p>-->
-        </div>
-    </div>
+    
+    
 
     <!--Sección footer -->
     <footer>

@@ -14,24 +14,19 @@
     <hr>
     <!--Sección header -->
     <header>
-        <div class="logoMobile">
-            <a href="./index.html"> <img src="./images/logo-mobile.svg" alt="logoMobile"> </a>
-        </div>
-        <div class="logoDesktop">
-            <a href="./index.html"> <img src="./images/logo-desktop.svg" alt="logoDesktop"> </a>
-            
-        </div>
+        <div class="logoDesktop"> <a href="./index.html"> <img src="./images/logo-desktop.svg" alt="logoDesktop"></a> </div>
 
+        <!-- logo modo noc -->
         <nav class="menu">
             <input type="checkbox" id="menu" class="checkbox">
             <label for="menu" class="open"><img src="./images/burger.svg" alt="open"></label>
             <label for="menu" class="close"><img src="./images/close.svg" alt="close"></i> </label>
             
             <ul>
-                <li><a  href="#" id="nightModeBtn">Modo Nocturno</a></li>
+                <li><a href="#" id="nightModeBtn">Modo Nocturno</a></li>
                 <li><a href="./favoritos.html">Favoritos</a></li>
                 <li><a href="./misGifos.html">Mis GIFOS</a></li>
-                <li><a href="./crearGifos.html"> <button alt="btnCreate" class="btnCreate"></button></a></li>
+                <li class="buttonCrear"><a href="./crearGifos.html"> <button alt="btnCreate" class="btnCreate"></button></a></li>
             </ul>   
         </nav>
     </header>
@@ -40,7 +35,7 @@
         <!--Sección Home-->
         <section>
             <div class="home">
-                <div class="title"><h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
+                <div class="title"> <h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
                 
                 <div class="browser"> 
                     <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
@@ -48,6 +43,7 @@
                     <div id="containerSearchGifos" class="search">
                         <input type="search" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
                         <img src="./images/icon-search.svg" class="imageSearch" alt="imgLupa">
+                        <img src="./images/close.svg" class="closeSearch" alt="imgCruz">
 
                         <hr class="borderBottomSearch">
                         <ul id="containerSuggestions"></ul>
@@ -55,6 +51,7 @@
 
                     <div class="containerImgNoResult">
                         <img src="./images/icon-busqueda-sin-resultado.svg" alt="noResult">
+                        <h3>Intenta con otra búsqueda.</h3>
                     </div>
                 </div>
 
@@ -83,7 +80,7 @@
                 <div id="trendingGifos"><!--    
                     <div class="singleGifo">
                         <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
-                        
+
                         <div class="trendingInfo"> 
                             <div class="hoverIcons>
                                 <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
@@ -121,9 +118,13 @@
     </footer>
 
 
-    <script src="./js/funciones.js"></script>
+    <script src="./js/functions.js"></script>
     <script src="./js/trendingGifos.js"></script>
     <script src="./js/main.js"></script>
+
+    <script src="./js/nightMode.js"></script>
+    <script src="./js/favorites.js"></script>
+    <script src="./js/createGifos.js"></script>
 
 </body>
 </html>

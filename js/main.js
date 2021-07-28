@@ -7,103 +7,18 @@ const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
 // trending: https://api.giphy.com/v1/gifs/trending?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY&limit=3&rating=g
 
 
-let clickCounter = 0;
-
-const getMoreGifs = async () =>{
-    clickCounter += 1;
-    const inputSuggestions = document.querySelector("#searchGifos");
-    const gifs = await getSearchGifsByKeyword(inputSuggestions.value, clickCounter);
-    const containerNewImg = document.querySelector("#showSearchGif");
-    
-    gifs.data.forEach(gif => {
-        const newImg = document.createElement('img');
-        newImg.setAttribute("src", gif.images.fixed_height.url) 
-        containerNewImg.appendChild(newImg);
-    });
-}
-
-//TRENDING GIFOS:
-//en cada pagina de html que se repita el trendingGifos tengo que copiar el script de trending, no el codigo.
-
-const getTrendingGifos = async () => {
-    try {
-        const gifs = await fetch(`${API_URL}/trending?api_key=${API_KEY}&limit=3&rating=g`);
-        return gifs.json()
-    } catch (error) {
-        console.log("ocurrio un error",error)
-    }
-}
-
-
-
-// const showModal = (ev) => {
-//     // parametros -->  trendingUrl, username, title
-//     // imagesLatestGifos.querySelector(".singleImg") = ev.target.src;
-
-//     const modal = document.createElement("div");
-//     modal.classList.add("modalShow");
-//     modal.innerHTML = `
-//     <a class="btnCloseModal"> <img src="./images/close.svg"> </a>
-
-//     `  
-    // <div class=gifExpand>
-    //     <img class="modalImg" src="${trendingUrl}"">
-    // </div>
-    // <div class="info">
-    //     <p class="user">User: ${username}</p>
-    //     <p class="title">Título: ${title}</p> 
-    //     <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
-    //     <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
-    // </div>
-    // modal.style.display = "block";
-    // const btnModal = document.querySelector(".btnCloseModal")
-    // btnModal.addEventListener("click", closeModal);
-// }
-
-//const closeModal = (ev) =>{
-//    const xClickeada = ev.target;
-//   modal.style.display = "none";
-//     xClickeada.closest('#modal').classList.remove('modalShow');
-// }
 
 
 document.addEventListener("DOMContentLoaded", async () => {
+
+    // favoritesGifos();
+
     const imagesApiTrending = await getTrendingGifos();
-      
-    const trendingImages = imagesApiTrending.data.map(async trending => {                
-        
-        const trendingUrl = trending.images.fixed_height.url;           //?????
+    const trendingImgs = await trendingImages(imagesApiTrending);
 
-        const containerTrending = document.querySelector("#trendingGifos");
-        const imagesLatestGifos = document.createElement("div");
-        imagesLatestGifos.classList.add("singleGifo");
-        imagesLatestGifos.innerHTML = `
-        <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
-
-        <div class="trendingInfo"> 
-            <div class="hoverIcons>
-                <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
-                <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
-                <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
-            </div>
-            <div class="pInfo">
-                <p class="user">${trending.username}</p>
-                <p class="title">${trending.title}</p> 
-            </div>
-        </div>`
-        containerTrending.appendChild(imagesLatestGifos);
-    })
-
-    //los escuchadores de eventos tienen que estar en la función que pinta/trae los gifs
-    // imagesLatestGifos.querySelector(".trendingInfo .expand img").addEventListener("click", showModal);
-    
-    document.querySelector(".autocomplete").addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
-    
-    document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);
 })
 
-// DOWNLOAD GIF
-// (async () => {
+
 //     //create new a element
 //     let a = document.createElement('a');
 //     // get image as blob
@@ -120,31 +35,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-//LOCAL STORAGE:
-
-// const favoritesGifos = () => {
-//     if(localStorage.getItem("favoritos")){
-//         //si existe:
-//     }else {
-//         localStorage.setItem("favoritos",[])
-//     }
-// }
-
-
-
 //MODO NOCTURNO
 
 //el boton "modo nocturno" tiene que decir "modo diurno"
 
 const bodyNightMode =  document.querySelector("body");                    
 const headerNightMode = document.querySelector("body > header");    
-const navBarNightMode = document.querySelector("body > header > nav > ul");
-const divHomeNightMode = document.querySelector("body > main > .home");   
+const navBarNightMode = document.querySelector("body > header > nav > ul > li");
+const divHomeNightMode = document.querySelector("body > main > .home > h1"); 
+// const searchNightMode = document.querySelector("")
+
 const elementsNigthMode = [bodyNightMode, headerNightMode, navBarNightMode, divHomeNightMode];
 
-const titleTrendingNocturno = document.querySelector("body > main > .trendingTitle");   
-const sliderTrendingNocturno = document.querySelector("body > main > .sliderGifos");
-const trendingNight = [titleTrendingNocturno, sliderTrendingNocturno];
+// const titleTrendingNocturno = document.querySelector("body > main > .trendingTitle");   
+// const sliderTrendingNocturno = document.querySelector("body > main > .sliderGifos");
+// const trendingNight = [titleTrendingNocturno, sliderTrendingNocturno];
 
 const liNightMode =  document.querySelector("body > header > nav > ul > li"); 
 
@@ -153,6 +58,8 @@ document.getElementById("nightModeBtn").addEventListener("click", () => {
         elem.classList.toggle("nightMode");        
     });
        
+    // document.querySelector("#nightModeBtn").textContent = "MODO DIURNO";   ESTO SE HACE CON LOCALSTORAGE
+    
     document.querySelector("#containerTrending").classList.toggle("nightModeTrending");
 });
 
@@ -172,8 +79,6 @@ document.getElementById("nightModeBtn").addEventListener("click", () => {
 //     });
 //     // document.querySelector("#containerTrending").classList.toggle("nightModeTrending");
 // });
-
-
 
 
 
