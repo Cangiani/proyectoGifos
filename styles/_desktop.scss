@@ -11,7 +11,8 @@
     .toggleShowBtnVerMas{
         @include button;
         font-size: 13px;
-        font-family: Montserrat-Bold;                //????????????????
+        font-family: "Montserrat";                
+        font-weight: bold;
         padding: 1.4em 1.5em 1em 1.5em;
         margin-top: 1.3em;
         background-color: $color-blanco;
@@ -20,613 +21,57 @@
     }
 
     .nightMode{
-        *{
-            background-color: $color-bg-nocturno;
-            color: $color-blanco;    
 
-            // h1{
-            //     color: $color-blanco;   
-            // }
-
-            #containerTrending{
-                background-color: $color-bg-nocturno-trending;
-            }
-
-            .nightModeTrending{
-                background-color: $color-bg-nocturno-trending;
-            }    
+        hr{
+            background: $color-negro;   
         }
-    }
-
-    // ------------------------------------ SECCIÓN HOME ----------------------------------------------
-    .home{
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-content: center;          //no sirve?
-        align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
-    
-        .title{
-            width: 58.4em;                      //tipografia??
-            height: 6.25em;
-            margin-top: 4.8em; 
-            text-align: center;
-            
-            h1{
-                font-size: 35px;     //font-family: Montserrat-Bold;
-                // font-weight:   
-                // line-height: 3.2em;
-                text-align: center;
-                
-                .space{
-                    display: block;
-                }
-                .gifos{
-                    color: $color-celeste;
-                }
-            }
-        }
-    
-        .browser{
-            margin-top: 1.5em; 
-            margin-left: 0px;
-            box-sizing: border-box;
-
-            .imageHome{
-                width: 399px;   
-                height: 190px;  
-                // padding-left: 32.6em;
-                margin: auto;
-            }
-
-            .search{
-                width: 34.4em;
-                display: block;                
-
-                .autocomplete{
-                    width: 30em;
-                    height: 3.3em;
-                    top: 2em;       //es necesario?
-                    border: none;
-                    outline: none;
-                    margin-left: 3em;
-                    //CAMBIAR LETRA
-                }
-
-                .imageSearch{
-                    width: 1.3em;
-                    height: 2em;
-                    // top: 2.7em;       //es necesario?
-                }
-
-                .closeSearch{
-                    width: 1em;
-                    height: 1em;                  
-                    position: absolute;
-                    top: 30.7em;
-                    left: 50.6em;
-                }
-
-                #containerSuggestions{
-                    width: 30em;
-                    height: 6em;
-                    line-height: 1.5em;
-                    font-family: 'Roboto';
-                    font-weight: 400;
-                    font-size: 16px;
-                    color: #9CAFC3;
-                    text-transform: capitalize;
-
-                    ul{
-                        list-style-image: url('../images/icon-search-modo-noct.svg');
-                        padding-left: 2em;
-                    }
-                }
-            }
-
-            .searchActive{
-                height: 12em;
-            }
-
-            .borderBottomSearch{
-                display: none;
-                width: 32em;
-                height: 1px;
-                opacity: 0.5;
-                color: #9CAFC3;
-            }
-
-            .containerImgNoResult{          //IMG NO RESULT OUCH
-                font-size: 22px;
-                text-align: center;
-                color: #50E3C2;
-                display: none;
-            }
-
-            .noResultSearchGifos{
-                font-size: 22px;
-                text-align: center;
-                color: #50E3C2;
-            }
-        }
-
-        #listGifs{
-            #titleGifs{
-                @include titles;            //PONERLE EL ESTILO CORRESPONDIENTE
-                // font-family: Montserrat-Bold;
-                font-size: 30px;
-                line-height: 30px;
-            }
-
-            #showSearchGif{
-                width: 65em;  
-                padding-top: 3em;
-                margin: auto;           //????
-                display: grid;
-                grid-template: repeat(3,1fr) / repeat(4,1fr);
-                grid-gap: 2.19em 1.81em;
-                justify-content: center;   
-            
-                img{                    
-                width: 16.25em;
-                height: 12.5em;
-                }
-            }
-
-            .btnSearchGif{              //hacerlo invisible y cambiarlo con un toggle(al apretar enter)
-                @include button;
-                font-size: 13px;
-                font-family: Montserrat-Bold;                //????????????????
-                padding: 1.4em 1.5em 1em 1.5em;
-                margin-top: 1.3em;
-                background-color: $color-blanco;
-                margin-left: 50%;                           //???????
-                display: none;
-            }
-        }
-    
-        .subtitle{        
-            h2{
-                font-size: 18px;
-                line-height: 25px;           //px????
-            }
-    
-            h3{
-                font-size: 16px;
-                line-height: 25px;           //px????
-            }
-
-            .span{
-                display: inline;
-            }
-        }
-
-    }
-
-    //---------------------------------------SECCIÓN TRENDING GIFOS-----------------------------------
-    // HOVER BOTONES TRENDING GIFOS
-    
-    #containerTrending{
-        width: 100vw; 
-        background: $color-background;
-
-        .trendingTitle{
-            padding-bottom: 3em;
-            text-align: center;
-            h2{
-                @include titles; 
-                font-weight: bold;
-                font-size: 25px;
-                line-height: 30px;              //px????
-                padding-top: 3em;  
-            }
-            h3{
-                font-size: 18px;                //FONT FAMILY ????
-                color: $color-negro;
-            }
-        }
-
-        #trendingGifos{
-            height: 25em;               //deberia ser 40em?         
-            display: grid;
-            grid-template: 15em / repeat(3, 20em);  
-            justify-content: center;
-            grid-gap: 5em;
-        
-            .singleGifo {
-
-                .singleImg{
-                    width: 23em;
-                    height: 17em;  
-                }
-
-                .trendingInfo{
-                    position: relative;
-                    width: 23em;
-                    height: 17em;
-                    transform: translate(0%, -101.5%);
-
-                    display: grid;
-                    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-
-                    .hoverIcons {
-                        display: none;
-                        grid-area: 1/3/2/4;
-                        padding-top: .5em;
-                        padding-right: .16em;
-
-                        img{
-                            padding: .1em;
-                        }
-                    }
-
-                    .pInfo{
-                        
-                        color: $color-blanco;
-                        font-family: 'Roboto'; 
-                        text-align: left;
-                        grid-area: 3/1/4/3;
-                        padding-left: 1em;
-                        padding-top: 1em;
-                        display: none;
-
-                        .user{ 
-                            font-weight: 400;     
-                            font-size: 15px;
-                        }
-                        .title{
-                            font-weight: 900;  
-                            font-size: 16px;
-                        } 
-                    }
-                } 
-
-                &:hover{
-                    width: 20em;
-                    height: 17em;
-
-                    .trendingInfo{
-                        background-color: $color-principal;
-                        opacity: 0.7;
-
-                        .hoverIcons{
-                            display: block;
-                        }
-
-                        .pInfo{
-                            display: block;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .modalShow{
-        position: absolute;
-        width: 100vw;
-        height: 100vh;
-        background-color: white;
-        top:0;
-        z-index: 30;
-        display: none;
-        
-        .gifExpand {
-            width: 43.4em;
-            height: 24.1em;
-            
-            .btnCloseModal{
-            top: 0;
-            right: 0;
-            width: 3em;
-            height: 3em;
-            }
-        } 
-    }
-
-    //------------------------------------------SECCIÓN FAVORITOS---------------------------------------
-
-    .favorites{
-       width: 100vw;
-       height: 61.5em;      //necesario poner width y height?
-
-        .titleFavorite{
-            @include titles;     //cambiar estilo letra a montserrat bold
-            font-size: 25px;
-            line-height: 30px;
-            padding-bottom: 2.25em;
-            padding-top: 0.7em;
-        }
-
-        .noContentFavorites{
-
-            .iconHeart{
-                width: 9.375em;
-                height: 9.438em;
-            }
-
-            h3{
-                color: $color-celeste;
-
-                .spanFavorites{
-                    display: block;                 //NO FUNCIONA
-                }
-            }
-            
-        }
-        
-        .imagesFavorites{
-            width:70.5em;
-            height: 43em;                       //???
-            margin: auto;
-            
-            box-sizing: border-box;
-            border: 1px solid black;    //ELIMINAR
-
-            display: grid;
-            grid-template: repeat(5,1fr) / repeat(4,1fr);
-            grid-gap: 2.19em 1.81em;
-            justify-content: center;                //?????
            
-            .img1{
-                width: 16.25em;
-                height: 12.5em;
-                grid-area: 1/1/2/2;     
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img2{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 1/2/2/3;     
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img3{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 1/3/2/4;     
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img4{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 1/4/2/5;  
-                border: 1px solid black;    //ELIMINAR  
-            }
-            .img5{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 2/1/3/2; 
-                border: 1px solid black;    //ELIMINAR      
-            }
-            .img6{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 2/2/3/3;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img7{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 2/3/3/4;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img8{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 2/4/3/5;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img9{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 3/1/4/2;
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img10{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 3/2/4/3; 
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img11{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 3/3/4/4;  
-                border: 1px solid black;    //ELIMINAR
-            }
-            .img12{
-                width: 16.3em;
-                height: 12.5em;
-                grid-area: 3/4/4/5;
-                border: 1px solid black;    //ELIMINAR
-            }   
-        }
+        header{
+            background: $color-bg-nocturno;
 
-        .buttonFavorites{
-            // @include button;             ???'
-            font-size: 13px;
-            margin: 4.9em auto;
-            padding: 1.4em 1.5em 1em 1.5em;
-            background-color: $color-blanco;
-        }
-    }
+            nav ul{
+            background: $color-bg-nocturno;
 
-    .createGifos{
-        width: 100vw;
-        // height: 35.75em;          
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    
-        .animation{
-            align-self: center;
-            
-            .camara{
-                width: 7.7em;
-                height: 10.13em;
-            }
-    
-            .light{
-                width: 5.7em;
-                height: 9.4em;
-                // background-image: linear-gradient(267deg, rgba(136,243,226,0.00) 22%, #50E3C2 100%);
-            }
-        }   
-    
-        .stepByStep{
-            width: 49.7em;
-            align-self: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-content: center;
-            align-items: center;
-    
-    
-            .boxTitle{
-                width: 43em;
-                height: 24.4em;      
-                padding: 1.2em;
-                // margin-left: 2.8vw;              ?????
-                border: 1px solid $color-principal;
-                text-align: center;
-                align-items: center;
-                display: grid;
-                grid-template: 2em 1fr 2em / 2em 1fr 2em;
-                
-                .corner1{
-                    grid-area: 1/1/2/2;
-                    border-top: 1px solid $color-celeste;
-                    border-left: 1px solid $color-celeste;
-                    width: 1.68em;
-                    height: 1.56em;
-                }
-    
-                .corner2{
-                    grid-area: 1/3/2/4;
-                    border-top: 1px solid $color-celeste;
-                    border-right: 1px solid $color-celeste;
-                    width: 1.68em;
-                    height: 1.56em;
-                    align-self: flex-start;
-                    justify-self: flex-end;
-                }
-    
-                .text{
-                    grid-area: 2/2/3/3;
-    
-                    h2{               
-                        font-size: 25px;
-                        line-height: 35px;
-                    }
-            
-                    p{
-                        font-size: 16px;
-                        line-height: 29px;
-                    }
-    
-                    .blockSpan{
-                        display: block;
-                    }
-                        
-                    .coloredSpan{
-                        color: $color-celeste;
-                    }
-                }
-                
-                .corner3{
-                    grid-area: 3/1/4/2;
-                    border-left: 1px solid $color-celeste;
-                    border-bottom: 1px solid $color-celeste;
-                    width: 1.68em;
-                    height: 1.56em;
-                    align-self: flex-end;       //vertical
-                    justify-self: flex-start;
-                }
-    
-                .corner4{
-                    grid-area: 3/3/4/4;
-                    border-right: 1px solid $color-celeste;
-                    border-bottom: 1px solid $color-celeste;
-                    width: 1.68em;
-                    height: 1.56em;
-                    align-self: flex-end;       //vertical
-                    justify-self: flex-end;
-                }   
-            }
-    
-            .buttonsNumber{
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                padding: 1.6em;
-    
-                .number{
-                    width: 2em;
-                    height: 2em;
-                    margin-left: 1.6em;
-                    font-size: 18px;
-                    color: $color-principal;
-                    text-align: center;
-                    border: 1px solid $color-principal;
-                    border-radius: 100%;
-                    background-color: $color-blanco;
+                a{
+                color: $color-blanco;
                 }
             }
-            
-            hr{
-                // @include hr;
-                width: 49.7em;
-                height: 0.4em;
-                align-self: flex-end;                   //?????????
-                border-radius: 10px 10px 10px 10px;         //poner en em?
-            }
-    
-            .buttonStart{
-                @include button;
-                // font-size: ;      titles!!!
-                padding: 1.4em 1.5em 1em 1.5em;
-                margin-top: 1.3em;
-                background-color: $color-blanco;
-            }
         }
-    
-        .imageFilm{
-            width: 5.45em;
-            height: 5.44em;
-            align-self: flex-end;
-            margin-bottom: 5em;
-        }
-    }
 
-    .footer{
-        width: 100vw;
-        height: 7.25em;
-        // padding: 0 9.8em;            QUEDA POR FUERA DE LA PAG
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: center;
-        align-content: center;
-        // padding-bottom: 3.21em;             //PERO QUE LA LINEA AZUL QUEDE POR DEBAJO
+        .home{
+            background: $color-bg-nocturno;
 
-        .socialMedia{
-            width: 13em;
-            display: flex;                  //es necesario?
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            align-content: center;
+            .browser{
+                #containerSearchGifos input{
+                    background: $color-bg-nocturno;
+                }
+            }
 
-            .icons{
-                padding-top: 2.9em;
-                padding-left: 1em;
+            .title h1{
+                color: $color-blanco;   
+            }
+
+            #containerSearchGifos{
+                color: $color-blanco;
+            }
+
+            .subtitle{
+                color: $color-blanco;
             }
         }
-        // .socialMedia:hover{
-        //     color: $color-principal;
-        // }
+        
+        #containerTrending{
+            background: $color-bg-nocturno-trending;
+
+            .trendingTitle{
+                h2, h3{
+                    color: $color-blanco;  
+                }
+            }
+        }
+
+        .footer{
+            background: $color-bg-nocturno;
+        }
     }
 }

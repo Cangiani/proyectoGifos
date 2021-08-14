@@ -1,23 +1,21 @@
 // MAIN.JS -> logica de inicializacion puntual de la aplicacion (dom contentloaded y eventlisteners iniciales)
 //en main solo agregar eventos
 
-const API_URL = "https://api.giphy.com/v1/gifs";
-const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
+// const API_URL = "https://api.giphy.com/v1/gifs";
+// const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
+
+
 // https://api.giphy.com/v1/gifs/search/tags?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY
 // trending: https://api.giphy.com/v1/gifs/trending?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY&limit=3&rating=g
 
 
-
-
 document.addEventListener("DOMContentLoaded", async () => {
-
-    // favoritesGifos();
 
     const imagesApiTrending = await getTrendingGifos();
     const trendingImgs = await trendingImages(imagesApiTrending);
 
-})
-
+    favoritesGifos();
+});
 
 //     //create new a element
 //     let a = document.createElement('a');
@@ -35,54 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
 
-//MODO NOCTURNO
-
-//el boton "modo nocturno" tiene que decir "modo diurno"
-
-const bodyNightMode =  document.querySelector("body");                    
-const headerNightMode = document.querySelector("body > header");    
-const navBarNightMode = document.querySelector("body > header > nav > ul > li");
-const divHomeNightMode = document.querySelector("body > main > .home > h1"); 
-// const searchNightMode = document.querySelector("")
-
-const elementsNigthMode = [bodyNightMode, headerNightMode, navBarNightMode, divHomeNightMode];
-
-// const titleTrendingNocturno = document.querySelector("body > main > .trendingTitle");   
-// const sliderTrendingNocturno = document.querySelector("body > main > .sliderGifos");
-// const trendingNight = [titleTrendingNocturno, sliderTrendingNocturno];
-
-const liNightMode =  document.querySelector("body > header > nav > ul > li"); 
-
-document.getElementById("nightModeBtn").addEventListener("click", () => {
-    elementsNigthMode.forEach(elem => {
-        elem.classList.toggle("nightMode");        
-    });
-       
-    // document.querySelector("#nightModeBtn").textContent = "MODO DIURNO";   ESTO SE HACE CON LOCALSTORAGE
-    
-    document.querySelector("#containerTrending").classList.toggle("nightModeTrending");
-});
-
-
-// document.getElementById("nightModeBtn").addEventListener("click", () => {
-//     const trendingNightMode = document.querySelector("#containerTrending");
-//     trendingNightMode.classList.toggle("nightModeTrending");
-    
-// });             
-
-
-
-//   elem.classList.toggle("titlesNightMode");    CAMBIAR COLOR H1S
-// document.getElementById("nightModeBtn").addEventListener("click", () => {
-//     titlesNightMode.forEach(elem => {
-//         elem.classList.toggle("titlesNightMode");        
-//     });
-//     // document.querySelector("#containerTrending").classList.toggle("nightModeTrending");
-// });
-
-
-
-//HEADER:  cuando scrolleas aparece sombra en el header
+//----------------------------HEADER:  cuando scrolleas aparece sombra en el header-------------------
 
 // const shadowHeader = () => {
 //     document.querySelector("header .menu").classList.add("scrollActive");

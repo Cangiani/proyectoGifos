@@ -31,27 +31,22 @@
         </nav>
     </header>
 
-    <main>            
+    <main>  
         <!--Sección Home-->
         <section>
             <div class="home">
+
                 <div class="title"> <h1>Inspírate, busca, guarda, y crea <span class="space">los mejores <span class="gifos">GIFOS</span></span></h1></div>
-                
                 <div class="browser"> 
                     <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
                 
                     <div id="containerSearchGifos" class="search">
-                        <input type="search" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
+                        <input type="text" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
                         <img src="./images/icon-search.svg" class="imageSearch" alt="imgLupa">
                         <img src="./images/close.svg" class="closeSearch" alt="imgCruz">
 
                         <hr class="borderBottomSearch">
                         <ul id="containerSuggestions"></ul>
-                    </div>
-
-                    <div class="containerImgNoResult">
-                        <img src="./images/icon-busqueda-sin-resultado.svg" alt="noResult">
-                        <h3>Intenta con otra búsqueda.</h3>
                     </div>
                 </div>
 
@@ -65,35 +60,19 @@
                     <h2>Trending:</h2>
                     <h3>Reactions, Entertainment, <span class="span">Sports, Stickers, Artists</span></h3>
                 </div>
+
+                <div class="modalShow"></div>
             </div>
         </section>
 
         <!--Sección Trending Gifos-->
         <section>
             <div id="containerTrending">
-
                 <div class="trendingTitle">
                     <h2>Trending GIFOS</h2>
                     <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
                 </div>
-    
-                <div id="trendingGifos"><!--    
-                    <div class="singleGifo">
-                        <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
-
-                        <div class="trendingInfo"> 
-                            <div class="hoverIcons>
-                                <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
-                                <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
-                                <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
-                            </div>
-                            <div class="pInfo">
-                                <p class="user">User: ${trending.username}</p>
-                                <p class="title">Título: ${trending.title}</p> 
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+                <div id="trendingGifos"></div>
             </div>
         </section>
     </main>
@@ -117,13 +96,12 @@
         </div>
     </footer>
 
-
     <script src="./js/functions.js"></script>
     <script src="./js/trendingGifos.js"></script>
     <script src="./js/main.js"></script>
-
     <script src="./js/nightMode.js"></script>
     <script src="./js/favorites.js"></script>
+    <script src="./js/misGifos.js"></script>
     <script src="./js/createGifos.js"></script>
 
 </body>

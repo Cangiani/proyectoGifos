@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>crearGifos</title>
-
+    <title>Crear Gifos</title>
     <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     
+</head>
+
+<body>
     <hr>
     <!--Sección header -->
     <header>
@@ -33,7 +35,7 @@
         <!--Sección Crear Gifos-->
         <section>
             
-            <div class="createGifos">
+            <div id="containerCreateGifos">
                 
                 <div class="animation">
                     <img src="./images/camara.svg" alt="camara" class="camara">
@@ -78,21 +80,34 @@
                     <p>El acceso a tu camara será válido sólo <span>por el tiempo en el que estés creando el GIFO.</span></p>-->
                 </div>
             </div>
-
         </section>
-
     </main>
-
-    
-    
 
     <!--Sección footer -->
     <footer>
-        <p>Compartir en:</p>
-
-        <p>© GIFOS 2020 All Rights Reserved.</p>
+        <div class="footer">
+            <div class="socialMedia">
+                <h4>Compartir en:</h4>
+                <div class="icons">
+                    <div><a href="https://www.facebook.com/"></a> <img src="./images/icon_facebook.svg" alt="facebook"></div>
+                    <div><a href="https://twitter.com/"></a> <img src="./images/icon-twitter.svg" alt="twitter"></div>
+                    <div><a href="https://www.instagram.com/"></a> <img src="./images/icon_instagram.svg" alt="instagram"></div>
+                </div>  
+            </div>
+            
+            <!-- <div class="copyright"></div> -->
+            <p>© GIFOS 2020 All Rights Reserved.</p>
+            <hr>
+        </div>
     </footer>
 
+    <script src="./js/functions.js"></script>
+    <script src="./js/trendingGifos.js"></script>
+    <script src="./js/main.js"></script>
+
+    <script src="./js/nightMode.js"></script>
+    <script src="./js/favorites.js"></script>
+    <script src="./js/createGifos.js"></script>
 
 </body>
 </html>

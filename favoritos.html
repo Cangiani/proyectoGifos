@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProyectoGifos</title> 
+    <title>FavoritesGifos</title> 
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
     
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -33,8 +33,22 @@
     <!--Sección MAIN -->
     <main>
 
+
+        
+
+        <section>
+            <div class="home">
+                <div class="modalShow"> </div>
+            </div> 
+        </section>        
+
+
+
+
+
+
         <!--Sección Favoritos-->
-        <div class="favorites"> 
+        <div id="containerFavorites"> 
             <div class="titleFavorite">
                 <img src="images/icon-favoritos.svg" alt="imgHeart">
                 <h2>Favoritos</h2>
@@ -63,8 +77,9 @@
             </div>
             
             <button class="buttonFavorites">VER MAS</button>
-        </div>
 
+        </div>
+        
         <!--Sección Trending Gifos-->
         <section>
             <div id="containerTrending">
@@ -74,23 +89,7 @@
                     <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
                 </div>
     
-                <div id="trendingGifos"><!--    
-                    <div class="singleGifo">
-                        <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
-
-                        <div class="trendingInfo"> 
-                            <div class="hoverIcons>
-                                <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
-                                <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
-                                <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
-                            </div>
-                            <div class="pInfo">
-                                <p class="user">User: ${trending.username}</p>
-                                <p class="title">Título: ${trending.title}</p> 
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+                <div id="trendingGifos"> </div>
             </div>
         </section>
     </main>
@@ -116,11 +115,13 @@
     
     
     <script src="./js/functions.js"></script>
+    
     <script src="./js/trendingGifos.js"></script>
-    <script src="./js/main.js"></script>
-
-    <script src="./js/nightMode.js"></script>
     <script src="./js/favorites.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/nightMode.js"></script>
+    
+    <script src="./js/misGifos.js"></script>
     <script src="./js/createGifos.js"></script>
 </body>
 </html>

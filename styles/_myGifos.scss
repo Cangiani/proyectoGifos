@@ -1,22 +1,16 @@
-.favorites{
-    @include titles;
-    display: inline-block;
 
-    .buttonFavorites{
-        @include titles;
-        @include button;
-    }
-}
+
+
 
 //------------------------------------------ DESKTOP ---------------------------------------
 
-@media screen and (min-width: 768px){   
-    
-    #containerFavorites{
+@media screen and (min-width: 768px){  
+
+    .containerMisGifos{
         width: 100vw;
         height: 73em;      
  
-        .titleFavorite{
+        .titleMisGifos{
             @include titles;    
             font-family: "Montserrat";
             font-weight: bold;
@@ -26,9 +20,9 @@
             padding-top: 0.7em;
         }
 
-        .noContentFavorites{
+        .noContentMisGifos{
 
-            .iconHeart{
+            .iconGifos{
                 width: 9.375em;
                 height: 9.438em;
             }
@@ -43,7 +37,7 @@
             
         }
         
-        .imagesFavorites{
+        .imagesMisGifos{
             width:70.5em;
             height: 43em;                       //???
             margin: auto;
@@ -130,9 +124,9 @@
             }   
         }
 
-        .buttonFavorites{
+        .btnMoreMisGifos{
             @include button;            
-            font-size: 13px;              
+            font-size: 13px;          
             padding: 1.4em 1.5em 1em 1.5em;
             margin-top: 4em;
             margin-bottom: 6em;

@@ -1,7 +1,7 @@
 @mixin hr {
     width: 100vw;
     height: 5px;
-    background-color:$color-principal;
+    background:$color-principal;
     display: block;
 }
 
@@ -31,7 +31,7 @@ header{
     }
 
     .logoDesktop{
-        display: none;
+        display: none;                             
     }
 
     nav{
@@ -72,13 +72,13 @@ header{
             text-align: center;
             right: 0;
             z-index: 1;             //es necesario?
-            background-color: $color-menu;
+            background: $color-menu;
 
             li { 
                 width: 100vw;
                 padding: .5em 0; 
 
-                border-bottom: 1px solid white;   // TIENE QUE SER CORTO!!!!!!
+                // border-bottom: 1px solid white;   // TIENE QUE SER CORTO y no verse en desktop!!!!!!
                   
                 a{
                     color: $color-blanco;
@@ -114,11 +114,11 @@ header{
         height: 6em;                       /*poner en vh?   7em?*/
         padding-top: 0;
         padding-bottom: 0.75em;
-        background: transparent;           //???
+        // background: transparent;           //???
         font-weight: bold;              
         display: flex;
         justify-content: space-between;  
-        background-color: $color-blanco;
+        // background: $color-blanco;
         position: sticky;
         top: 0%;
         z-index: 50;
@@ -131,7 +131,7 @@ header{
             margin-top: 1.5em;
             margin-bottom: 0.8em;
 
-            a {
+            a img{
                 font-family: 'Roboto';
                 font-weight: 400;           //roboto black??????
                 font-size: 18px;
@@ -161,8 +161,8 @@ header{
                 flex-flow: row nowrap;
                 justify-content: space-evenly;
                 align-items: center;
-                text-align: center;
-                background-color: $color-blanco;
+                // text-align: center;
+                background: $color-blanco;
 
                 li a{
                     font-size: 13px;

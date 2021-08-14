@@ -34,3 +34,38 @@
         bottom: 0; 
     }
 }
+
+
+//-----------------------------------------------  DESKTOP  --------------------------------------------------
+
+@media screen and (min-width: 768px){   
+
+    .footer{
+        width: 100vw;
+        height: 7.25em;
+        // padding: 0 9.8em;            QUEDA POR FUERA DE LA PAG
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+        // padding-bottom: 3.21em;             //PERO QUE LA LINEA AZUL QUEDE POR DEBAJO
+
+        .socialMedia{
+            width: 13em;
+            display: flex;                  //es necesario?
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+
+            .icons{
+                padding-top: 2.9em;
+                padding-left: 1em;
+            }
+        }
+        // .socialMedia:hover{
+        //     color: $color-principal;
+        // }
+    }
+}
