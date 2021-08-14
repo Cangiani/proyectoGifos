@@ -1,7 +1,7 @@
 // const trendingImages = async (trending) => {
 
 //     trending.data.map(imgGifo => {
-
+    
 //         const containerTrending = document.querySelector("#trendingGifos");
 //         const imagesLatestGifos = document.createElement("div");
 //         imagesLatestGifos.classList.add("singleGifo");
