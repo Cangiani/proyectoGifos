@@ -14,7 +14,7 @@
     
     #containerFavorites{
         width: 100vw;
-        height: 73em;      
+        // height: 73em;      
  
         .titleFavorite{
             @include titles;    
@@ -26,7 +26,7 @@
             padding-top: 0.7em;
         }
 
-        .noContentFavorites{
+        #noContentFavorites{
 
             .iconHeart{
                 width: 9.375em;
@@ -36,16 +36,16 @@
             h3{
                 color: $color-celeste;
 
-                .spanFavorites{
-                    display: block;                 //NO FUNCIONA
-                }
+                // .spanFavorites{
+                //     display: block;                 //NO FUNCIONA
+                // }
             }
             
         }
         
         .imagesFavorites{
             width:70.5em;
-            height: 43em;                       //???
+            // height: 43em;                       //???
             margin: auto;
             
             box-sizing: border-box;

@@ -88,6 +88,7 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    background: #FFFFFF;
     position: -webkit-sticky;
     position: sticky;
     top: 0%;
@@ -597,8 +598,7 @@ header {
 
 @media screen and (min-width: 768px) {
   #containerFavorites {
-    width: 100vw;
-    height: 73em; }
+    width: 100vw; }
     #containerFavorites .titleFavorite {
       color: #572EE5;
       text-align: center;
@@ -617,7 +617,6 @@ header {
         display: block; }
     #containerFavorites .imagesFavorites {
       width: 70.5em;
-      height: 43em;
       margin: auto;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;

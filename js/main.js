@@ -1,22 +1,36 @@
 // MAIN.JS -> logica de inicializacion puntual de la aplicacion (dom contentloaded y eventlisteners iniciales)
 //en main solo agregar eventos
 
-// const API_URL = "https://api.giphy.com/v1/gifs";
-// const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
-
-
 // https://api.giphy.com/v1/gifs/search/tags?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY
 // trending: https://api.giphy.com/v1/gifs/trending?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY&limit=3&rating=g
 
 
+//Inicializar Favoritos 
+const favoritesGifos = () => {
+    if (localStorage.getItem("favorites")){      //consulta si existe "favoritos"                          
+        localStorage.setItem("favorites", JSON.stringify({favorites: []})); 
+
+    }else {                                     //si no existe (setea con setItem)
+        localStorage.setItem("favorites", JSON.stringify({favorites: []}));    //desp pusheamos este array
+    }
+
+    localStorage.setItem("gifs", JSON.stringify({gifs: []}));          //para guardar los gifos que traiga de la API?
+}
+
+
+
 document.addEventListener("DOMContentLoaded", async () => {
-
+    
     const imagesApiTrending = await getTrendingGifos();
-    const trendingImgs = await trendingImages(imagesApiTrending);
-
     favoritesGifos();
+    const trendingImgs = await trendingImages(imagesApiTrending);
+    pintarGifFav();
+    
 });
 
+
+
+//  -----------------------------------------  DOWNLOAD  -----------------------------------
 //     //create new a element
 //     let a = document.createElement('a');
 //     // get image as blob

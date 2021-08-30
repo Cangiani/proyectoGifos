@@ -1,4 +1,3 @@
-// SECCIÓN HOME --> BUSCADOR AUTOCOMPLETE
 const API_URL = "https://api.giphy.com/v1/gifs";
 const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
 
@@ -23,30 +22,33 @@ const getSearchGifsByKeyword = async (keyword, offset) => {
   }
 }
 
-const getGifs = (gifs) => {         
+// const getGifs = (gifs) => {         
 
-  gifs.data.forEach(gif => {
-    const containerTrending = document.querySelector("#trendingGifos");
-    const containerGifosSearch = document.createElement("div");
-    containerGifosSearch.classList.add("singleGifo");
-    containerGifosSearch.innerHTML = `
-      <img class="singleImg" src="${gif.images.fixed_height.url}" alt="imgGifos">
-      <div class="trendingInfo"> 
-        <div class="hoverIcons">
-          <a href="#"> <img data-id="${gif.id}" class="heart" src="./images/icon-fav.svg" alt="heart"></a>
-          <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-          <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
-        </div>
-        <div class="pInfo">
-          <p class="user">${gif.username}</p>
-          <p class="title">${gif.title}</p> 
-        </div>
-      </div>`;
-    containerTrending.appendChild(containerGifosSearch);     
-  });
+//   gifs.data.forEach(gif => {
+//     const containerTrending = document.querySelector("#trendingGifos");
+//     const containerGifosSearch = document.createElement("div");
+//     containerGifosSearch.classList.add("singleGifo");
+//     containerGifosSearch.innerHTML = `
+//       <img class="singleImg" src="${gif.images.fixed_height.url}" alt="imgGifos">
+//       <div class="trendingInfo"> 
+//         <div class="hoverIcons">
+//           <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+//           <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+//           <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
+//         </div>
+//         <div class="pInfo">
+//           <p class="user">${gif.username}</p>
+//           <p class="title">${gif.title}</p> 
+//         </div>
+//       </div>`;
+//     containerTrending.appendChild(containerGifosSearch);  
+    
+//     //FAVORITES
+//     containerGifosSearch.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);
+//   });
 
-  //      Modal Expand
-}
+//   //      Modal Expand
+// }
 
 
 const getSuggestionsGifos = async (ev) => {
@@ -105,7 +107,7 @@ const getSuggestionsGifos = async (ev) => {
     
     document.querySelector(".home .subtitle").style.display = "none";
 
-    if(ev.target.value === ""){                   // NO FUNCIONA!!!
+    if(ev.target.value === ""){                                 //no funciona              
       
       const searchNoresult = () => {
         const divNoResult = document.createElement("div");
@@ -138,7 +140,7 @@ const getSuggestionsGifos = async (ev) => {
         <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
         <div class="searchInfo"> 
           <div class= "hoverIcons">
-            <a href="#"> <img data-id="${gif.id}" class="heart" src="./images/icon-fav.svg" alt="heart"></a>
+            <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
             <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
             <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
           </div>
@@ -161,7 +163,9 @@ const getSuggestionsGifos = async (ev) => {
 }
 document.querySelector(".autocomplete").addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
     
+
 let clickCounter = 0;
+
 
 const getMoreGifs = async () =>{
   clickCounter += 1;
@@ -179,7 +183,7 @@ const getMoreGifs = async () =>{
     <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
     <div class="searchInfo"> 
       <div class= "hoverIcons">
-        <a href="#"> <img data-id="${gif.id}" class="heart" src="./images/icon-fav.svg" alt="heart"></a>
+        <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
         <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
         <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
       </div>
@@ -215,7 +219,7 @@ const showModalExpand = (img, id, user, title) => {
   </div>
   <div class="trendingExpand"> 
     <div class="hoverIcons">
-      <a href="#"> <img data-id="${id}" class="heart" src="./images/icon-fav.svg" alt="heart"></a>
+      <a href="#"> <img data-id="${id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
       <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
     </div>
     <div class="infoExpand">
@@ -228,8 +232,4 @@ const showModalExpand = (img, id, user, title) => {
   modal.querySelector(".btnCloseModal").addEventListener("click", () => {
     modal.style.display = "none";
   });
-
-  //FAVORITES
-
-  //DOWNLOAD 
 }
