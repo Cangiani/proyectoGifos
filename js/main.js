@@ -4,30 +4,25 @@
 // https://api.giphy.com/v1/gifs/search/tags?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY
 // trending: https://api.giphy.com/v1/gifs/trending?api_key=u97suGng8xUtL28uyoZRwdmODNFgxzIY&limit=3&rating=g
 
-
 //Inicializar Favoritos 
 const favoritesGifos = () => {
-    if (localStorage.getItem("favorites")){      //consulta si existe "favoritos"                          
-        localStorage.setItem("favorites", JSON.stringify({favorites: []})); 
-
-    }else {                                     //si no existe (setea con setItem)
+    if (localStorage.getItem("favorites")){                                          //consulta si existe "favoritos"                          
+        //localStorage.setItem("favorites", JSON.stringify({favorites: []})); 
+        pintarGifFav();
+    }else {                                                                          //si no existe (setea con setItem)
         localStorage.setItem("favorites", JSON.stringify({favorites: []}));    //desp pusheamos este array
     }
-
-    localStorage.setItem("gifs", JSON.stringify({gifs: []}));          //para guardar los gifos que traiga de la API?
+    //localStorage.setItem("gifs", JSON.stringify({gifs: []}));  //guarda gifs que traigo de la API en el array vacio
 }
-
+const arrayFavorites = [];
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     
     const imagesApiTrending = await getTrendingGifos();
-    favoritesGifos();
     const trendingImgs = await trendingImages(imagesApiTrending);
-    pintarGifFav();
-    
+    favoritesGifos();
 });
-
 
 
 //  -----------------------------------------  DOWNLOAD  -----------------------------------

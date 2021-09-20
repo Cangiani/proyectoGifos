@@ -1,19 +1,21 @@
-const pintarGifFav = () =>{                 
+const containerFav = document.querySelector(".imagesFavorites"); 
+
+const pintarGifFav = () =>{      
 
     const localFavorites = JSON.parse(localStorage.getItem('favorites'));
-    
-    if (localFavorites.favorites.length >= 1) {
+    //document.getElementById("noContentFavorites").style.display = "none";
 
-        // const noContentFav = document.querySelector("#noContentFavorites").style.display = "none";
+    if (containerFav != null) {         //if (localFavorites.favorites.length >0) {           //MEJOR >=1?
 
-        localFavorites.favorites.forEach(fav => {
+        // containerFav.innerHTML = '';
 
-            const containerFav = document.querySelector("#containerFavorites .imagesFavorites");   
-            const containerGifFav = document.createElement("div");
-            containerGifFav.classList.add("singleGifo");
-            containerGifFav.innerHTML = `
-            <img class="singleImg" src="${fav.images.fixed_height.url}" alt="imgGifos">
-            <div class="trendingInfo"> 
+        localFavorites.favorites.forEach(fav => {               //mejor poner map?   
+            
+            const divFav = document.createElement("div");
+            divFav.classList.add("singleImgFav");
+            divFav.innerHTML = `
+            <img class="imgGifFav" src="${fav.images.fixed_height.url}" alt="imgGifos">
+            <div class="favInfo"> 
             <div class="hoverIcons">
                 <a href="#"> <img data-id="${fav.id}" class="btnHeartRemove" src="./images/icon-fav.svg" alt="heart"></a>
                 <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
@@ -24,57 +26,53 @@ const pintarGifFav = () =>{
                 <p class="title">${fav.title}</p> 
             </div>
             </div>`;
-            containerFav.appendChild(containerGifFav); 
+            containerFav.appendChild(divFav); 
 
-            // Remove Favorites             //HACER!!!
+            //ELIMINAR FAVORITE
             //containerFav.querySelector('.btnRemoveFav').addEventListener("click", removeFavHandler);
+            // if (buttonPressed.image.src === "./images/icon-fav-active.svg"){
+            //     //localStorage.removeItem('favorites');                                               
+            // }
 
-
-            //EXPAND
+            //MODAL EXPAND
+            const expandGif = containerFav.querySelector('.btnExpand');
+            expandGif.addEventListener("click", function() {
+            showModalExpand(fav.images.fixed_height.url, fav.id, fav.username, fav.title);
+            });
 
             //DOWNLOAD
         });
     }
 }
 
-// containerGifFav.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);
-
-// const gifosFound =[];   //poner en main?
-
-// const addToFavs = (ev) => {
-//     const button = ev.target;
-//     if (gifosFound.length > 0) {
-//         const idGifSelected = button.getAttribute('data-id');
-//         const localFavs = JSON.parse(localStorage.getItem('favoritos'));
-//         const favSelected = gifosFound.find(fav => fav.id === idGifSelected);
-//         localFavs.push(favSelected);
-//         localStorage.setItem('favoritos', JSON.stringify(localFavs))
-//         printFavs()
-//     }
-// }
-
-const agregarFavoritoHandler = (ev =>{
+const agregarFavoritoHandler = (ev => {
  
-    const buttonPressed = ev.target;
-    // buttonPressed.image.src = "./images/icon-fav-active.svg"
+    if (arrayFavorites.length > 0){
+        const buttonPressed = ev.target;
+        // buttonPressed.image.src = "./images/icon-fav-active.svg"
+        const idGifSelected = buttonPressed.getAttribute('data-id');    //const idGifSelected = parseInt(buttonPressed.getAttribute("data-id"));
+        // const localGifs = JSON.parse(localStorage.getItem('gifs'));      //ya no hay localstorage gifs
+        const gifsJson = arrayFavorites.find(fav => fav.id === idGifSelected);
+        const localFavorites = JSON.parse(localStorage.getItem('favorites'));
+        
+        localFavorites.favorites.push(gifsJson);  
 
-    const idGifSelected = buttonPressed.getAttribute("data-id");        //const idGifSelected = parseInt(buttonPressed.getAttribute("data-id"));
-    const localGifs = JSON.parse(localStorage.getItem('gifs'));
-    const localFavs = JSON.parse(localStorage.getItem('favorites'));
-    const gifsJson = localGifs.gifs.find(g => g.id === idGifSelected);
-    localFavs.favorites.push(gifsJson);                 //
-    localStorage.setItem('favorites', JSON.stringify(localFavs));
-    pintarGifFav ();
+        localStorage.setItem('favorites', JSON.stringify(localFavorites));
+        pintarGifFav();
+    }
     
-    
-    // const containerFavorites =  document.querySelector('#containerFavorites .imagesFavorites');
-    // containerFavorites.innerHTML = '';  
-    // localFavorites.favorites.forEach(favorite => {
+    // if (arrayFavorites.length > 0){
+    //     // eliminar de favoritos
+        
+    //     }else {
+    //         const idGifSelected = buttonPressed.getAttribute('data-id');    //const idGifSelected = parseInt(buttonPressed.getAttribute("data-id"));
+        //     const localGifs = JSON.parse(localStorage.getItem('gifs'));    
+        //     const localFavorites = JSON.parse(localStorage.getItem('favorites'));
+        //     const gifsJson = localGifs.gifs.find(g => g.id === idGifSelected);
+        //     localFavorites.favorites.push(gifsJson);                 
+        //     localStorage.setItem('favorites', JSON.stringify(localFavorites));
+    //     
+    //     }
     //     pintarGifFav ();
-    // })
-
-    //ELIMINAR
-    // if (buttonPressed.image.src === "./images/icon-fav-active.svg"){
-    //     //localStorage.removeItem('favorites');                                               
     // }
 });

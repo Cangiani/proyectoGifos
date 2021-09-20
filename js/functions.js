@@ -49,9 +49,55 @@ const getSearchGifsByKeyword = async (keyword, offset) => {
 
 //   //      Modal Expand
 // }
+ 
+let clickCounter = 0;
 
+const getMoreGifs = async () =>{
+  clickCounter += 1;
+  // const inputSuggestions = document.getElementById('searchGifos');
+  const gifs = await getSearchGifsByKeyword(inputSuggestions.value, clickCounter);
+  const containerNewImg = document.querySelector("#showSearchGif");
+  
+  gifs.data.forEach(gif => {
+    
+    const containerShowSearchGifs = document.querySelector("#showSearchGif");
+    containerShowSearchGifs.classList.add("showSearchGif");
+    const imagesLatestGifos = document.createElement("div");
+    imagesLatestGifos.classList.add("singleImgSearch");
+    imagesLatestGifos.innerHTML = `
+    <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
+    <div class="searchInfo"> 
+      <div class= "hoverIcons">
+        <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+        <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+        <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
+      </div>
+      <div class="pInfo">
+        <p class="user">${gif.username}</p>
+        <p class="titleGifSearch">${gif.title}</p> 
+      </div>
+    </div>`
+    containerShowSearchGifs.appendChild(imagesLatestGifos);
+
+    // FAVORITES
+    // const localGifs = JSON.parse(localStorage.getItem('gifs'));
+    // localGifs.gifs.push(imgGifo);
+    // localStorage.setItem('gifs', JSON.stringify(localGifs));
+
+    imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+
+    //MODAL EXPAND
+    const expandGif = imagesLatestGifos.querySelector('.btnExpand');
+    expandGif.addEventListener("click", function() {
+      showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+    });
+  });
+}
+
+const inputSuggestions = document.getElementById('searchGifos');
 
 const getSuggestionsGifos = async (ev) => {
+  
   const containerSuggestions = document.querySelector("#containerSuggestions");   
   containerSuggestions.innerHTML = "";       //para q sugerencias esten vacias y no se vayan concatenando un monton de li de las cosas que se busquen. blanquea 
   const containerGifs = document.querySelector('#showSearchGif');
@@ -100,30 +146,27 @@ const getSuggestionsGifos = async (ev) => {
     suggestionLoading = false;
   }
 
-  if (ev.keyCode === 13 || ev.keyCode == "Enter") {      //si presiona ENTER va a traer los gifs y los va a pintar
+  if (ev.keyCode === 13 || ev.keyCode == "Enter") {      //presiona ENTER, trae los gifs y los pinta
     
     const gifs = await getSearchGifsByKeyword(ev.target.value, 0); //0 significa la primer pagina (0*12,1*12,2*12...)
     showTitle.textContent = ev.target.value; 
     
     document.querySelector(".home .subtitle").style.display = "none";
 
-    if(ev.target.value === ""){                                 //no funciona              
+    if(ev.target.value == null){                   //no funciona   PONER ev.data.length === 0  ?  o gifs === 0 ?     
       
-      const searchNoresult = () => {
-        const divNoResult = document.createElement("div");
-        divNoResult.classList.add("noResultSearchGifos");  
-        divNoResult.innerHTML = `
-        <div class="containerImgNoResult">
-          <img src="./images/icon-busqueda-sin-resultado.svg" alt="noResult">
-          <h3>Intenta con otra búsqueda.</h3>
-        </div>`;
-        document.querySelector(".btnSearchGif").style.display = "none";
-        divContainerSearch.appendChild(divNoResult);
-      }
+      const divNoResult = document.createElement("div");
+      divNoResult.classList.add("noResultSearchGifos");  
+      divNoResult.innerHTML = `
+      <div class="containerImgNoResult">
+        <img src="./images/icon-busqueda-sin-resultado.svg" alt="noResult">
+        <h3>Intenta con otra búsqueda.</h3>
+      </div>`;
+      document.querySelector(".btnSearchGif").style.display = "none";
+      divContainerSearch.appendChild(divNoResult);
 
     }else{
       document.querySelector(".borderBottomSearch").style.display = "none";
-      document.querySelector(".btnSearchGif").style.display = "block";
       divContainerSearch.classList.remove("searchActive");
       containerSuggestions.innerHTML = ""; 
       showTitle.style.paddingTop = "2em";   
@@ -132,6 +175,7 @@ const getSuggestionsGifos = async (ev) => {
 
       gifs.data.forEach(gif => {
 
+        arrayFavorites.push(gif);                                                     //FAVORITES
         const containerShowSearchGifs = document.querySelector("#showSearchGif");
         containerShowSearchGifs.classList.add("showSearchGif");
         const imagesLatestGifos = document.createElement("div");
@@ -151,6 +195,13 @@ const getSuggestionsGifos = async (ev) => {
         </div>`
         containerShowSearchGifs.appendChild(imagesLatestGifos);
 
+        // FAVORITES
+        // const localGifs = JSON.parse(localStorage.getItem('gifs'));
+        // localGifs.gifs.push(imgGifo);
+        // localStorage.setItem('gifs', JSON.stringify(localGifs));
+
+        imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+
         //MODAL EXPAND
         const expandGif = imagesLatestGifos.querySelector('.btnExpand');
         expandGif.addEventListener("click", function() {
@@ -158,52 +209,16 @@ const getSuggestionsGifos = async (ev) => {
         });
 
       });
+      document.querySelector(".btnSearchGif").style.display = "block";
+      document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);      //btn ver más
     }
   }
 }
-document.querySelector(".autocomplete").addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
-    
 
-let clickCounter = 0;
+if (inputSuggestions != null) {
 
-
-const getMoreGifs = async () =>{
-  clickCounter += 1;
-  const inputSuggestions = document.querySelector("#searchGifos");
-  const gifs = await getSearchGifsByKeyword(inputSuggestions.value, clickCounter);
-  const containerNewImg = document.querySelector("#showSearchGif");
-  
-  gifs.data.forEach(gif => {
-    
-    const containerShowSearchGifs = document.querySelector("#showSearchGif");
-    containerShowSearchGifs.classList.add("showSearchGif");
-    const imagesLatestGifos = document.createElement("div");
-    imagesLatestGifos.classList.add("singleImgSearch");
-    imagesLatestGifos.innerHTML = `
-    <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
-    <div class="searchInfo"> 
-      <div class= "hoverIcons">
-        <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
-        <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-        <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
-      </div>
-      <div class="pInfo">
-        <p class="user">${gif.username}</p>
-        <p class="titleGifSearch">${gif.title}</p> 
-      </div>
-    </div>`
-    containerShowSearchGifs.appendChild(imagesLatestGifos);
-
-    //MODAL EXPAND
-    const expandGif = imagesLatestGifos.querySelector('.btnExpand');
-    expandGif.addEventListener("click", function() {
-      showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
-    });
-  });
+  inputSuggestions.addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
 }
-
-document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);
-
 
 
 //----------------------------------------------------MODAL-----------------------------------------------------
@@ -227,6 +242,13 @@ const showModalExpand = (img, id, user, title) => {
       <p class="titleExpand">${title}</p> 
     </div>
   </div>`;
+
+  // FAVORITES
+  // const localGifs = JSON.parse(localStorage.getItem('gifs'));
+  // localGifs.gifs.push(imgGifo);
+  // localStorage.setItem('gifs', JSON.stringify(localGifs));
+
+  modal.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
   //CERRAR MODAL
   modal.querySelector(".btnCloseModal").addEventListener("click", () => {

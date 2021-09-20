@@ -1,4 +1,3 @@
-//TRENDING GIFOS:
 //en cada pagina de html que se repita el trendingGifos tengo que copiar el script de trending, no el codigo.
 
 const getTrendingGifos = async () => {
@@ -12,7 +11,7 @@ const getTrendingGifos = async () => {
 
 const trendingImages = async (trending) => {
 
-    trending.data.map(imgGifo => {                      //conviene un forEach?
+    trending.data.forEach(imgGifo => {                      //conviene un forEach? VUELVO AL MAP?
 
         const containerTrending = document.querySelector("#trendingGifos");
         const imagesLatestGifos = document.createElement("div");
@@ -32,20 +31,28 @@ const trendingImages = async (trending) => {
         </div>`
         containerTrending.appendChild(imagesLatestGifos);
 
-
+        
+        
         //MODAL EXPAND
         const expandGif = imagesLatestGifos.querySelector('.btnExpand');
         expandGif.addEventListener("click", function() {
             showModalExpand(imgGifo.images.fixed_height.url, imgGifo.id, imgGifo.username, imgGifo.title);
         });
-
-
-        // FAVORITES
+  
+        // //FAVORITES
         // const localGifs = JSON.parse(localStorage.getItem('gifs'));
         // localGifs.gifs.push(imgGifo);
         // localStorage.setItem('gifs', JSON.stringify(localGifs));
-        imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
+        // imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", function() {
+         
+        //     const localGifs = JSON.parse(localStorage.getItem('gifs'));
+        //     localGifs.gifs.push(imgGifo);
+        //     localStorage.setItem('gifs', JSON.stringify(localGifs));
+        //     agregarFavoritoHandler()
+
+        // });
+        
         // const getFavorites = () => {
         //     const localFavorites = JSON.parse(localStorage.getItem('favorites'));
         //     const containerFavorites =  document.querySelector('#containerFavorites .imagesFavorites');
@@ -54,8 +61,6 @@ const trendingImages = async (trending) => {
         //         pintarGifFav ();
         //     })
         // } 
-    
-    });  
-    
-    
+        
+    })
 };
