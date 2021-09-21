@@ -80,10 +80,7 @@ const getMoreGifs = async () =>{
     containerShowSearchGifs.appendChild(imagesLatestGifos);
 
     // FAVORITES
-    // const localGifs = JSON.parse(localStorage.getItem('gifs'));
-    // localGifs.gifs.push(imgGifo);
-    // localStorage.setItem('gifs', JSON.stringify(localGifs));
-
+    arrayFavorites.push(gif); 
     imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
     //MODAL EXPAND
@@ -175,7 +172,6 @@ const getSuggestionsGifos = async (ev) => {
 
       gifs.data.forEach(gif => {
 
-        arrayFavorites.push(gif);                                                     //FAVORITES
         const containerShowSearchGifs = document.querySelector("#showSearchGif");
         containerShowSearchGifs.classList.add("showSearchGif");
         const imagesLatestGifos = document.createElement("div");
@@ -196,10 +192,7 @@ const getSuggestionsGifos = async (ev) => {
         containerShowSearchGifs.appendChild(imagesLatestGifos);
 
         // FAVORITES
-        // const localGifs = JSON.parse(localStorage.getItem('gifs'));
-        // localGifs.gifs.push(imgGifo);
-        // localStorage.setItem('gifs', JSON.stringify(localGifs));
-
+        arrayFavorites.push(gif); 
         imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
         //MODAL EXPAND
@@ -216,7 +209,6 @@ const getSuggestionsGifos = async (ev) => {
 }
 
 if (inputSuggestions != null) {
-
   inputSuggestions.addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
 }
 

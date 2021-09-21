@@ -30,40 +30,27 @@
         </nav>
     </header>
 
-
     <!--Sección MAIN -->
     <main>
         <!--Sección Mis Gifos-->
-
-        <div class="containerMisGifos"> 
-            <div class="titleMisGifos">
-                <img src="./images/icon-mis-gifos.svg" alt="iconGifos">
-                <h2>Mis GIFOS</h2>
+        <section>
+            <div class="containerMisGifos"> 
+                <div class="titleMisGifos">
+                    <img src="./images/icon-mis-gifos.svg" alt="iconGifos">
+                    <h2>Mis GIFOS</h2>
+                </div>
+    
+                <div class="noContentMisGifos">
+                    <div class="iconGifos"><img src="./images/icon-mis-gifos.svg" alt="iconGifos"></div>
+                    <h3>"¡Anímate a crear tu primer GIFO!</h3>
+                </div>
+                
+                <div class="imagesMisGifos"> <!--Acá van los gifs--> </div>
+                
+    
+                <button class="btnMoreMisGifos">VER MAS</button>
             </div>
-
-            <div class="noContentMisGifos">
-                <div class="iconGifos"><img src="./images/icon-mis-gifos.svg" alt="iconGifos"></div>
-                <h3>"¡Anímate a crear tu primer GIFO!</h3>
-            </div>
-            
-            <div class="imagesMisGifos">
-
-                <img src="" alt="" class="img1">
-                <img src="" alt="" class="img2">
-                <img src="" alt="" class="img3">
-                <img src="" alt="" class="img4">
-                <img src="" alt="" class="img5">
-                <img src="" alt="" class="img6">
-                <img src="" alt="" class="img7">
-                <img src="" alt="" class="img8">
-                <img src="" alt="" class="img9">
-                <img src="" alt="" class="img10">
-                <img src="" alt="" class="img11">
-                <img src="" alt="" class="img12">
-            </div>
-            
-            <button class="btnMoreMisGifos">VER MAS</button>
-        </div>
+        </section>
 
         <!--Sección Trending Gifos-->
         <section>
@@ -74,42 +61,22 @@
                     <h3>Mirá los últimos <span>GIFO de nuestra comunidad</span></h3> 
                 </div>
     
-                <div id="trendingGifos"><!--    
-                    <div class="singleGifo">
-                        <img class="singleImg" src="${trendingUrl}" alt="imgGifos">
-
-                        <div class="trendingInfo"> 
-                            <div class="hoverIcons>
-                                <a class="heart"> <img src="./images/icon-fav.svg" alt="heart"> </a>
-                                <a class="downloadIcon"> <img src="./images/icon-download.svg" alt="download"> </a>
-                                <a class="expand"> <img src="./images/icon-max-normal.svg" alt="max"> </a>
-                            </div>
-                            <div class="pInfo">
-                                <p class="user">User: ${trending.username}</p>
-                                <p class="title">Título: ${trending.title}</p> 
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
+                <div id="trendingGifos"></div>
             </div>
         </section>
-
     </main>
-
 
     <!--Sección footer -->
     <footer>
         <div class="footer">
             <div class="socialMedia">
                 <h4>Compartir en:</h4>
-
                 <div class="icons">
                     <div><a href="https://www.facebook.com/"></a> <img src="./images/icon_facebook.svg" alt="facebook"></div>
                     <div><a href="https://twitter.com/"></a> <img src="./images/icon-twitter.svg" alt="twitter"></div>
                     <div><a href="https://www.instagram.com/"></a> <img src="./images/icon_instagram.svg" alt="instagram"></div>
                 </div>  
             </div>
-            
             <!-- <div class="copyright"></div> -->
             <p>© GIFOS 2020 All Rights Reserved.</p>
             <hr>

@@ -618,7 +618,6 @@ header {
       margin: auto;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
-      border: 1px solid black;
       display: grid;
       grid-template: repeat(5, 1fr)/repeat(4, 1fr);
       grid-gap: 2.19em 1.81em;
@@ -698,7 +697,7 @@ header {
         #containerFavorites .imagesFavorites .singleImgFav:hover {
           width: 16.25em;
           height: 12.5em; }
-          #containerFavorites .imagesFavorites .singleImgFav:hover .searchInfo {
+          #containerFavorites .imagesFavorites .singleImgFav:hover .favInfo {
             background-color: #572EE5;
             opacity: 0.7;
             display: block; }
@@ -957,7 +956,7 @@ header {
         -ms-flex-item-align: end;
             align-self: flex-end;
         border-radius: 10px 10px 10px 10px; }
-      #containerCreateGifos .stepByStep .buttonStart {
+      #containerCreateGifos .stepByStep .buttonVideo {
         color: #572EE5;
         border: 1px solid #572EE5;
         border-radius: 30px;
@@ -968,6 +967,12 @@ header {
         padding: 1.4em 1.5em 1em 1.5em;
         margin-top: 1.3em;
         background-color: #FFFFFF; }
+      #containerCreateGifos .stepByStep .grabar {
+        display: none; }
+      #containerCreateGifos .stepByStep .finalizar {
+        display: none; }
+      #containerCreateGifos .stepByStep .subir {
+        display: none; }
     #containerCreateGifos .imageFilm {
       width: 5.45em;
       height: 5.44em;

@@ -53,6 +53,8 @@
                             <h2><span class="blockSpan">Aquí podrás</span> crear tus propios <span class="coloredSpan">GIFOS</span></h2>
                             <p>¡Crea tu GIFO en sólo 3 pasos! <span class="blockSpan">(sólo necesitas una cámara para grabar un video)</span></p>    
                         </div>
+
+                        <div class="containerVideo">  </div>              
                         
                         <div class="corner3"></div>
                         <div class="corner4"></div>
@@ -67,17 +69,21 @@
 
                     <hr>
 
-                    <button class="buttonStart">COMENZAR</button>
-                </div>
-                
-                    <div class="imageFilm">
-                        <img src="./images/pelicula.svg" alt="pelicula" class="film">
-                    </div>
+                    <button class="buttonVideo comenzar">COMENZAR</button>
+                    <button class="buttonVideo grabar">GRABAR</button>
+                    <button class="buttonVideo finalizar">FINALIZAR</button>
+                    <button class="buttonVideo subir">SUBIR</button>
 
                     <!--Seccion Create Gifos Boton 1-->
 
                     <!-- <h2>¿Nos das acceso <span>a tu cámara?</span></h2>
-                    <p>El acceso a tu camara será válido sólo <span>por el tiempo en el que estés creando el GIFO.</span></p>-->
+                    <p>El acceso a tu camara será válido sólo <span>por el tiempo en el que estés creando el GIFO.</span></p>-->  
+                </div>
+
+                <div>
+                    <div class="imageFilm">
+                        <img src="./images/pelicula.svg" alt="pelicula" class="film">
+                    </div>  
                 </div>
             </div>
         </section>
@@ -101,13 +107,14 @@
         </div>
     </footer>
 
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./js/createGifos.js"></script>
+    <script src="./js/misGifos.js"></script>
+
     <script src="./js/functions.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/trendingGifos.js"></script>
     <script src="./js/nightMode.js"></script>
     <script src="./js/favorites.js"></script>
-    <script src="./js/misGifos.js"></script>
-    <script src="./js/createGifos.js"></script>
-
 </body>
 </html>

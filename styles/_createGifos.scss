@@ -94,6 +94,10 @@
                         color: $color-celeste;
                     }
                 }
+
+                // .containerVideo{
+                    
+                // }
                 
                 .corner3{
                     grid-area: 3/1/4/2;
@@ -143,12 +147,21 @@
                 border-radius: 10px 10px 10px 10px;         //poner en em?
             }
     
-            .buttonStart{
+            .buttonVideo{
                 @include button;
                 font-size: 13px;
                 padding: 1.4em 1.5em 1em 1.5em;
                 margin-top: 1.3em;
                 background-color: $color-blanco;
+            }
+            .grabar{
+                display: none;
+            }
+            .finalizar{
+                display: none;
+            }
+            .subir{
+                display: none;
             }
         }
     

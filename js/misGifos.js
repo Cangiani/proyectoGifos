@@ -1,47 +1,72 @@
+document.addEventListener('DOMContentLoaded', ()=> {
 
-// const misGifos = async (miGif) => {
+    const misGifos = JSON.parse (localStorage.getItem('misGifos'));
+    const urls = misGifos.map (id => `https://i.giphy.com/${id}.gif`);
 
-    //     miGif.data.forEach(gif => {
-    //         const containerMisGifos = document.querySelector("");
-    // //     containerMisGifos.classList.add("");
-    // //     const imgMisGifos = document.createElement("div");
-    // //     imgMisGifos.classList.add("");
-    //         imgMisGifos.innerHTML = `
-    //         <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
-    //         <div class="searchInfo"> 
-    //         <div class= "hoverIcons">
-    //             <a href=""> <img data-id="${gif.id}" class="iconTrash" src="./images/icon-trash-normal.svg" alt="trash"></a>
-    //             <a href=""> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-    //             <a href=""> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
-    //         </div>
-    //         <div class="pInfo">
-    //             <p class="user">${gif.username}</p>
-    //             <p class="titleMisGifos">${gif.title}</p> 
-    //         </div>
-    //         </div>`
-    //         containerTrending.appendChild(imagesLatestGifos);
-    //     });
+    const gifElements = urls.map (url =>  {
+
+        const divMisGifos = document.createElement("div");
+        //divMisGifos.classList.add("");                        //CREAR CLASS
+        divMisGifos.innerHTML = `
+        <img class="imgMisGifos" src="${url}" alt="imgMisGifos"> 
+        <div class="searchInfo"> 
+            <div class= "hoverIcons">
+                <a href=""> <img data-id="${url}" class="iconTrash" src="./images/icon-trash-normal.svg" alt="trash"></a>
+                <a href=""> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+                <a href=""> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
+            </div>
+            <div class="pInfo">
+                <p class="user"> PONER USER</p>
+                <p class="titleMisGifos"> PONER TITLE </p> 
+            </div>
+        </div>`
+
+        //DELETE
+
+        //MODAL EXPAND
+        // const expandGif = divMisGifos.querySelector('.btnExpand');
+        // expandGif.addEventListener("click", function() {
+        //     showModalExpand(url.images.fixed_height.url, url.id, url.username, url.title);
+        // });
+  
+        // DOWNLOAD 
+        // const downloadGif = async (ev) => {
+        //     let downloadUrl = await fetch(`https://media2.giphy.com/media/${url.id}/giphy.gif`);
+        //     let file = await downloadUrl.blob();
+        //     // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes   
+        //     const anchor = document.createElement('a');  
+        //     const urlGifs = URL.createObjectURL(file);
+        //     anchor.href = urlGifs;
+        //     const titleGif = document.querySelector('.singleImg').alt;
+        //     anchor.download = "misGifos.gif";
+        //     //anchor.style = 'display: "none"';
+        //     document.body.appendChild(anchor);
+        //     anchor.click();                             // click on element to start download  
+        //     document.body.removeChild(anchor);
+        // }
+        // divMisGifos.querySelector('.downloadIcon').addEventListener("click", downloadGif);
+
+        return divMisGifos;
+    });
+
+    gifElements.forEach(gif => {
+        document.querySelector('.imagesMisGifos').appendChild(gif);
+    });
+});
 
 
-    //LOCAL STORAGE
+//LOCAL STORAGE
 
-    // const pintarFavoritos = () => {
-    // const localFavorites = JSON.parse (localStorage.getItem('favorites'));
-    // const containerFavorites =  document.querySelector('#containerFavorites .imagesFavorites');
-    // containerFavorites.innerHTML = '';
+// const pintarFavoritos = () => {
+// const localFavorites = JSON.parse (localStorage.getItem('favorites'));
+// const containerFavorites =  document.querySelector('#containerFavorites .imagesFavorites');
+// containerFavorites.innerHTML = '';
 
-    // localFavorites.favorites.forEach(favorite => {
-    //     pintarGif (favorito, containerFavoritos);
-    // })
-    //}
+// localFavorites.favorites.forEach(favorite => {
+//     pintarGif (favorito, containerFavoritos);
+// })
+//}
 
-    //MODAL
+//MODAL
 
-    //CERRAR MODAL            
-
-// };
-
-
-
-
-
+//CERRAR MODAL    
