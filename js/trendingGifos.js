@@ -31,6 +31,21 @@ const trendingImages = async (trending) => {
         </div>`
         containerTrending.appendChild(imagesLatestGifos);
 
+
+
+        //MOBILE
+
+        // if (window.matchMedia("(max-width: 768px)").matches){
+
+        //     const clickGif = imagesLatestGifos.querySelector('.singleImg');
+        //     clickGif.addEventListener("click", function() {
+        //         showModalExpand(imgGifo.images.fixed_height.url, imgGifo.id, imgGifo.username, imgGifo.title);
+        //     });
+            
+        // } else{
+
+        // }
+
         //MODAL EXPAND
         const expandGif = imagesLatestGifos.querySelector('.btnExpand');
         expandGif.addEventListener("click", function() {
@@ -75,5 +90,8 @@ const trendingImages = async (trending) => {
             // //anchor.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
         };
         imagesLatestGifos.querySelector('.downloadIcon').addEventListener("click", downloadGif);
+
+
+        
     })
 };

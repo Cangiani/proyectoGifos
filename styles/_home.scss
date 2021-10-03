@@ -13,7 +13,6 @@
 }
 
 
-
 .home{
     display: flex;
     flex-direction: column;
@@ -46,9 +45,8 @@
     }
 
     .browser{
-        margin-left: 3.19em;
         // padding-top: 1.94em;
-        display: flexbox;
+        display: flex;
         flex-flow: column nowrap;
         align-items: center;
         justify-content: center;
@@ -56,23 +54,201 @@
         .imageHome{
             width: 273px;
             height: 8.13em;  
+            margin-left: 3.19em;
             display: block;
         }
 
         .search{
-            width: 20.9em;     
-            height: 3.1em;
+            width: 20em;     
+            height: 3em;
             font-family: "Montserrat";       
             font-weight: bold;
-
             border: 1px solid;
             color: $color-principal;
-
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             justify-content: space-between;
             border-radius: 30px;
             padding: 0 1em;
+            margin-left: .7em;
+
+            .autocomplete{
+                width: 20em;
+                height: 3.3em;
+                padding-top: 1.4em;
+                border: none;
+                outline: none;
+                margin-left: 3em;                                  //CAMBIAR LETRA
+            }
+
+            .imageSearch{
+                width: 1.3em;
+                height: 2em;
+                // top: 2.7em;       //es necesario?
+            }
+
+            .closeSearch{
+                width: 1em;
+                height: 1em;                  
+                position: absolute;
+                top: 30.7em;
+                left: 50.6em;
+                display: none;
+            }
+
+            #containerSuggestions{
+                width: 15em;
+                height: 8em;
+                margin-top: .5em;
+                font-family: 'Roboto';
+                font-weight: 400;
+                font-size: 15px;
+                color: #9CAFC3;
+                text-transform: capitalize;
+
+                li{
+                    list-style: none;
+                    list-style-image: url('../images/icon-search-modo-noct.svg');
+                    padding-left: 1em;
+                    margin-left: 2em;
+                    padding-top: .3em;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .searchActive{
+            height: 10em;
+        }
+
+        .borderBottomSearch{
+            display: none;
+            width: 20em;
+            height: 1px;
+            opacity: 0.5;
+            color: #9CAFC3;
+        }
+
+        .containerImgNoResult{        
+
+            .imgNoResult{
+                width: 5em;
+                height: 5em;
+            }
+            h3{
+                font-size: 22px;
+                text-align: center;
+                color: #50E3C2;
+            }
+        }
+
+        .noResultSearchGifos{
+            font-size: 22px;
+            text-align: center;
+            color: #50E3C2;
+        }
+    }
+
+    #listGifs{
+        #titleGifs{
+            @include titles;            //PONERLE EL ESTILO CORRESPONDIENTE
+            font-family: "Montserrat";
+            font-size: 25px;
+            line-height: 30px;
+            text-transform: capitalize;
+        }
+
+        .showSearchGif{
+            width: 20.8em;                  
+            display: grid;
+            grid-template: repeat(6,7.5em) / repeat(2,1fr);
+            grid-gap: 1.3em 1.3em;
+            justify-content: center; 
+            padding-left: 1.3em;  
+
+            .singleImgSearch{
+                width: 9.75em;
+                height: 7.5em;
+
+                .imgGifsSearch {                    
+                    width: 9.75em;
+                    height: 7.5em;
+                }
+
+                .searchInfo{
+                    position: relative;
+                    height: 12.5em;
+                    transform: translate(0%, -102.5%);
+                    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                    text-transform: capitalize;
+                    display: none;
+
+                    .hoverIcons {
+                        width: 20vw;
+                        height: 3em;
+                        grid-area: 1/3/2/4;
+                        padding-top: .5em;
+                        padding-right: .16em;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        align-items: flex-start;
+                        align-content: flex-end;
+                        img{
+                            width: 2em;
+                            height: 2em;
+                            padding: .2em;
+                        }
+                    }
+
+                    .pInfo{   
+                        height: 5em;
+                        color: $color-blanco;
+                        font-family: 'Roboto'; 
+                        padding-left: 1em;
+                        padding-top: 1em;
+                        margin-top: 2em;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        align-items: flex-end;
+                        align-content: flex-end;
+
+                        .user{ 
+                            width: 13em;
+                            font-weight: 400;     
+                            font-size: 15px;
+                        }
+                        .titleGifSearch{
+                            font-weight: 900;  
+                            font-size: 16px;
+                        } 
+                    }
+                } 
+
+                &:hover{
+                    width: 16.25em;
+                    height: 12.5em;
+                    
+                    .searchInfo{
+                        background-color: $color-principal;
+                        opacity: 0.7;
+                        display: block                           
+                    }
+                }
+            }
+        }
+        .btnSearchGif{              
+            @include button;
+            font-size: 13px;              
+            padding: 1.4em 1.5em 1em 1.5em;
+            margin-top: 4em;
+            margin-bottom: 6em;
+            background-color: $color-blanco;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            display: none;
         }
     }
 
@@ -82,6 +258,7 @@
         padding-bottom: 2.8em;
         @include titles;
         font-family: 'Montserrat'; 
+        display: block;
 
         h2{
             font-size: 16px;
@@ -97,8 +274,6 @@
             display: block;
         }
     } 
-    
-    
 }
 
 
@@ -125,7 +300,6 @@
                 font-size: 35px;  
                 font-family: "Montserrat";
                 font-weight: bold;
-                
                 text-align: center;
                 
                 .space{
@@ -150,16 +324,18 @@
             }
 
             .search{
-                width: 34.4em;
-                display: block;                
+                width: 34.4em;    
+                height: 3.3em;  
+                display: block;
 
                 .autocomplete{
                     width: 30em;
                     height: 3.3em;
                     top: 2em;       //es necesario?
-                    border: none;
-                    outline: none;
-                    margin-left: 3em;                                  //CAMBIAR LETRA
+                    padding-top: 0;
+                    // border: none;
+                    // // outline: none;
+                    // margin-left: 3em;                                  //CAMBIAR LETRA
                 }
 
                 .imageSearch{
@@ -174,6 +350,7 @@
                     position: absolute;
                     top: 30.7em;
                     left: 50.6em;
+                    display: none;
                 }
 
                 #containerSuggestions{
@@ -181,20 +358,7 @@
                     height: 7em;
                     margin-top: .5em;
                     line-height: 1.5em;
-                    font-family: 'Roboto';
-                    font-weight: 400;
                     font-size: 16px;
-                    color: #9CAFC3;
-                    text-transform: capitalize;
-
-                    li{
-                        list-style: none;
-                        list-style-image: url('../images/icon-search-modo-noct.svg');
-                        padding-left: 1em;
-                        margin-left: 2em;
-                        padding-top: .3em;
-                        cursor: pointer;
-                    }
                 }
             }
 
@@ -345,67 +509,6 @@
 
             .span{
                 display: inline;
-            }
-        }
-
-        //                                          MODAL
-        .modalShow{
-            position: absolute;
-            width: 100vw; 
-            height: 100vh;
-            top:0;
-            margin: 0;
-            padding: 0;
-            z-index: 100;
-            box-sizing: border-box;
-            background-color: $color-blanco;              
-            display: none;
-
-            .btnCloseModal {
-                width: 3em;
-                height: 3em;
-                position: absolute;
-                top: 4rem; 
-                left: 80vw; 
-                z-index: 50;
-            }
-
-            .containerImgExpand {
-                .modalImg {
-                    width: 43.4em;
-                    height: 24.1em;
-                    padding-left: 18em;
-                    padding-top: 6em;
-                }
-            }
-
-            .trendingExpand{
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: space-around;
-
-                .hoverIcons{
-                    padding-right: 8em;
-                    img{
-                        padding-top: .8em;
-                    }
-                }
-                .infoExpand{
-                    color: $color-negro;
-                    font-family: 'Roboto'; 
-                    padding-left: 8em;
-                    padding-top: 1em;
-                    text-transform: capitalize;
-
-                    .userExpand{ 
-                        font-weight: 400;     
-                        font-size: 15px;
-                    }
-                    .titleExpand{
-                        font-weight: 900;  
-                        font-size: 16px;
-                    } 
-                }
             }
         }
     }

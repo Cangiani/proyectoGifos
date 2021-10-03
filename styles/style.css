@@ -28,12 +28,17 @@ header {
           align-items: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
-  header .logoMobile {
+  header .logoDesktop {
     display: inline-block;
     margin-left: 1.375em;
     margin-bottom: 1.08em; }
-  header .logoDesktop {
-    display: none; }
+    header .logoDesktop a img {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 18px;
+      color: #572EE5;
+      width: 3em;
+      height: 3em; }
   header nav .checkbox {
     display: none; }
   header nav .open {
@@ -68,8 +73,6 @@ header {
         line-height: 1.375em; }
       header nav ul li .buttonCrear {
         display: none; }
-        header nav ul li .buttonCrear .btnCreate {
-          height: 100vh; }
 
 @media screen and (min-width: 768px) {
   body {
@@ -95,12 +98,12 @@ header {
     z-index: 50; }
     header .logoDesktop {
       display: inline;
-      width: 3.7em;
-      height: 3.7em;
       margin-left: 9.75em;
       margin-top: 1.5em;
       margin-bottom: 0.8em; }
       header .logoDesktop a img {
+        width: 3.7em;
+        height: 3.7em;
         font-family: 'Roboto';
         font-weight: 400;
         font-size: 18px;
@@ -127,6 +130,8 @@ header {
           -ms-flex-align: center;
               align-items: center;
       background: #FFFFFF; }
+      header nav ul li .buttonCrear {
+        display: block; }
       header nav ul li a {
         font-size: 13px;
         text-transform: uppercase;
@@ -182,8 +187,9 @@ header {
       .home .title h1 .space {
         display: block; }
   .home .browser {
-    margin-left: 3.19em;
-    display: flexbox;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-flow: column nowrap;
@@ -197,10 +203,11 @@ header {
     .home .browser .imageHome {
       width: 273px;
       height: 8.13em;
+      margin-left: 3.19em;
       display: block; }
     .home .browser .search {
-      width: 20.9em;
-      height: 3.1em;
+      width: 20em;
+      height: 3em;
       font-family: "Montserrat";
       font-weight: bold;
       border: 1px solid;
@@ -208,22 +215,185 @@ header {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-orient: horizontal;
+      -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
+          -ms-flex-direction: column;
+              flex-direction: column;
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
       border-radius: 30px;
-      padding: 0 1em; }
+      padding: 0 1em;
+      margin-left: .7em; }
+      .home .browser .search .autocomplete {
+        width: 20em;
+        height: 3.3em;
+        padding-top: 1.4em;
+        border: none;
+        outline: none;
+        margin-left: 3em; }
+      .home .browser .search .imageSearch {
+        width: 1.3em;
+        height: 2em; }
+      .home .browser .search .closeSearch {
+        width: 1em;
+        height: 1em;
+        position: absolute;
+        top: 30.7em;
+        left: 50.6em;
+        display: none; }
+      .home .browser .search #containerSuggestions {
+        width: 15em;
+        height: 8em;
+        margin-top: .5em;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 15px;
+        color: #9CAFC3;
+        text-transform: capitalize; }
+        .home .browser .search #containerSuggestions li {
+          list-style: none;
+          list-style-image: url("../images/icon-search-modo-noct.svg");
+          padding-left: 1em;
+          margin-left: 2em;
+          padding-top: .3em;
+          cursor: pointer; }
+    .home .browser .searchActive {
+      height: 10em; }
+    .home .browser .borderBottomSearch {
+      display: none;
+      width: 20em;
+      height: 1px;
+      opacity: 0.5;
+      color: #9CAFC3; }
+    .home .browser .containerImgNoResult .imgNoResult {
+      width: 5em;
+      height: 5em; }
+    .home .browser .containerImgNoResult h3 {
+      font-size: 22px;
+      text-align: center;
+      color: #50E3C2; }
+    .home .browser .noResultSearchGifos {
+      font-size: 22px;
+      text-align: center;
+      color: #50E3C2; }
+  .home #listGifs #titleGifs {
+    color: #572EE5;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: capitalize; }
+  .home #listGifs .showSearchGif {
+    width: 20.8em;
+    display: grid;
+    grid-template: repeat(6, 7.5em)/repeat(2, 1fr);
+    grid-gap: 1.3em 1.3em;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-left: 1.3em; }
+    .home #listGifs .showSearchGif .singleImgSearch {
+      width: 9.75em;
+      height: 7.5em; }
+      .home #listGifs .showSearchGif .singleImgSearch .imgGifsSearch {
+        width: 9.75em;
+        height: 7.5em; }
+      .home #listGifs .showSearchGif .singleImgSearch .searchInfo {
+        position: relative;
+        height: 12.5em;
+        -webkit-transform: translate(0%, -102.5%);
+                transform: translate(0%, -102.5%);
+        grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+        text-transform: capitalize;
+        display: none; }
+        .home #listGifs .showSearchGif .singleImgSearch .searchInfo .hoverIcons {
+          width: 20vw;
+          height: 3em;
+          grid-area: 1/3/2/4;
+          padding-top: .5em;
+          padding-right: .16em;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-box-pack: end;
+              -ms-flex-pack: end;
+                  justify-content: flex-end;
+          -webkit-box-align: start;
+              -ms-flex-align: start;
+                  align-items: flex-start;
+          -ms-flex-line-pack: end;
+              align-content: flex-end; }
+          .home #listGifs .showSearchGif .singleImgSearch .searchInfo .hoverIcons img {
+            width: 2em;
+            height: 2em;
+            padding: .2em; }
+        .home #listGifs .showSearchGif .singleImgSearch .searchInfo .pInfo {
+          height: 5em;
+          color: #FFFFFF;
+          font-family: 'Roboto';
+          padding-left: 1em;
+          padding-top: 1em;
+          margin-top: 2em;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-box-pack: start;
+              -ms-flex-pack: start;
+                  justify-content: flex-start;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+          -webkit-box-align: end;
+              -ms-flex-align: end;
+                  align-items: flex-end;
+          -ms-flex-line-pack: end;
+              align-content: flex-end; }
+          .home #listGifs .showSearchGif .singleImgSearch .searchInfo .pInfo .user {
+            width: 13em;
+            font-weight: 400;
+            font-size: 15px; }
+          .home #listGifs .showSearchGif .singleImgSearch .searchInfo .pInfo .titleGifSearch {
+            font-weight: 900;
+            font-size: 16px; }
+      .home #listGifs .showSearchGif .singleImgSearch:hover {
+        width: 16.25em;
+        height: 12.5em; }
+        .home #listGifs .showSearchGif .singleImgSearch:hover .searchInfo {
+          background-color: #572EE5;
+          opacity: 0.7;
+          display: block; }
+  .home #listGifs .btnSearchGif {
+    color: #572EE5;
+    border: 1px solid #572EE5;
+    border-radius: 30px;
+    padding: 0 1em;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 13px;
+    padding: 1.4em 1.5em 1em 1.5em;
+    margin-top: 4em;
+    margin-bottom: 6em;
+    background-color: #FFFFFF;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    display: none; }
   .home .subtitle {
     width: 100vw;
     padding-top: 1.9em;
     padding-bottom: 2.8em;
     color: #572EE5;
     text-align: center;
-    font-family: 'Montserrat'; }
+    font-family: 'Montserrat';
+    display: block; }
     .home .subtitle h2 {
       font-size: 16px;
       font-weight: bold; }
@@ -278,14 +448,13 @@ header {
         margin: auto; }
       .home .browser .search {
         width: 34.4em;
+        height: 3.3em;
         display: block; }
         .home .browser .search .autocomplete {
           width: 30em;
           height: 3.3em;
           top: 2em;
-          border: none;
-          outline: none;
-          margin-left: 3em; }
+          padding-top: 0; }
         .home .browser .search .imageSearch {
           width: 1.3em;
           height: 2em; }
@@ -294,24 +463,14 @@ header {
           height: 1em;
           position: absolute;
           top: 30.7em;
-          left: 50.6em; }
+          left: 50.6em;
+          display: none; }
         .home .browser .search #containerSuggestions {
           width: 30em;
           height: 7em;
           margin-top: .5em;
           line-height: 1.5em;
-          font-family: 'Roboto';
-          font-weight: 400;
-          font-size: 16px;
-          color: #9CAFC3;
-          text-transform: capitalize; }
-          .home .browser .search #containerSuggestions li {
-            list-style: none;
-            list-style-image: url("../images/icon-search-modo-noct.svg");
-            padding-left: 1em;
-            margin-left: 2em;
-            padding-top: .3em;
-            cursor: pointer; }
+          font-size: 16px; }
       .home .browser .searchActive {
         height: 12em; }
       .home .browser .borderBottomSearch {
@@ -446,74 +605,94 @@ header {
       font-size: 16px;
       line-height: 25px; }
     .home .subtitle .span {
-      display: inline; }
-    .home .modalShow {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      margin: 0;
-      padding: 0;
-      z-index: 100;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      background-color: #FFFFFF;
-      display: none; }
-      .home .modalShow .btnCloseModal {
-        width: 3em;
-        height: 3em;
-        position: absolute;
-        top: 4rem;
-        left: 80vw;
-        z-index: 50; }
-      .home .modalShow .containerImgExpand .modalImg {
-        width: 43.4em;
-        height: 24.1em;
-        padding-left: 18em;
-        padding-top: 6em; }
-      .home .modalShow .trendingExpand {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: reverse;
-            -ms-flex-direction: row-reverse;
-                flex-direction: row-reverse;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
-        .home .modalShow .trendingExpand .hoverIcons {
-          padding-right: 8em; }
-          .home .modalShow .trendingExpand .hoverIcons img {
-            padding-top: .8em; }
-        .home .modalShow .trendingExpand .infoExpand {
-          color: #000000;
-          font-family: 'Roboto';
-          padding-left: 8em;
-          padding-top: 1em;
-          text-transform: capitalize; }
-          .home .modalShow .trendingExpand .infoExpand .userExpand {
-            font-weight: 400;
-            font-size: 15px; }
-          .home .modalShow .trendingExpand .infoExpand .titleExpand {
-            font-weight: 900;
-            font-size: 16px; } }
+      display: inline; } }
 #containerTrending {
   color: #572EE5;
   text-align: center;
   width: 100vw;
   height: 26.9em;
-  background-color: #F3F5F8;
-  padding-bottom: 11.38em; }
+  background-color: #F3F5F8; }
   #containerTrending .trendingTitle h2 {
     font-family: 'Montserrat';
-    font-size: 20px; }
+    font-size: 20px;
+    padding-top: 2.9em; }
   #containerTrending .trendingTitle h3 {
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 16px;
     line-height: 23px;
     color: #000000;
-    display: block; }
+    display: block;
+    padding-top: .4em;
+    padding-bottom: 2em; }
+    #containerTrending .trendingTitle h3 span {
+      display: block; }
+  #containerTrending #trendingGifos {
+    height: 20em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    overflow: scroll; }
+    #containerTrending #trendingGifos .singleGifo .singleImg {
+      width: 15.2em;
+      height: 11.7em;
+      padding-left: 1.4em; }
+    #containerTrending #trendingGifos .singleGifo .trendingInfo {
+      display: none; }
+  #containerTrending .modalShow {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: #FFFFFF;
+    display: none; }
+    #containerTrending .modalShow .btnCloseModal {
+      width: 3em;
+      height: 3em;
+      position: absolute;
+      top: 4rem;
+      left: 80vw;
+      z-index: 50; }
+    #containerTrending .modalShow .containerImgExpand .modalImg {
+      width: 43.4em;
+      height: 24.1em;
+      padding-left: 18em;
+      padding-top: 6em; }
+    #containerTrending .modalShow .trendingExpand {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+      #containerTrending .modalShow .trendingExpand .hoverIcons {
+        padding-right: 8em; }
+        #containerTrending .modalShow .trendingExpand .hoverIcons img {
+          padding-top: .8em; }
+      #containerTrending .modalShow .trendingExpand .infoExpand {
+        color: #000000;
+        font-family: 'Roboto';
+        padding-left: 8em;
+        padding-top: 1em;
+        text-transform: capitalize; }
+        #containerTrending .modalShow .trendingExpand .infoExpand .userExpand {
+          font-weight: 400;
+          font-size: 15px; }
+        #containerTrending .modalShow .trendingExpand .infoExpand .titleExpand {
+          font-weight: 900;
+          font-size: 16px; }
 
 @media screen and (min-width: 768px) {
   #containerTrending {
@@ -581,12 +760,90 @@ header {
           #containerTrending #trendingGifos .singleGifo:hover .trendingInfo .hoverIcons {
             display: block; }
           #containerTrending #trendingGifos .singleGifo:hover .trendingInfo .pInfo {
-            display: block; } }
-.favorites {
+            display: block; }
+    #containerTrending .modalShow {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 100;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background-color: #FFFFFF;
+      display: none; }
+      #containerTrending .modalShow .btnCloseModal {
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        top: 4rem;
+        left: 80vw;
+        z-index: 50; }
+      #containerTrending .modalShow .containerImgExpand .modalImg {
+        width: 43.4em;
+        height: 24.1em;
+        padding-left: 18em;
+        padding-top: 6em; }
+      #containerTrending .modalShow .trendingExpand {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        #containerTrending .modalShow .trendingExpand .hoverIcons {
+          padding-right: 8em; }
+          #containerTrending .modalShow .trendingExpand .hoverIcons img {
+            padding-top: .8em; }
+        #containerTrending .modalShow .trendingExpand .infoExpand {
+          color: #000000;
+          font-family: 'Roboto';
+          padding-left: 8em;
+          padding-top: 1em;
+          text-transform: capitalize; }
+          #containerTrending .modalShow .trendingExpand .infoExpand .userExpand {
+            font-weight: 400;
+            font-size: 15px; }
+          #containerTrending .modalShow .trendingExpand .infoExpand .titleExpand {
+            font-weight: 900;
+            font-size: 16px; } }
+#containerFavorites {
   color: #572EE5;
   text-align: center;
   display: inline-block; }
-  .favorites .buttonFavorites {
+  #containerFavorites .titleFavorite {
+    font-family: "Montserrat";
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    text-transform: capitalize;
+    padding-bottom: 2.9em; }
+  #containerFavorites #noContentFavorites .iconHeart {
+    width: 1.5em;
+    height: 1.3em; }
+  #containerFavorites #noContentFavorites h3 {
+    text-align: center;
+    color: #50E3C2; }
+  #containerFavorites .imagesFavorites {
+    width: 20.8em;
+    display: grid;
+    grid-template: repeat(6, 7.5em)/repeat(2, 1fr);
+    grid-gap: 1.3em 1.3em;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-left: 1.3em; }
+    #containerFavorites .imagesFavorites .singleImgFav {
+      width: 9.75em;
+      height: 7.5em; }
+      #containerFavorites .imagesFavorites .singleImgFav .imgGifFav {
+        width: 9.75em;
+        height: 7.5em; }
+  #containerFavorites .buttonFavorites {
     color: #572EE5;
     text-align: center;
     color: #572EE5;
@@ -594,7 +851,16 @@ header {
     border-radius: 30px;
     padding: 0 1em;
     font-family: "Montserrat";
-    font-weight: bold; }
+    font-weight: bold;
+    font-size: 13px;
+    padding: 1.4em 1.5em 1em 1.5em;
+    margin-top: 4em;
+    margin-bottom: 6em;
+    background-color: #FFFFFF;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    display: none; }
 
 @media screen and (min-width: 768px) {
   #containerFavorites {
@@ -612,6 +878,7 @@ header {
       width: 9.375em;
       height: 9.438em; }
     #containerFavorites #noContentFavorites h3 {
+      text-align: center;
       color: #50E3C2; }
     #containerFavorites .imagesFavorites {
       width: 70.5em;
@@ -619,7 +886,7 @@ header {
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
       display: grid;
-      grid-template: repeat(5, 1fr)/repeat(4, 1fr);
+      grid-template: repeat(2, 1fr)/repeat(4, 1fr);
       grid-gap: 2.19em 1.81em;
       -webkit-box-pack: center;
           -ms-flex-pack: center;
@@ -715,7 +982,113 @@ header {
       background-color: #FFFFFF;
       margin-left: 50%;
       -webkit-transform: translateX(-50%);
-              transform: translateX(-50%); } }
+              transform: translateX(-50%); }
+    #containerFavorites .modalShow {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 100;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background-color: #FFFFFF;
+      display: none; }
+      #containerFavorites .modalShow .btnCloseModal {
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        top: 4rem;
+        left: 80vw;
+        z-index: 50; }
+      #containerFavorites .modalShow .containerImgExpand .modalImg {
+        width: 43.4em;
+        height: 24.1em;
+        padding-left: 18em;
+        padding-top: 6em; }
+      #containerFavorites .modalShow .trendingExpand {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        #containerFavorites .modalShow .trendingExpand .hoverIcons {
+          padding-right: 8em; }
+          #containerFavorites .modalShow .trendingExpand .hoverIcons img {
+            padding-top: .8em; }
+        #containerFavorites .modalShow .trendingExpand .infoExpand {
+          color: #000000;
+          font-family: 'Roboto';
+          padding-left: 8em;
+          padding-top: 1em;
+          text-transform: capitalize; }
+          #containerFavorites .modalShow .trendingExpand .infoExpand .userExpand {
+            font-weight: 400;
+            font-size: 15px; }
+          #containerFavorites .modalShow .trendingExpand .infoExpand .titleExpand {
+            font-weight: 900;
+            font-size: 16px; } }
+.containerMisGifos {
+  color: #572EE5;
+  text-align: center; }
+  .containerMisGifos .titleMisGifos {
+    font-family: "Montserrat";
+    font-size: 20px;
+    text-align: center;
+    line-height: 30px;
+    text-transform: capitalize;
+    padding-bottom: 2.9em; }
+  .containerMisGifos .noContentMisGifos .iconGifos {
+    width: 1.4em;
+    height: 1.3em; }
+  .containerMisGifos .noContentMisGifos h3 {
+    font-family: "Montserrat";
+    font-size: 18px;
+    text-align: center;
+    color: #50E3C2; }
+  .containerMisGifos .imagesMisGifos #titleGifs {
+    color: #572EE5;
+    text-align: center;
+    font-family: "Montserrat";
+    font-size: 25px;
+    line-height: 30px;
+    text-transform: capitalize; }
+  .containerMisGifos .imagesMisGifos .showSearchGif {
+    width: 20.8em;
+    display: grid;
+    grid-template: repeat(6, 7.5em)/repeat(2, 1fr);
+    grid-gap: 1.3em 1.3em;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .containerMisGifos .imagesMisGifos .showSearchGif .singleImgSearch {
+      width: 9.75em;
+      height: 7.5em; }
+      .containerMisGifos .imagesMisGifos .showSearchGif .singleImgSearch .imgGifsSearch {
+        width: 9.75em;
+        height: 7.5em; }
+  .containerMisGifos .btnMoreMisGifos {
+    color: #572EE5;
+    border: 1px solid #572EE5;
+    border-radius: 30px;
+    padding: 0 1em;
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 13px;
+    padding: 1.4em 1.5em 1em 1.5em;
+    margin-top: 4em;
+    margin-bottom: 6em;
+    background-color: #FFFFFF;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    display: none; }
+
 @media screen and (min-width: 768px) {
   .containerMisGifos {
     width: 100vw;
@@ -733,82 +1106,21 @@ header {
       width: 9.375em;
       height: 9.438em; }
     .containerMisGifos .noContentMisGifos h3 {
+      text-align: center;
       color: #50E3C2; }
       .containerMisGifos .noContentMisGifos h3 .spanFavorites {
         display: block; }
     .containerMisGifos .imagesMisGifos {
       width: 70.5em;
-      height: 43em;
       margin: auto;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
-      border: 1px solid black;
       display: grid;
-      grid-template: repeat(5, 1fr)/repeat(4, 1fr);
+      grid-template: repeat(2, 12em)/repeat(4, 1fr);
       grid-gap: 2.19em 1.81em;
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      .containerMisGifos .imagesMisGifos .img1 {
-        width: 16.25em;
-        height: 12.5em;
-        grid-area: 1/1/2/2;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img2 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 1/2/2/3;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img3 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 1/3/2/4;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img4 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 1/4/2/5;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img5 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 2/1/3/2;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img6 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 2/2/3/3;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img7 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 2/3/3/4;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img8 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 2/4/3/5;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img9 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 3/1/4/2;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img10 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 3/2/4/3;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img11 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 3/3/4/4;
-        border: 1px solid black; }
-      .containerMisGifos .imagesMisGifos .img12 {
-        width: 16.3em;
-        height: 12.5em;
-        grid-area: 3/4/4/5;
-        border: 1px solid black; }
     .containerMisGifos .btnMoreMisGifos {
       color: #572EE5;
       border: 1px solid #572EE5;
@@ -823,7 +1135,57 @@ header {
       background-color: #FFFFFF;
       margin-left: 50%;
       -webkit-transform: translateX(-50%);
-              transform: translateX(-50%); } }
+              transform: translateX(-50%); }
+    .containerMisGifos .modalShow {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 100;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background-color: #FFFFFF;
+      display: none; }
+      .containerMisGifos .modalShow .btnCloseModal {
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        top: 4rem;
+        left: 80vw;
+        z-index: 50; }
+      .containerMisGifos .modalShow .containerImgExpand .modalImg {
+        width: 43.4em;
+        height: 24.1em;
+        padding-left: 18em;
+        padding-top: 6em; }
+      .containerMisGifos .modalShow .trendingExpand {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        .containerMisGifos .modalShow .trendingExpand .hoverIcons {
+          padding-right: 8em; }
+          .containerMisGifos .modalShow .trendingExpand .hoverIcons img {
+            padding-top: .8em; }
+        .containerMisGifos .modalShow .trendingExpand .infoExpand {
+          color: #000000;
+          font-family: 'Roboto';
+          padding-left: 8em;
+          padding-top: 1em;
+          text-transform: capitalize; }
+          .containerMisGifos .modalShow .trendingExpand .infoExpand .userExpand {
+            font-weight: 400;
+            font-size: 15px; }
+          .containerMisGifos .modalShow .trendingExpand .infoExpand .titleExpand {
+            font-weight: 900;
+            font-size: 16px; } }
 @media screen and (min-width: 768px) {
   #containerCreateGifos {
     width: 100vw;

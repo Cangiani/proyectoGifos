@@ -51,8 +51,8 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
 
         const recorder = RecordRTC(stream, {            //El archivo está en memoria, es el BLOB
             type: 'gif',
-            // frameRate: 1,
-            // quality: 10,
+            frameRate: 1,
+            quality: 10,
             // width: 360,
             // hidden: 240,
         });                           
@@ -70,7 +70,7 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
                 recorder.stopRecording(async function () {
                 const blob = this.blob;
                 let form = new FormData();
-                form.append('file', recorder.getBlob(), 'misGifos.gif');
+                form.append('file', recorder.getBlob(), 'misGifos.gif');        //info para subir a giphy
                 btnFinalizar.style.display = "none";
                 const { data:gifData } =  await uploadGif(form);
                 btnSubir.style.display = "block";
@@ -81,3 +81,20 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
 };
 
 btnComenzar.addEventListener("click", getStreamAndRecord); //que el video aparezca o desaparezca según haga falta, esto se puede resolver con listeners e interactuando con el DOM.
+
+
+
+
+
+// StartRecording: comienza la grabación y no requiere de ningún parámetro extra.
+
+// StopRecording: recibe como parámetro un callback, donde se indica qué hacer con la información grabada 
+//una vez que se para la grabación.
+
+//getBlob(): es un método del objeto recorder creado con RecordRTC que permite acceder a los datos grabados. 
+//Un blob es una manera de guardar datos que eventualmente se puede transformar en un archivo para ser 
+//leído por el sistema operativo.
+
+//FormData: es un objeto que permite darle formato clave valor a tu información para enviarla de manera 
+//ordenada a través de body de un POST. Para agregar información se utiliza un método del objeto llamado
+// .append que recibe dos parámetros clave y valor.

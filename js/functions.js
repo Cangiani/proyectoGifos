@@ -56,10 +56,8 @@ const getMoreGifs = async () =>{
   clickCounter += 1;
   // const inputSuggestions = document.getElementById('searchGifos');
   const gifs = await getSearchGifsByKeyword(inputSuggestions.value, clickCounter);
-  const containerNewImg = document.querySelector("#showSearchGif");
   
   gifs.data.forEach(gif => {
-    
     const containerShowSearchGifs = document.querySelector("#showSearchGif");
     containerShowSearchGifs.classList.add("showSearchGif");
     const imagesLatestGifos = document.createElement("div");
@@ -95,9 +93,13 @@ const inputSuggestions = document.getElementById('searchGifos');
 
 const getSuggestionsGifos = async (ev) => {
   
+  document.querySelector(".closeSearch").style.display = "block";       //img cruz
+  document.querySelector(".imageSearch").style.display = "none";        //img lupa
+
   const containerSuggestions = document.querySelector("#containerSuggestions");   
   containerSuggestions.innerHTML = "";       //para q sugerencias esten vacias y no se vayan concatenando un monton de li de las cosas que se busquen. blanquea 
   const containerGifs = document.querySelector('#showSearchGif');
+  containerGifs.classList.add("showSearchGif");
   containerGifs.innerHTML = "";              //mantiene contenedor vacio, si se apreta enter se vacia de lo que tenia así no se acumula (cuando se vuelve a buscar algo, se borra los gifs que ya se habian buscado antes)
   const showTitle = document.querySelector("#titleGifs");
   showTitle.textContent = '';
@@ -135,7 +137,8 @@ const getSuggestionsGifos = async (ev) => {
 
           gifClickeado.data.forEach(gif => {
             const newImg = document.createElement('img');
-            newImg.setAttribute("src", gif.images.fixed_height.url) 
+            newImg.setAttribute("src", gif.images.fixed_height.url);
+            newImg.classList.add("singleImgSearch");
             containerGifs.appendChild(newImg);
           });
         })
@@ -215,11 +218,41 @@ if (inputSuggestions != null) {
 
 //----------------------------------------------------MODAL-----------------------------------------------------
 
+//Expand Mobile
+
+// const expandMobile = (img, id, user, title) => {
+
+//   const modalMobile = document.querySelector(".modalShow");
+//   modalMobile.style.display = "block";
+//   modalMobile.innerHTML = `
+//   <a class= "btnCloseModal"> <img src="./images/close.svg"> </a>
+//   <div class= "containerImgExpand">
+//     <img class="modalImg" src="${img}" alt="imgGifos"> 
+//   </div>
+//   <div class="trendingExpand"> 
+//     <div class="hoverIcons">
+//       <a href="#"> <img data-id="${id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+//       <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+//     </div>
+//     <div class="infoExpand">
+//       <p class="userExpand">${user}</p>
+//       <p class="titleExpand">${title}</p> 
+//     </div>
+//   </div>`;
+
+// }
+
+
+
+//Expand Desktop
+
 const showModalExpand = (img, id, user, title) => {
   
-  const modal = document.querySelector(".modalShow");
-  modal.style.display = "block";
-  modal.innerHTML = `
+  //const containerModal = document.getElementById("containerTrending");
+  const modalExp = document.createElement("div");
+  modalExp.classList.add("modalShow");
+  modalExp.style.display = "block";
+  modalExp.innerHTML = `
   <a class= "btnCloseModal"> <img src="./images/close.svg"> </a>
   <div class= "containerImgExpand">
     <img class="modalImg" src="${img}" alt="imgGifos"> 
@@ -234,16 +267,30 @@ const showModalExpand = (img, id, user, title) => {
       <p class="titleExpand">${title}</p> 
     </div>
   </div>`;
+  //containerModal.appendChild(modalExp);
+
+  if (document.querySelector('#containerTrending')) {
+    document.querySelector('#containerTrending').appendChild(modalExp);
+  }
+
+  if (document.querySelector('#containerFavorites')) {
+    document.querySelector('#containerFavorites').appendChild(modalExp);
+  }
+
+  if (document.querySelector('.containerMisGifos')) {
+    document.querySelector('.containerMisGifos').appendChild(modalExp);
+  }
+
 
   // FAVORITES
   // const localGifs = JSON.parse(localStorage.getItem('gifs'));
   // localGifs.gifs.push(imgGifo);
   // localStorage.setItem('gifs', JSON.stringify(localGifs));
 
-  modal.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+  modalExp.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
   //CERRAR MODAL
-  modal.querySelector(".btnCloseModal").addEventListener("click", () => {
-    modal.style.display = "none";
+  modalExp.querySelector(".btnCloseModal").addEventListener("click", () => {
+    modalExp.style.display = "none";
   });
 }

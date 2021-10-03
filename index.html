@@ -20,13 +20,13 @@
         <nav class="menu">
             <input type="checkbox" id="menu" class="checkbox">
             <label for="menu" class="open"><img src="./images/burger.svg" alt="open"></label>
-            <label for="menu" class="close"><img src="./images/close.svg" alt="close"></i> </label>
+            <label for="menu" class="close"><img src="./images/close.svg" alt="close"></label>
             
             <ul>
                 <li><a href="#" id="nightModeBtn">Modo Nocturno</a></li>
                 <li><a href="./favoritos.html">Favoritos</a></li>
                 <li><a href="./misGifos.html">Mis GIFOS</a></li>
-                <li class="buttonCrear"><a href="./crearGifos.html"> <button alt="btnCreate" class="btnCreate"></button></a></li>
+                <li> <div class="buttonCrear"> <a href="./crearGifos.html"> <button class="btnCreate"></button> </a> </div> </li>
             </ul>   
         </nav>
     </header>
@@ -41,7 +41,7 @@
                     <img src="./images/ilustra_header.svg" class="imageHome" alt="ilustraheader">
                 
                     <div id="containerSearchGifos" class="search">
-                        <input type="text" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más" list="examples">
+                        <input type="text" id="searchGifos" class="autocomplete" placeholder="Busca GIFOS y más">  <!--  poner list="examples" ? -->
                         <img src="./images/icon-search.svg" class="imageSearch" alt="imgLupa">
                         <img src="./images/close.svg" class="closeSearch" alt="imgCruz">
 
@@ -60,8 +60,6 @@
                     <h2>Trending:</h2>
                     <h3>Reactions, Entertainment, <span class="span">Sports, Stickers, Artists</span></h3>
                 </div>
-
-                <div class="modalShow"></div>
             </div>
         </section>
 
