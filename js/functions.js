@@ -49,6 +49,17 @@ const getSearchGifsByKeyword = async (keyword, offset) => {
 
 //   //      Modal Expand
 // }
+
+const deleteInput = () => {
+  document.getElementById("searchGifos").value = "";
+  document.querySelector(".borderBottomSearch").style.display = "none";
+  document.querySelector(".btnSearchGif").style.display = "none";
+  const containerSuggestions = document.querySelector("#containerSuggestions");   
+  containerSuggestions.innerHTML = ""; 
+  const divContainerSearch = document.querySelector(".search"); 
+  divContainerSearch.classList.remove("searchActive");
+}
+
  
 let clickCounter = 0;
 
@@ -93,7 +104,9 @@ const inputSuggestions = document.getElementById('searchGifos');
 
 const getSuggestionsGifos = async (ev) => {
   
-  document.querySelector(".closeSearch").style.display = "block";       //img cruz
+  const btnCruz = document.querySelector(".closeSearch");
+  btnCruz.style.display = "block";                                      //img cruz
+  btnCruz.addEventListener("click", deleteInput);
   document.querySelector(".imageSearch").style.display = "none";        //img lupa
 
   const containerSuggestions = document.querySelector("#containerSuggestions");   
@@ -106,6 +119,7 @@ const getSuggestionsGifos = async (ev) => {
   const divContainerSearch = document.querySelector(".search"); 
 
   if (ev.target.value.length < 3 && ev.keyCode !== 13){
+    // document.querySelector("#showSearchGif").style.display = "none";
     document.querySelector(".borderBottomSearch").style.display = "none";
     document.querySelector(".btnSearchGif").style.display = "none";
     divContainerSearch.classList.remove("searchActive");
@@ -118,7 +132,6 @@ const getSuggestionsGifos = async (ev) => {
     document.querySelector(".borderBottomSearch").style.display = "block";
     divContainerSearch.classList.add("searchActive");
     // divContainerSearch.appendChild(containerSuggestions);
-    // <img src="./images/close.svg">
 
     tags.data.forEach(tag => {
       const newLi = document.createElement("li");
@@ -150,11 +163,11 @@ const getSuggestionsGifos = async (ev) => {
     
     const gifs = await getSearchGifsByKeyword(ev.target.value, 0); //0 significa la primer pagina (0*12,1*12,2*12...)
     showTitle.textContent = ev.target.value; 
-    
-    document.querySelector(".home .subtitle").style.display = "none";
+    document.querySelector(".home .subtitle").style.height = "22em";
 
-    if(ev.target.value == null){                   //no funciona   PONER ev.data.length === 0  ?  o gifs === 0 ?     
+    if(ev.target.value === "" || ev.target.value === null ){         //no funciona null, poner gifs === 0 ?     
       
+      document.querySelector("#showSearchGif").style.display = "none";
       const divNoResult = document.createElement("div");
       divNoResult.classList.add("noResultSearchGifos");  
       divNoResult.innerHTML = `
@@ -166,16 +179,15 @@ const getSuggestionsGifos = async (ev) => {
       divContainerSearch.appendChild(divNoResult);
 
     }else{
+      const containerShowSearchGifs = document.querySelector("#showSearchGif");
       document.querySelector(".borderBottomSearch").style.display = "none";
       divContainerSearch.classList.remove("searchActive");
       containerSuggestions.innerHTML = ""; 
       showTitle.style.paddingTop = "2em";   
-      const containerNewImg = document.querySelector("#showSearchGif");
-      containerNewImg.style.paddingTop = "3em"; 
+      containerShowSearchGifs.style.paddingTop = "3em"; 
 
       gifs.data.forEach(gif => {
 
-        const containerShowSearchGifs = document.querySelector("#showSearchGif");
         containerShowSearchGifs.classList.add("showSearchGif");
         const imagesLatestGifos = document.createElement("div");
         imagesLatestGifos.classList.add("singleImgSearch");
@@ -211,10 +223,9 @@ const getSuggestionsGifos = async (ev) => {
   }
 }
 
-if (inputSuggestions != null) {
+if (inputSuggestions !== null) {
   inputSuggestions.addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
 }
-
 
 //----------------------------------------------------MODAL-----------------------------------------------------
 
@@ -241,7 +252,6 @@ if (inputSuggestions != null) {
 //   </div>`;
 
 // }
-
 
 
 //Expand Desktop

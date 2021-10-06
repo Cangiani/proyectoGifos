@@ -1,6 +1,7 @@
 #containerFavorites{
     @include titles;
     display: inline-block;
+    width: 100vw;
 
     .titleFavorite{           
         font-family: "Montserrat";

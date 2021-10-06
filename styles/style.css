@@ -266,17 +266,16 @@ header {
       height: 1px;
       opacity: 0.5;
       color: #9CAFC3; }
-    .home .browser .containerImgNoResult .imgNoResult {
-      width: 5em;
-      height: 5em; }
-    .home .browser .containerImgNoResult h3 {
-      font-size: 22px;
-      text-align: center;
-      color: #50E3C2; }
-    .home .browser .noResultSearchGifos {
-      font-size: 22px;
-      text-align: center;
-      color: #50E3C2; }
+    .home .browser .noResultSearchGifos .containerImgNoResult {
+      padding-top: 1em;
+      text-align: center; }
+      .home .browser .noResultSearchGifos .containerImgNoResult img {
+        width: 6em;
+        height: 7em;
+        padding-top: 6em; }
+      .home .browser .noResultSearchGifos .containerImgNoResult h3 {
+        font-size: 15px;
+        color: #50E3C2; }
   .home #listGifs #titleGifs {
     color: #572EE5;
     text-align: center;
@@ -479,24 +478,23 @@ header {
         height: 1px;
         opacity: 0.5;
         color: #9CAFC3; }
-      .home .browser .containerImgNoResult .imgNoResult {
-        width: 5em;
-        height: 5em; }
-      .home .browser .containerImgNoResult h3 {
-        font-size: 22px;
-        text-align: center;
-        color: #50E3C2; }
-      .home .browser .noResultSearchGifos {
-        font-size: 22px;
-        text-align: center;
-        color: #50E3C2; }
+      .home .browser .noResultSearchGifos .containerImgNoResult {
+        text-align: center; }
+        .home .browser .noResultSearchGifos .containerImgNoResult img {
+          width: 9em;
+          height: 9em;
+          padding-top: 3em; }
+        .home .browser .noResultSearchGifos .containerImgNoResult h3 {
+          font-size: 20px;
+          padding-top: 1em; }
     .home #listGifs #titleGifs {
       color: #572EE5;
       text-align: center;
       font-family: "Montserrat";
       font-size: 30px;
       line-height: 30px;
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      padding-bottom: 2em; }
     .home #listGifs .showSearchGif {
       width: 68em;
       display: grid;
@@ -610,7 +608,6 @@ header {
   color: #572EE5;
   text-align: center;
   width: 100vw;
-  height: 26.9em;
   background-color: #F3F5F8; }
   #containerTrending .trendingTitle h2 {
     font-family: 'Montserrat';
@@ -636,7 +633,8 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    overflow: scroll; }
+    overflow: scroll;
+    overflow: -moz-hidden-unscrollable; }
     #containerTrending #trendingGifos .singleGifo .singleImg {
       width: 15.2em;
       height: 11.7em;
@@ -663,8 +661,8 @@ header {
       left: 80vw;
       z-index: 50; }
     #containerTrending .modalShow .containerImgExpand .modalImg {
-      width: 43.4em;
-      height: 24.1em;
+      width: 23.4em;
+      height: 14.1em;
       padding-left: 18em;
       padding-top: 6em; }
     #containerTrending .modalShow .trendingExpand {
@@ -717,10 +715,12 @@ header {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center;
-      grid-gap: 5em; }
+      grid-gap: 5em;
+      overflow: hidden; }
       #containerTrending #trendingGifos .singleGifo .singleImg {
         width: 23em;
-        height: 17em; }
+        height: 17em;
+        padding-left: 0; }
       #containerTrending #trendingGifos .singleGifo .trendingInfo {
         position: relative;
         width: 23em;
@@ -814,7 +814,8 @@ header {
 #containerFavorites {
   color: #572EE5;
   text-align: center;
-  display: inline-block; }
+  display: inline-block;
+  width: 100vw; }
   #containerFavorites .titleFavorite {
     font-family: "Montserrat";
     font-size: 20px;
@@ -1389,7 +1390,6 @@ header {
 @media screen and (min-width: 768px) {
   .footer {
     width: 100vw;
-    height: 7.25em;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1403,7 +1403,8 @@ header {
         -ms-flex-align: center;
             align-items: center;
     -ms-flex-line-pack: center;
-        align-content: center; }
+        align-content: center;
+    padding-top: 3em; }
     .footer .socialMedia {
       width: 13em;
       display: -webkit-box;
@@ -1424,6 +1425,58 @@ header {
       .footer .socialMedia .icons {
         padding-top: 2.9em;
         padding-left: 1em; } }
+.toggleShowBtnVerMas {
+  color: #572EE5;
+  border: 1px solid #572EE5;
+  border-radius: 30px;
+  padding: 0 1em;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 13px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  padding: 1.4em 1.5em 1em 1.5em;
+  margin-top: 1.3em;
+  background-color: #FFFFFF;
+  margin-left: 50%;
+  display: block; }
+
+.nightMode hr {
+  background: #000000; }
+.nightMode header {
+  background: #37383C; }
+  .nightMode header nav ul {
+    background: black; }
+    .nightMode header nav ul a {
+      color: #FFFFFF;
+      text-transform: capitalize; }
+.nightMode .home {
+  background: #37383C; }
+  .nightMode .home .browser #containerSearchGifos input {
+    background: #37383C;
+    color: #FFFFFF; }
+  .nightMode .home .title h1 {
+    color: #FFFFFF; }
+  .nightMode .home #containerSearchGifos {
+    color: #FFFFFF; }
+  .nightMode .home .subtitle {
+    color: #FFFFFF; }
+.nightMode #containerTrending {
+  background: #222326; }
+  .nightMode #containerTrending .trendingTitle h2, .nightMode #containerTrending .trendingTitle h3 {
+    color: #FFFFFF; }
+.nightMode #containerFavorites {
+  background: #37383C; }
+  .nightMode #containerFavorites .trendingTitle h2, .nightMode #containerFavorites .trendingTitle h3 {
+    color: #FFFFFF; }
+.nightMode .containerMisGifos {
+  background: #37383C; }
+  .nightMode .containerMisGifos .trendingTitle h2, .nightMode .containerMisGifos .trendingTitle h3 {
+    color: #FFFFFF; }
+.nightMode .footer {
+  background: #37383C;
+  color: #FFFFFF; }
+
 @media screen and (min-width: 768px) {
   .toggleShowBtnVerMas {
     color: #572EE5;
@@ -1449,19 +1502,9 @@ header {
       background: #37383C; }
       .nightMode header nav ul a {
         color: #FFFFFF; }
-  .nightMode .home {
+  .nightMode #containerCreateGifos {
     background: #37383C; }
-    .nightMode .home .browser #containerSearchGifos input {
-      background: #37383C; }
-    .nightMode .home .title h1 {
-      color: #FFFFFF; }
-    .nightMode .home #containerSearchGifos {
-      color: #FFFFFF; }
-    .nightMode .home .subtitle {
-      color: #FFFFFF; }
-  .nightMode #containerTrending {
-    background: #222326; }
-    .nightMode #containerTrending .trendingTitle h2, .nightMode #containerTrending .trendingTitle h3 {
+    .nightMode #containerCreateGifos .trendingTitle h2, .nightMode #containerCreateGifos .trendingTitle h3 {
       color: #FFFFFF; }
   .nightMode .footer {
     background: #37383C; } }

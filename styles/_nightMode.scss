@@ -1,0 +1,138 @@
+.toggleShowBtnVerMas{
+    @include button;
+    font-size: 13px;
+    font-family: "Montserrat";                
+    font-weight: bold;
+    padding: 1.4em 1.5em 1em 1.5em;
+    margin-top: 1.3em;
+    background-color: $color-blanco;
+    margin-left: 50%; 
+    display: block;
+}
+
+.nightMode{
+
+    hr{
+        background: $color-negro;   
+    }
+       
+    header{
+        background: $color-bg-nocturno;
+
+        // .logoDesktop{
+
+        // }
+
+        nav ul{
+        background: black;
+
+            a{
+            color: $color-blanco;
+            text-transform: capitalize;
+            }
+        }
+    }
+
+    .home{
+        background: $color-bg-nocturno;
+
+        .browser{
+            #containerSearchGifos input{
+                background: $color-bg-nocturno;
+                color: $color-blanco;  
+            }
+        }
+
+        .title h1{
+            color: $color-blanco;   
+        }
+
+        #containerSearchGifos{
+            color: $color-blanco;
+        }
+
+        .subtitle{
+            color: $color-blanco;
+        }
+    }
+    
+    #containerTrending{
+        background: $color-bg-nocturno-trending;
+
+        .trendingTitle{
+            h2, h3{
+                color: $color-blanco;  
+            }
+        }
+    }
+
+    #containerFavorites {
+        background: $color-bg-nocturno;
+        .trendingTitle{
+            h2, h3{
+                color: $color-blanco;  
+            }
+        }
+    }
+
+    .containerMisGifos{
+        background: $color-bg-nocturno;
+        .trendingTitle{
+            h2, h3{
+                color: $color-blanco;  
+            }
+        }
+    }
+
+    .footer{
+        background: $color-bg-nocturno;
+        color: $color-blanco;  
+    }
+}
+
+@media screen and (min-width: 768px){   
+
+    .toggleShowBtnVerMas{
+        @include button;
+        font-size: 13px;
+        font-family: "Montserrat";                
+        font-weight: bold;
+        padding: 1.4em 1.5em 1em 1.5em;
+        margin-top: 1.3em;
+        background-color: $color-blanco;
+        margin-left: 50%; 
+        display: block;
+    }
+
+    .nightMode{
+
+        hr{
+            background: $color-negro;   
+        }
+           
+        header{
+            background: $color-bg-nocturno;
+
+            nav ul{
+            background: $color-bg-nocturno;
+
+                a{
+                color: $color-blanco;
+                }
+            }
+        }
+
+        #containerCreateGifos{
+            background: $color-bg-nocturno;
+            .trendingTitle{
+                h2, h3{
+                    color: $color-blanco;  
+                }
+            }
+        }
+
+        .footer{
+            background: $color-bg-nocturno;
+        }
+    }
+}

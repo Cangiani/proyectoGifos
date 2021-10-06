@@ -30,7 +30,7 @@ const pintarGifFav = () =>{
             containerFav.appendChild(divFav); 
 
             //ELIMINAR FAVORITE
-            //containerFav.querySelector('.btnHeartRemove').addEventListener("click", removeFavHandler);
+            document.querySelector('.btnHeartRemove').addEventListener("click", removeFavHandler);
             
             //MODAL EXPAND
             const expandGif = containerFav.querySelector('.btnExpand');
@@ -42,6 +42,7 @@ const pintarGifFav = () =>{
         });
     }
 }
+
 
 const agregarFavoritoHandler = (ev => {
  
@@ -58,21 +59,32 @@ const agregarFavoritoHandler = (ev => {
     }
 });
 
-// const removeFavHandler = (ev =>{
-//     const buttonRemove = ev.target;
-//     const idGifRemove = buttonRemove.getAttribute('data-id');
-//     const localRemove = JSON.parse(localStorage.getItem('favorites'));
 
-//     const gifRemoveJson = arrayFavorites.find(fav => fav.id === idGifRemove);
+const removeFavHandler = (ev =>{
+
+    const buttonRemove = ev.target;
+    const idGifRemove = buttonRemove.getAttribute('data-id');
+    const localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    // const gifRemoveJson = arrayFavRemove.filter(fav => fav.id !== idGifRemove);
+    console.log(localFavorites);
+    const indexArray = localFavorites.findIndex(fav => fav.id == idGifRemove);
+    localFavorites.splice(indexArray, 1);
+    localStorage.setItem('favorites', JSON.stringify(localFavorites));
+
+    //const gifRemoveJson = arrayFavorites.find(fav => fav.id === idGifRemove);
     
-//     //localStorage.removeItem('gifRemoveJson');
+    //localStorage.removeItem('gifRemoveJson');
 
-//     if (idGifRemove === localRemove.favorites.id){
-//        localStorage.removeItem('gifRemoveJson');  
-//     }
-     
+    // if (idGifRemove === localRemove.favorites.id){
+    //    localStorage.favorites.removeItem(gifRemoveJson);  
+    // }
+    // localStorage.setItem('favorites', JSON.stringify(localRemove));
 
-//     // if (buttonRemove.image.src === "./images/icon-fav-active.svg"){
-//     //             //localStorage.removeItem('favorites');                                               
-//     //         }
-// });
+    //     let newData = products.filter(item => item.id !== id)
+    //     localStorage.setItem('data', JSON.stringify(newData));
+    //     setProducts(newData)
+
+    // if (buttonRemove.image.src === "./images/icon-fav-active.svg"){
+    //             //localStorage.removeItem('favorites');                                               
+    // }
+});

@@ -1,7 +1,6 @@
 #containerTrending{
     @include titles;
     width: 100vw;
-    height: 26.9em;
     background-color: $color-background;
 
     .trendingTitle{
@@ -33,7 +32,8 @@
         display: flex;
         flex-direction: row;
         overflow: scroll;
-        
+        overflow: -moz-hidden-unscrollable;
+
         .singleGifo{
 
             .singleImg{
@@ -71,8 +71,8 @@
 
         .containerImgExpand {
             .modalImg {
-                width: 43.4em;
-                height: 24.1em;
+                width: 23.4em;
+                height: 14.1em;
                 padding-left: 18em;
                 padding-top: 6em;
             }
@@ -109,11 +109,8 @@
     }
 }
 
-
-@media screen and (min-width: 768px){
-
-    //---------------------------------------SECCIÓN TRENDING GIFOS-----------------------------------
-    // HOVER BOTONES TRENDING GIFOS
+//                                                  DESKTOP
+@media screen and (min-width: 768px){                                   // HOVER BOTONES TRENDING GIFOS
     
     #containerTrending{
         width: 100vw; 
@@ -140,12 +137,14 @@
             grid-template: 15em / repeat(3, 20em);  
             justify-content: center;
             grid-gap: 5em;
+            overflow: hidden;
         
             .singleGifo {
 
                 .singleImg{
                     width: 23em;
                     height: 17em;  
+                    padding-left: 0;
                 }
 
                 .trendingInfo{
@@ -209,8 +208,6 @@
             }
         }
         
-
-        //                                          MODAL
         .modalShow{
             position: absolute;
             width: 100vw; 

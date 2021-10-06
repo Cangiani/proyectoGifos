@@ -129,23 +129,21 @@
             color: #9CAFC3;
         }
 
-        .containerImgNoResult{        
-
-            .imgNoResult{
-                width: 5em;
-                height: 5em;
-            }
-            h3{
-                font-size: 22px;
-                text-align: center;
-                color: #50E3C2;
-            }
-        }
-
         .noResultSearchGifos{
-            font-size: 22px;
-            text-align: center;
-            color: #50E3C2;
+
+            .containerImgNoResult{        
+                padding-top: 1em;
+                text-align: center;
+                img{
+                    width: 6em;
+                    height: 7em;
+                    padding-top: 6em;
+                }
+                h3{
+                    font-size: 15px;
+                    color: #50E3C2;
+                }
+            }
         }
     }
 
@@ -373,24 +371,20 @@
                 opacity: 0.5;
                 color: #9CAFC3;
             }
-
-            .containerImgNoResult{        
-
-                .imgNoResult{
-                    width: 5em;
-                    height: 5em;
-                }
-                h3{
-                    font-size: 22px;
-                    text-align: center;
-                    color: #50E3C2;
-                }
-            }
-
+            
             .noResultSearchGifos{
-                font-size: 22px;
-                text-align: center;
-                color: #50E3C2;
+                .containerImgNoResult{   
+                    text-align: center;
+                    img{
+                        width: 9em;
+                        height: 9em;
+                        padding-top: 3em;
+                    }
+                    h3{
+                        font-size: 20px;
+                        padding-top: 1em;
+                    }
+                }
             }
         }
 
@@ -401,6 +395,7 @@
                 font-size: 30px;
                 line-height: 30px;
                 text-transform: capitalize;
+                padding-bottom: 2em;
             }
 
             .showSearchGif{
