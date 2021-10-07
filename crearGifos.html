@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;900&display=swap" rel="stylesheet">
-    
 </head>
 
 <body>
@@ -15,7 +14,6 @@
     <!--Sección header -->
     <header>
         <div class="logoDesktop"> <a href="./index.html"> <img src="./images/logo-desktop.svg" alt="logoDesktop"></a> </div>
-
         <!-- logo modo noc -->
         <nav class="menu">
             <input type="checkbox" id="menu" class="checkbox">
@@ -34,53 +32,67 @@
     <main>
         <!--Sección Crear Gifos-->
         <section>
-            
             <div id="containerCreateGifos">
-                
+
                 <div class="animation">
                     <img src="./images/camara.svg" alt="camara" class="camara">
                     <img src="./images/element-luz-camara.svg" alt="luz" class="light">
                 </div>
 
                 <div class="stepByStep">
-                    
                     <div class="boxTitle">
                         
                         <div class="corner1"></div>
                         <div class="corner2"></div>
 
-                        <div class="text">
+                        <div class="text1">
                             <h2><span class="blockSpan">Aquí podrás</span> crear tus propios <span class="coloredSpan">GIFOS</span></h2>
                             <p>¡Crea tu GIFO en sólo 3 pasos! <span class="blockSpan">(sólo necesitas una cámara para grabar un video)</span></p>    
                         </div>
 
-                        <div class="containerVideo">  </div>              
-                        
+                        <div class="text2">
+                            <h2>¿Nos das acceso <span class="blockSpan">a tu cámara?</span></h2>
+                            <p>El acceso a tu camara será válido sólo <span class="blockSpan">por el tiempo en el que estés creando el GIFO.</span></p>  
+                        </div>
+
+                        <div class="containerPreview">
+
+                            <div class="containerVideo"><!--acá va img gifo--></div>   
+
+                            <div class="containerIcons">              </div>
+
+                            <div class="loadingUpload">
+                                <img class="loader" src="./images/loader.svg" alt="loadingUpload">
+                                <p class="loadingText">Estamos subiendo tu GIFO</p>
+                            </div>
+
+                            <div class="uploadCheck">
+                                <img class="check" src="./images/check.svg" alt="checkUpload">
+                                <p class="uploadText">GIFO subido con éxito</p> 
+                            </div>
+                        </div>
+                                 
                         <div class="corner3"></div>
                         <div class="corner4"></div>
 
                     </div>
 
                     <div class="buttonsNumber">
-                        <button class="number 1">1</button>
-                        <button class="number 2">2</button>
-                        <button class="number 3">3</button>
+                        <div class="containerNumbers">
+                            <button class="number num1">1</button>
+                            <button class="number num2">2</button>
+                            <button class="number num3">3</button>
+                        </div>
+
+                        <button class="btnRepeat"></button>
                     </div>
 
                     <hr>
-
                     <button class="buttonVideo comenzar">COMENZAR</button>
                     <button class="buttonVideo grabar">GRABAR</button>
                     <button class="buttonVideo finalizar">FINALIZAR</button>
-                    <button class="buttonVideo subir">SUBIR</button>
+                    <button class="buttonVideo subir">SUBIR GIFO</button>
 
-                    <!--Seccion Create Gifos Boton 1-->
-
-                    <!-- <h2>¿Nos das acceso <span>a tu cámara?</span></h2>
-                    <p>El acceso a tu camara será válido sólo <span>por el tiempo en el que estés creando el GIFO.</span></p>-->  
-                </div>
-
-                <div>
                     <div class="imageFilm">
                         <img src="./images/pelicula.svg" alt="pelicula" class="film">
                     </div>  
@@ -94,6 +106,7 @@
         <div class="footer">
             <div class="socialMedia">
                 <h4>Compartir en:</h4>
+
                 <div class="icons">
                     <div><a href="https://www.facebook.com/"></a> <img src="./images/icon_facebook.svg" alt="facebook"></div>
                     <div><a href="https://twitter.com/"></a> <img src="./images/icon-twitter.svg" alt="twitter"></div>
@@ -108,13 +121,12 @@
     </footer>
 
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-    <script src="./js/createGifos.js"></script>
-    <script src="./js/misGifos.js"></script>
-
-    <script src="./js/functions.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/functions.js"></script>
     <script src="./js/trendingGifos.js"></script>
-    <script src="./js/nightMode.js"></script>
     <script src="./js/favorites.js"></script>
+    <script src="./js/nightMode.js"></script>
+    <script src="./js/misGifos.js"></script>
+    <script src="./js/createGifos.js"></script>
 </body>
 </html>

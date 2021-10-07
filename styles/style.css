@@ -1052,14 +1052,7 @@ header {
     font-size: 18px;
     text-align: center;
     color: #50E3C2; }
-  .containerMisGifos .imagesMisGifos #titleGifs {
-    color: #572EE5;
-    text-align: center;
-    font-family: "Montserrat";
-    font-size: 25px;
-    line-height: 30px;
-    text-transform: capitalize; }
-  .containerMisGifos .imagesMisGifos .showSearchGif {
+  .containerMisGifos .imagesMisGifos {
     width: 20.8em;
     display: grid;
     grid-template: repeat(6, 7.5em)/repeat(2, 1fr);
@@ -1067,12 +1060,16 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; }
-    .containerMisGifos .imagesMisGifos .showSearchGif .singleImgSearch {
-      width: 9.75em;
-      height: 7.5em; }
-      .containerMisGifos .imagesMisGifos .showSearchGif .singleImgSearch .imgGifsSearch {
-        width: 9.75em;
-        height: 7.5em; }
+    .containerMisGifos .imagesMisGifos .imgMisGifos {
+      width: 12em;
+      height: 8em; }
+    .containerMisGifos .imagesMisGifos #titleGifs {
+      color: #572EE5;
+      text-align: center;
+      font-family: "Montserrat";
+      font-size: 25px;
+      line-height: 30px;
+      text-transform: capitalize; }
   .containerMisGifos .btnMoreMisGifos {
     color: #572EE5;
     border: 1px solid #572EE5;
@@ -1092,15 +1089,12 @@ header {
 
 @media screen and (min-width: 768px) {
   .containerMisGifos {
-    width: 100vw;
-    height: 73em; }
+    width: 100vw; }
     .containerMisGifos .titleMisGifos {
       color: #572EE5;
       text-align: center;
-      font-family: "Montserrat";
       font-weight: bold;
       font-size: 25px;
-      line-height: 30px;
       padding-bottom: 2.25em;
       padding-top: 0.7em; }
     .containerMisGifos .noContentMisGifos .iconGifos {
@@ -1122,6 +1116,9 @@ header {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center; }
+      .containerMisGifos .imagesMisGifos .imgMisGifos {
+        width: 16.25em;
+        height: 12.5em; }
     .containerMisGifos .btnMoreMisGifos {
       color: #572EE5;
       border: 1px solid #572EE5;
@@ -1196,19 +1193,23 @@ header {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
+            flex-direction: row; }
     #containerCreateGifos .animation {
       -ms-flex-item-align: center;
-          align-self: center; }
+          align-self: center;
+      padding-bottom: 5em;
+      padding-left: 3.5em; }
       #containerCreateGifos .animation .camara {
-        width: 7.7em;
-        height: 10.13em; }
+        width: 7em;
+        height: 9em; }
       #containerCreateGifos .animation .light {
-        width: 5.7em;
-        height: 9.4em; }
+        width: 4.5em;
+        height: 8.8em; }
+    #containerCreateGifos .imageFilm {
+      width: .10em;
+      margin-top: -10.5em;
+      -ms-flex-item-align: end;
+          align-self: flex-end; }
     #containerCreateGifos .stepByStep {
       width: 49.7em;
       -ms-flex-item-align: center;
@@ -1229,9 +1230,10 @@ header {
           -ms-flex-align: center;
               align-items: center; }
       #containerCreateGifos .stepByStep .boxTitle {
-        width: 43em;
-        height: 24.4em;
+        width: 40em;
+        height: 22em;
         padding: 1.2em;
+        margin-top: 1em;
         border: 1px solid #572EE5;
         text-align: center;
         -webkit-box-align: center;
@@ -1254,25 +1256,94 @@ header {
           -ms-flex-item-align: start;
               align-self: flex-start;
           justify-self: flex-end; }
-        #containerCreateGifos .stepByStep .boxTitle .text {
+        #containerCreateGifos .stepByStep .boxTitle .text1 {
           color: #572EE5;
           text-align: center;
           font-family: "Montserrat";
           padding-bottom: 2.25em;
           padding-top: 0.7em;
           grid-area: 2/2/3/3; }
-          #containerCreateGifos .stepByStep .boxTitle .text h2 {
+          #containerCreateGifos .stepByStep .boxTitle .text1 h2 {
             font-size: 25px;
             line-height: 35px;
             font-weight: bold; }
-          #containerCreateGifos .stepByStep .boxTitle .text p {
+          #containerCreateGifos .stepByStep .boxTitle .text1 p {
             font-size: 16px;
             line-height: 29px;
             color: #000000; }
-          #containerCreateGifos .stepByStep .boxTitle .text .blockSpan {
+          #containerCreateGifos .stepByStep .boxTitle .text1 .blockSpan {
             display: block; }
-          #containerCreateGifos .stepByStep .boxTitle .text .coloredSpan {
+          #containerCreateGifos .stepByStep .boxTitle .text1 .coloredSpan {
             color: #50E3C2; }
+        #containerCreateGifos .stepByStep .boxTitle .text2 {
+          color: #572EE5;
+          text-align: center;
+          font-family: "Montserrat";
+          padding-bottom: 2.25em;
+          padding-top: 0.7em;
+          grid-area: 2/2/3/3;
+          display: none; }
+          #containerCreateGifos .stepByStep .boxTitle .text2 h2 {
+            font-size: 25px;
+            line-height: 35px;
+            font-weight: bold; }
+          #containerCreateGifos .stepByStep .boxTitle .text2 p {
+            font-size: 16px;
+            line-height: 29px;
+            color: #000000; }
+          #containerCreateGifos .stepByStep .boxTitle .text2 .blockSpan {
+            display: block; }
+        #containerCreateGifos .stepByStep .boxTitle .containerPreview {
+          font-family: "Montserrat";
+          font-size: 16px;
+          color: #FFFFFF; }
+          #containerCreateGifos .stepByStep .boxTitle .containerPreview .containerVideo {
+            width: 25em;
+            height: 15.625em;
+            margin-top: 20em;
+            margin-left: 5.5em; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .containerVideo .preview {
+              width: 25em;
+              height: 15.625em;
+              opacity: 0.7; }
+          #containerCreateGifos .stepByStep .boxTitle .containerPreview .loadingUpload {
+            width: 13.5em;
+            height: 5em;
+            display: grid;
+            grid-template: repeat(2, 1fr)/1fr;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            display: none; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .loadingUpload .loader {
+              width: 1.13em;
+              height: 1em;
+              grid-area: 1/1/2/2; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .loadingUpload .loadingText {
+              grid-area: 2/1/3/2; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .loadingUpload .loader, #containerCreateGifos .stepByStep .boxTitle .containerPreview .loadingUpload .loadingText {
+              -webkit-transform: translate(80%, -600%);
+                      transform: translate(80%, -600%);
+              position: relative; }
+          #containerCreateGifos .stepByStep .boxTitle .containerPreview .uploadCheck {
+            width: 12.5em;
+            height: 5em;
+            display: grid;
+            grid-template: repeat(2, 1fr)/1fr;
+            grid-gap: .5em;
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .uploadCheck .check {
+              width: 1.13em;
+              height: 1em;
+              grid-area: 1/1/2/2; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .uploadCheck .uploadText {
+              grid-area: 2/1/3/2; }
+            #containerCreateGifos .stepByStep .boxTitle .containerPreview .uploadCheck .check, #containerCreateGifos .stepByStep .boxTitle .containerPreview .uploadCheck .uploadText {
+              -webkit-transform: translate(80%, -600%);
+                      transform: translate(80%, -600%);
+              position: relative; }
         #containerCreateGifos .stepByStep .boxTitle .corner3 {
           grid-area: 3/1/4/2;
           border-left: 1px solid #50E3C2;
@@ -1292,27 +1363,53 @@ header {
               align-self: flex-end;
           justify-self: flex-end; }
       #containerCreateGifos .stepByStep .buttonsNumber {
+        width: 85%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: horizontal;
+        -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+            -ms-flex-direction: column;
+                flex-direction: column;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
         padding: 1.6em; }
-        #containerCreateGifos .stepByStep .buttonsNumber .number {
-          width: 2em;
-          height: 2em;
-          margin-left: 1.6em;
-          font-size: 18px;
+        #containerCreateGifos .stepByStep .buttonsNumber .containerNumbers {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: row;
+                  flex-direction: row;
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; }
+          #containerCreateGifos .stepByStep .buttonsNumber .containerNumbers .number {
+            width: 2em;
+            height: 2em;
+            margin-left: 1.6em;
+            font-size: 18px;
+            color: #572EE5;
+            text-align: center;
+            line-height: 0.8em;
+            border: 1px solid #572EE5;
+            border-radius: 100%;
+            background-color: #FFFFFF; }
+        #containerCreateGifos .stepByStep .buttonsNumber .btnRepeat {
+          width: 15em;
+          font-family: "Montserrat";
+          font-weight: bold;
+          font-size: 14px;
+          -webkit-text-decoration: underline #50E3C2;
+                  text-decoration: underline #50E3C2;
+          background-color: #FFFFFF;
           color: #572EE5;
-          text-align: center;
-          border: 1px solid #572EE5;
-          border-radius: 100%;
-          background-color: #FFFFFF; }
+          -ms-flex-item-align: end;
+              align-self: flex-end;
+          border: none;
+          display: none; }
       #containerCreateGifos .stepByStep hr {
         width: 49.7em;
         height: 0.4em;
@@ -1336,12 +1433,9 @@ header {
         display: none; }
       #containerCreateGifos .stepByStep .subir {
         display: none; }
-    #containerCreateGifos .imageFilm {
-      width: 5.45em;
-      height: 5.44em;
-      -ms-flex-item-align: end;
-          align-self: flex-end;
-      margin-bottom: 5em; } }
+
+  .footer {
+    margin-top: 7em; } }
 .footer {
   width: 100vw;
   display: -webkit-box;

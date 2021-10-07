@@ -11,7 +11,6 @@
     }
 
     .noContentMisGifos{
-
         .iconGifos{
             width: 1.4em;
             height: 1.3em;
@@ -28,6 +27,17 @@
     }
 
     .imagesMisGifos{
+        width: 20.8em;                  
+        display: grid;
+        grid-template: repeat(6,7.5em) / repeat(2,1fr);
+        grid-gap: 1.3em 1.3em;
+        justify-content: center; 
+
+        .imgMisGifos{
+            width: 12em;
+            height: 8em;   
+        }
+
         #titleGifs{
             @include titles;            //PONERLE EL ESTILO CORRESPONDIENTE
             font-family: "Montserrat";
@@ -36,88 +46,70 @@
             text-transform: capitalize;
         }
 
-        .showSearchGif{
-            width: 20.8em;                  
-            display: grid;
-            grid-template: repeat(6,7.5em) / repeat(2,1fr);
-            grid-gap: 1.3em 1.3em;
-            justify-content: center;   
+        // .gifoInfo{
+        //     position: relative;
+        //     height: 12.5em;
+        //     transform: translate(0%, -102.5%);
+        //     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        //     text-transform: capitalize;
+        //     display: none;
 
-            .singleImgSearch{
-                width: 9.75em;
-                height: 7.5em;
+        //     .hoverIcons {
+        //         width: 20vw;
+        //         height: 3em;
+        //         grid-area: 1/3/2/4;
+        //         padding-top: .5em;
+        //         padding-right: .16em;
+        //         display: flex;
+        //         flex-direction: row;
+        //         justify-content: flex-end;
+        //         align-items: flex-start;
+        //         align-content: flex-end;
+        //         img{
+        //             width: 2em;
+        //             height: 2em;
+        //             padding: .2em;
+        //         }
+        //     }
 
-                .imgGifsSearch {                    
-                    width: 9.75em;
-                    height: 7.5em;
-                }
+        //     .pInfo{   
+        //         height: 5em;
+        //         color: $color-blanco;
+        //         font-family: 'Roboto'; 
+        //         padding-left: 1em;
+        //         padding-top: 1em;
+        //         margin-top: 2em;
+        //         display: flex;
+        //         flex-direction: row;
+        //         justify-content: flex-start;
+        //         flex-wrap: wrap;
+        //         align-items: flex-end;
+        //         align-content: flex-end;
 
-                // .searchInfo{
-                //     position: relative;
-                //     height: 12.5em;
-                //     transform: translate(0%, -102.5%);
-                //     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-                //     text-transform: capitalize;
-                //     display: none;
+        //         .user{ 
+        //             width: 13em;
+        //             font-weight: 400;     
+        //             font-size: 15px;
+        //         }
+        //         .titleGifo{
+        //             font-weight: 900;  
+        //             font-size: 16px;
+        //         } 
+        //     }
+        // } 
 
-                //     .hoverIcons {
-                //         width: 20vw;
-                //         height: 3em;
-                //         grid-area: 1/3/2/4;
-                //         padding-top: .5em;
-                //         padding-right: .16em;
-                //         display: flex;
-                //         flex-direction: row;
-                //         justify-content: flex-end;
-                //         align-items: flex-start;
-                //         align-content: flex-end;
-                //         img{
-                //             width: 2em;
-                //             height: 2em;
-                //             padding: .2em;
-                //         }
-                //     }
-
-                //     .pInfo{   
-                //         height: 5em;
-                //         color: $color-blanco;
-                //         font-family: 'Roboto'; 
-                //         padding-left: 1em;
-                //         padding-top: 1em;
-                //         margin-top: 2em;
-                //         display: flex;
-                //         flex-direction: row;
-                //         justify-content: flex-start;
-                //         flex-wrap: wrap;
-                //         align-items: flex-end;
-                //         align-content: flex-end;
-
-                //         .user{ 
-                //             width: 13em;
-                //             font-weight: 400;     
-                //             font-size: 15px;
-                //         }
-                //         .titleGifSearch{
-                //             font-weight: 900;  
-                //             font-size: 16px;
-                //         } 
-                //     }
-                // } 
-
-                // &:hover{
-                //     width: 16.25em;
-                //     height: 12.5em;
-                    
-                //     .searchInfo{
-                //         background-color: $color-principal;
-                //         opacity: 0.7;
-                //         display: block                           
-                //     }
-                // }
-            }
-        }
+        // &:hover{
+        //     width: 16.25em;
+        //     height: 12.5em;
+            
+        //     .searchInfo{
+        //         background-color: $color-principal;
+        //         opacity: 0.7;
+        //         display: block                           
+        //     }
+        // }
+    
     }
-
 
     .btnMoreMisGifos{              
         @include button;
@@ -135,24 +127,22 @@
 
 
 
-
 //------------------------------------------ DESKTOP ---------------------------------------
 
 @media screen and (min-width: 768px){  
 
     .containerMisGifos{
         width: 100vw;
-        height: 73em;      
+        // height: 73em;      
  
         .titleMisGifos{
             @include titles;    
-            font-family: "Montserrat";
             font-weight: bold;
             font-size: 25px;
-            line-height: 30px;
             padding-bottom: 2.25em;
             padding-top: 0.7em;
         }
+        
         .noContentMisGifos{
             .iconGifos{
                 width: 9.375em;
@@ -176,6 +166,11 @@
             grid-template: repeat(2,12em) / repeat(4,1fr);
             grid-gap: 2.19em 1.81em;
             justify-content: center;   
+
+            .imgMisGifos{
+                width: 16.25em;
+                height: 12.5em;   
+            }
         }
 
         .btnMoreMisGifos{
@@ -189,10 +184,6 @@
             transform: translateX(-50%);
         }
 
-
-
-
-        //                                          MODAL
         .modalShow{
             position: absolute;
             width: 100vw; 
