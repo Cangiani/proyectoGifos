@@ -82,6 +82,7 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
         alert('¿Nos das acceso a tu cámara? El acceso a tu camara será válido sólo por el tiempo en el que estés creando el GIFO');
         video.srcObject = stream;      //puedes utilizarlo como src de la tag <video/> y llamar play() para que comience a reproducirse.
         video.play();
+        containerCreateGifos.querySelector(".containerPreview").style.display = "block";
         btnGrabar.style.display = "block";
 
         const recorder = RecordRTC(stream, {            //El archivo está en memoria, es el BLOB

@@ -118,74 +118,65 @@
                 }
 
                 .containerPreview{
-                    // @include titles;    
                     font-family: "Montserrat";
+                    font-weight: bold;
                     font-size: 16px;
                     color: $color-blanco;
+                    grid-area: 2/2/3/3;
+                    display: none;
 
                     .containerVideo{
                         width: 25em;
                         height: 15.625em;
-                        // padding-left: 2.5em;
-                        margin-top: 20em;
                         margin-left: 5.5em;
-
                         .preview{                                    //IMG VIDEO
                             width: 25em;
                             height: 15.625em;
-                            // padding-left: 2.5em;
-                            //background: $color-principal;
+                            background: $color-principal;
                             opacity: 0.7;
                         } 
                     }
-
-                    .loadingUpload{                                       //texto cuando carga
-                        width: 13.5em;
-                        height: 5em;
-                        // display: flex;
-                        // flex-direction: row;
-                        // justify-content: center; 
-                        display: grid;
-                        grid-template: repeat(2,1fr) / 1fr;   
-                        justify-content: center;                         
+                    .loadingUpload{                                     //texto cuando carga
+                        width: 13.8em;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center; 
+                        align-items: center;
+                        transform: translate(85%, -350%);               
                         display: none;
                         .loader{
                             width: 1.13em;
                             height: 1em;
-                            grid-area: 1/1/2/2;
-                        }
-                        .loadingText{
-                            grid-area: 2/1/3/2;
-                        }
-                        .loader, .loadingText{
-                            transform: translate(80%, -600%);
-                            position: relative;
                         }
                     }
-
                     .uploadCheck{                                      //texto cuando se sube
-                        width: 12.5em;
-                        height: 5em;
-                        // display: flex;
-                        // flex-direction: row;
-                        // justify-content: center;
-                        display: grid;
-                        grid-template: repeat(2,1fr) / 1fr;  
-                        grid-gap: .5em;
-                        justify-content: center; 
-                        // display: none;
+                        width: 22em;
+                        height: 14em;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        transform: translate(30%, -100%);
+                        display: none;
 
-                        .check{
-                            width: 1.13em;
-                            height: 1em;
-                            grid-area: 1/1/2/2;
+                        .containerIcons{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            
+                            .downloadIcon{
+                                padding-right: .5em;
+                            }
                         }
-                        .uploadText{
-                            grid-area: 2/1/3/2;
-                        }
-                        .check, .uploadText{
-                            transform: translate(80%, -600%);
-                            position: relative;
+                        .infoUpload{
+                            height: 9em;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            .check{
+                                width: 1.13em;
+                                height: 1em;
+                            }
                         }
                     }
                 }
