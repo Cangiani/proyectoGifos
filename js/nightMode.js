@@ -23,13 +23,17 @@ const bodyNightMode =  document.querySelector("body");
 const headerNightMode = document.querySelector("body > header");    
 const navNightMode = document.querySelector("body > header > nav > ul > li");
 const browserNightMode = document.querySelector(".home .browser"); 
+
+const btnSearch = document.querySelector("#containerSearchGifos > .imageSearch");
+const btnClose = document.querySelector("#containerSearchGifos > .closeSearch")
+
 const divHomeNightMode = document.querySelector(".title h1"); 
 const containerTrendingNight = document.querySelector("#containerTrending");
 const containerFavoritesNight = document.querySelector("#containerFavorites");
 const containerMisGifosNight = document.querySelector(".containerMisGifos");
 const containerCreateGifosNight = document.querySelector("#containerCreateGifos");
 
-const elementsNigthMode = [bodyNightMode, headerNightMode, navNightMode, browserNightMode, divHomeNightMode, containerTrendingNight, containerFavoritesNight, containerMisGifosNight, containerCreateGifosNight];
+const elementsNigthMode = [bodyNightMode, headerNightMode, navNightMode, browserNightMode, btnSearch, btnClose, divHomeNightMode, containerTrendingNight, containerFavoritesNight, containerMisGifosNight, containerCreateGifosNight];
 
 document.getElementById("nightModeBtn").addEventListener("click", () => {
 
@@ -40,12 +44,16 @@ document.getElementById("nightModeBtn").addEventListener("click", () => {
         const localNightMode = localStorage.getItem('nightMode');
         if (localNightMode === 'true'){
             // img src="./images/logo-desktop.svg"                                               //cambiar logo
-            const btnCloseNight = document.querySelector(".closeSearch").src = "./images/close-modo-noct.svg";         //img cruz modo noct.
-            const btnSearchNight = document.querySelector(".imageSearch").src = "./images/icon-search-mod-noc.svg";     //img lupa modo noct.
+            document.querySelector(".closeSearch").src = "./images/close-modo-noct.svg";         //img cruz modo noct.
+            document.querySelector(".imageSearch").src = "./images/icon-search-mod-noc.svg";     //img lupa modo noct.
+            
+            // document.querySelector("#containerCreateGifos > .animation .camara").src = "./images/camara-modo-noc.svg";
+            // const lightCreate = document.querySelector("#containerCreateGifos .animation .light").src = "./images/camara-modo-noc.svg";
         }else {
             // img src="./images/logo-desktop.svg"                                               //cambiar logo
-            document.querySelector(".closeSearch").src = "./images/close.svg";         //img cruz modo noct.
-            document.querySelector(".imageSearch").src = "./images/icon-search.svg";     //img lupa modo noct.
+            document.querySelector("#containerSearchGifos > .closeSearch").src = "./images/close.svg";         //img cruz
+            document.querySelector("#containerSearchGifos > .imageSearch").src = "./images/icon-search.svg";   //img lupa 
+            // document.querySelector("#containerCreateGifos > .animation .camara").src = ".images/camara.svg";
         }
     });  
 });
@@ -58,16 +66,15 @@ function loadNightMode() {
         elementsNigthMode.forEach(elem => {
             elem.classList.toggle("nightMode");  
             // img src="./images/logo-desktop.svg"      //cambiar logo
-
             const localNightMode = localStorage.getItem('nightMode');
         if (localNightMode === 'true'){
             // img src="./images/logo-desktop.svg"                                               //cambiar logo
-            const btnCloseNight = document.querySelector(".closeSearch").src = "./images/close-modo-noct.svg";         //img cruz modo noct.
-            const btnSearchNight = document.querySelector(".imageSearch").src = "./images/icon-search-mod-noc.svg";     //img lupa modo noct.
+            document.querySelector("#containerSearchGifos > .closeSearch").src = "./images/close-modo-noct.svg";         //img cruz modo noct.
+            document.querySelector("#containerSearchGifos > .imageSearch").src = "./images/icon-search-mod-noc.svg";     //img lupa modo noct.
         }else {
             // img src="./images/logo-desktop.svg"                                               //cambiar logo
-            document.querySelector(".closeSearch").src = "./images/close.svg";         //img cruz modo noct.
-            document.querySelector(".imageSearch").src = "./images/icon-search.svg";     //img lupa modo noct.
+            document.querySelector("#containerSearchGifos > .closeSearch").src = "./images/close.svg";         //img cruz modo noct.
+            document.querySelector("#containerSearchGifos > .imageSearch").src = "./images/icon-search.svg";     //img lupa modo noct.
         }
         });  
     }                                                               

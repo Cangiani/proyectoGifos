@@ -3,7 +3,7 @@ const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
 
 let suggestionLoading = false;                            // Semaforo del buscador search Gifos
 
-const getSearchTags = async (apiKey, query) => {
+const getSearchTags = async (apiKey, query) => {            //get search
   const API_URL_SEARCH = "https://api.giphy.com/v1/gifs/search/tags";
   try {
     const tags = await fetch(`${API_URL_SEARCH}?api_key=${apiKey}&q=${query}&limit=4`);
@@ -13,7 +13,7 @@ const getSearchTags = async (apiKey, query) => {
   }
 }
 
-const getSearchGifsByKeyword = async (keyword, offset) => {
+const getSearchGifsByKeyword = async (keyword, offset) => {   //input suggestions
   try {
     const tags = await fetch(`${API_URL}/search?api_key=${API_KEY}&q=${keyword}&offset=${offset*12}&limit=12`);
     return tags.json()
@@ -21,34 +21,6 @@ const getSearchGifsByKeyword = async (keyword, offset) => {
     console.log("ocurrio un error", error)
   }
 }
-
-// const getGifs = (gifs) => {         
-
-//   gifs.data.forEach(gif => {
-//     const containerTrending = document.querySelector("#trendingGifos");
-//     const containerGifosSearch = document.createElement("div");
-//     containerGifosSearch.classList.add("singleGifo");
-//     containerGifosSearch.innerHTML = `
-//       <img class="singleImg" src="${gif.images.fixed_height.url}" alt="imgGifos">
-//       <div class="trendingInfo"> 
-//         <div class="hoverIcons">
-//           <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
-//           <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-//           <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
-//         </div>
-//         <div class="pInfo">
-//           <p class="user">${gif.username}</p>
-//           <p class="title">${gif.title}</p> 
-//         </div>
-//       </div>`;
-//     containerTrending.appendChild(containerGifosSearch);  
-    
-//     //FAVORITES
-//     containerGifosSearch.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);
-//   });
-
-//   //      Modal Expand
-// }
 
 const deleteInput = () => {
   document.getElementById("searchGifos").value = "";
@@ -60,12 +32,11 @@ const deleteInput = () => {
   divContainerSearch.classList.remove("searchActive");
 }
 
- 
 let clickCounter = 0;
 
 const getMoreGifs = async () =>{
   clickCounter += 1;
-  // const inputSuggestions = document.getElementById('searchGifos');
+  const inputSuggestions = document.getElementById('searchGifos');
   const gifs = await getSearchGifsByKeyword(inputSuggestions.value, clickCounter);
   
   gifs.data.forEach(gif => {
@@ -77,7 +48,7 @@ const getMoreGifs = async () =>{
     <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
     <div class="searchInfo"> 
       <div class= "hoverIcons">
-        <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+        <a href="#" class="btnHeart"> <img data-id="${gif.id}" src="./images/icon-fav.svg" alt="heart"></a>
         <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
         <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
       </div>
@@ -89,7 +60,7 @@ const getMoreGifs = async () =>{
     containerShowSearchGifs.appendChild(imagesLatestGifos);
 
     // FAVORITES
-    arrayFavorites.push(gif); 
+    //arrayFavorites.push(gif); 
     imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
     //MODAL EXPAND
@@ -99,7 +70,6 @@ const getMoreGifs = async () =>{
     });
   });
 }
-
 const inputSuggestions = document.getElementById('searchGifos');
 
 const getSuggestionsGifos = async (ev) => {
@@ -138,23 +108,48 @@ const getSuggestionsGifos = async (ev) => {
       newLi.textContent = tag.name; 
       containerSuggestions.appendChild(newLi);
 
-        newLi.addEventListener("click", async (ev) =>{                      
-          const gifClickeado = await getSearchGifsByKeyword(tag.name);
-          document.querySelector(".borderBottomSearch").style.display = "none";
-          divContainerSearch.classList.remove("searchActive");
-          containerSuggestions.innerHTML = ""; 
-          showTitle.textContent = tag.name;   
-          showTitle.style.paddingTop = "2em"; 
-          document.querySelector(".btnSearchGif").style.display = "block";
-          document.querySelector(".home .subtitle").style.display = "none";
+      newLi.addEventListener("click", async (ev) =>{                      
+        const gifClickeado = await getSearchGifsByKeyword(tag.name);
+        document.querySelector(".borderBottomSearch").style.display = "none";
+        divContainerSearch.classList.remove("searchActive");
+        containerSuggestions.innerHTML = ""; 
+        showTitle.textContent = tag.name;   
+        showTitle.style.paddingTop = "2em"; 
+        document.querySelector(".btnSearchGif").style.display = "block";
+        document.querySelector(".home .subtitle").style.display = "none";
 
-          gifClickeado.data.forEach(gif => {
-            const newImg = document.createElement('img');
-            newImg.setAttribute("src", gif.images.fixed_height.url);
-            newImg.classList.add("singleImgSearch");
-            containerGifs.appendChild(newImg);
-          });
-        })
+        gifClickeado.data.forEach(gif => {
+          const containerGifs = document.querySelector('#showSearchGif');
+          containerGifs.classList.add("showSearchGif");
+          const imagesLatestGifos = document.createElement("div");
+          imagesLatestGifos.classList.add("singleImgSearch");
+          imagesLatestGifos.innerHTML = `
+          <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
+          <div class="searchInfo"> 
+            <div class= "hoverIcons">
+              <a href="#" class="btnHeart"> <img data-id="${gif.id}" src="./images/icon-fav.svg" alt="heart"></a>
+              <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+              <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
+            </div>
+            <div class="pInfo">
+              <p class="user">${gif.username}</p>
+              <p class="titleGifSearch">${gif.title}</p> 
+            </div>
+          </div>`;
+          containerGifs.appendChild(imagesLatestGifos);
+
+          // //FAVORITES
+          // arrayFavorites.push(gif); 
+          // imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+  
+          // const expandGif = imagesLatestGifos.querySelector('.btnExpand');        //MODAL EXPAND
+          // expandGif.addEventListener("click", function() {
+          //   showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+          // });
+        });
+        document.querySelector(".btnSearchGif").style.display = "block";
+        document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);     
+      });
     });
     suggestionLoading = false;
   }
@@ -163,11 +158,15 @@ const getSuggestionsGifos = async (ev) => {
     
     const gifs = await getSearchGifsByKeyword(ev.target.value, 0); //0 significa la primer pagina (0*12,1*12,2*12...)
     showTitle.textContent = ev.target.value; 
-    document.querySelector(".home .subtitle").style.height = "22em";
+    // document.querySelector(".home .subtitle").style.height = "22em";
+    document.querySelector(".home .subtitle").style.height = "14em";
 
-    if(ev.target.value === "" || ev.target.value === null ){         //no funciona null, poner gifs === 0 ?     
-      
-      document.querySelector("#showSearchGif").style.display = "none";
+    const tags = await getSearchTags(API_KEY, ev.target.value); 
+    if(ev.target.value === "" || tags.data.length === 0 ){         //no funciona null, poner gifs === 0 ?     
+      document.querySelector(".showSearchGif").classList.remove("showSearchGif");
+      divContainerSearch.classList.remove("searchActive");
+      document.querySelector(".borderBottomSearch").style.display = "none";
+
       const divNoResult = document.createElement("div");
       divNoResult.classList.add("noResultSearchGifos");  
       divNoResult.innerHTML = `
@@ -179,7 +178,13 @@ const getSuggestionsGifos = async (ev) => {
       divContainerSearch.appendChild(divNoResult);
 
     }else{
-      const containerShowSearchGifs = document.querySelector("#showSearchGif");
+      const containerShowSearchGifs = document.querySelector(".showSearchGif");
+      
+      containerShowSearchGifs.classList.add("showSearchGif");
+      //divNoResult.classList.remove = ("noResultSearchGifos");
+      //divNoResult.innerHTML = "";
+      // document.querySelector(".noResultSearchGifos").style.display = "none";
+
       document.querySelector(".borderBottomSearch").style.display = "none";
       divContainerSearch.classList.remove("searchActive");
       containerSuggestions.innerHTML = ""; 
@@ -187,7 +192,6 @@ const getSuggestionsGifos = async (ev) => {
       containerShowSearchGifs.style.paddingTop = "3em"; 
 
       gifs.data.forEach(gif => {
-
         containerShowSearchGifs.classList.add("showSearchGif");
         const imagesLatestGifos = document.createElement("div");
         imagesLatestGifos.classList.add("singleImgSearch");
@@ -195,7 +199,7 @@ const getSuggestionsGifos = async (ev) => {
         <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
         <div class="searchInfo"> 
           <div class= "hoverIcons">
-            <a href="#"> <img data-id="${gif.id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+            <a href="#" class="btnHeart"> <img data-id="${gif.id}" src="./images/icon-fav.svg" alt="heart"></a>
             <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
             <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
           </div>
@@ -203,26 +207,22 @@ const getSuggestionsGifos = async (ev) => {
             <p class="user">${gif.username}</p>
             <p class="titleGifSearch">${gif.title}</p> 
           </div>
-        </div>`
+        </div>`;
         containerShowSearchGifs.appendChild(imagesLatestGifos);
 
-        // FAVORITES
-        arrayFavorites.push(gif); 
+        //arrayFavorites.push(gif);                                                 // FAVORITES
         imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
-        //MODAL EXPAND
-        const expandGif = imagesLatestGifos.querySelector('.btnExpand');
+        const expandGif = imagesLatestGifos.querySelector('.btnExpand');          //MODAL EXPAND
         expandGif.addEventListener("click", function() {
           showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
         });
-
       });
       document.querySelector(".btnSearchGif").style.display = "block";
-      document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);      //btn ver más
+      document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);     
     }
   }
 }
-
 if (inputSuggestions !== null) {
   inputSuggestions.addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
 }
@@ -242,7 +242,7 @@ if (inputSuggestions !== null) {
 //   </div>
 //   <div class="trendingExpand"> 
 //     <div class="hoverIcons">
-//       <a href="#"> <img data-id="${id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+//       <a href="#" class="btnHeart"> <img data-id="${id}" src="./images/icon-fav.svg" alt="heart"></a>
 //       <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
 //     </div>
 //     <div class="infoExpand">
@@ -250,7 +250,6 @@ if (inputSuggestions !== null) {
 //       <p class="titleExpand">${title}</p> 
 //     </div>
 //   </div>`;
-
 // }
 
 
@@ -258,18 +257,17 @@ if (inputSuggestions !== null) {
 
 const showModalExpand = (img, id, user, title) => {
   
-  //const containerModal = document.getElementById("containerTrending");
-  const modalExp = document.createElement("div");
-  modalExp.classList.add("modalShow");
-  modalExp.style.display = "block";
-  modalExp.innerHTML = `
+  const modalExpand = document.createElement("div");
+  modalExpand.classList.add("modalShow");
+  modalExpand.style.display = "block";
+  modalExpand.innerHTML = `
   <a class= "btnCloseModal"> <img src="./images/close.svg"> </a>
   <div class= "containerImgExpand">
     <img class="modalImg" src="${img}" alt="imgGifos"> 
   </div>
   <div class="trendingExpand"> 
     <div class="hoverIcons">
-      <a href="#"> <img data-id="${id}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
+      <a href="#" class="btnHeart"> <img data-id="${id}" src="./images/icon-fav.svg" alt="heart"></a>
       <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
     </div>
     <div class="infoExpand">
@@ -277,30 +275,44 @@ const showModalExpand = (img, id, user, title) => {
       <p class="titleExpand">${title}</p> 
     </div>
   </div>`;
-  //containerModal.appendChild(modalExp);
-
   if (document.querySelector('#containerTrending')) {
-    document.querySelector('#containerTrending').appendChild(modalExp);
+    document.querySelector('#containerTrending').appendChild(modalExpand);
+  } else if (document.querySelector('#containerFavorites')) {
+    document.querySelector('#containerFavorites').appendChild(modalExpand);
+  } else if (document.querySelector('.containerMisGifos')) {
+    document.querySelector('.containerMisGifos').appendChild(modalExpand);
   }
+  //arrayFavorites.push(img);                 // FAVORITES                //???????????????????'
+  modalExpand.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
 
-  if (document.querySelector('#containerFavorites')) {
-    document.querySelector('#containerFavorites').appendChild(modalExp);
-  }
-
-  if (document.querySelector('.containerMisGifos')) {
-    document.querySelector('.containerMisGifos').appendChild(modalExp);
-  }
-
-
-  // FAVORITES
-  // const localGifs = JSON.parse(localStorage.getItem('gifs'));
-  // localGifs.gifs.push(imgGifo);
-  // localStorage.setItem('gifs', JSON.stringify(localGifs));
-
-  modalExp.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
-
-  //CERRAR MODAL
-  modalExp.querySelector(".btnCloseModal").addEventListener("click", () => {
-    modalExp.style.display = "none";
+  modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {        //CERRAR MODAL
+    modalExpand.style.display = "none";
   });
 }
+
+// const getGifs = (gifs) => {         
+//   gifs.data.forEach(gif => {
+//     const containerTrending = document.querySelector("#trendingGifos");
+//     const containerGifosSearch = document.createElement("div");
+//     containerGifosSearch.classList.add("singleGifo");
+//     containerGifosSearch.innerHTML = `
+//       <img class="singleImg" src="${gif.images.fixed_height.url}" alt="imgGifos">
+//       <div class="trendingInfo"> 
+//         <div class="hoverIcons">
+//           <a href="#" class="btnHeart"> <img data-id="${gif.id}"  src="./images/icon-fav.svg" alt="heart"></a>
+//           <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+//           <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
+//         </div>
+//         <div class="pInfo">
+//           <p class="user">${gif.username}</p>
+//           <p class="title">${gif.title}</p> 
+//         </div>
+//       </div>`;
+//     containerTrending.appendChild(containerGifosSearch);  
+    
+//     //FAVORITES
+//     containerGifosSearch.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);
+//   });
+
+//   //      Modal Expand
+// }

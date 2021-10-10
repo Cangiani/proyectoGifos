@@ -204,19 +204,25 @@
     
             .buttonsNumber{
                 width: 85%;
+                // width: 33vw;
+                // margin-left: 14em;
+                padding: 1.5em;
                 display: flex;
+                //flex-wrap: wrap;
+                //flex-direction: row;
                 flex-direction: column;
                 justify-content: center;
-                padding: 1.6em;
-    
+            
                 .containerNumbers{
+                    // padding-left: 12.5em;
                     display: flex;
                     flex-direction: row;
                     justify-content: center;
+                    // padding: 1em;
                    .number{
                         width: 2em;
                         height: 2em;
-                        margin-left: 1.6em;
+                        margin: 0 .8em 0 .8em;
                         font-size: 18px;
                         color: $color-principal;
                         text-align: center;
@@ -232,12 +238,11 @@
                     font-family: "Montserrat";
                     font-weight: bold;
                     font-size: 14px;
-                    // padding: 1.4em 1.5em 1em 1.5em;
+                    // padding-left: 5em;
+                    align-self: flex-end;
                     text-decoration: underline $color-celeste;
                     background-color: $color-blanco;
                     color: $color-principal;
-                    align-self: flex-end;
-                    //text-decoration: none;
                     border: none;
                     display: none;
                 } 
@@ -268,8 +273,5 @@
                 display: none;
             }
         }
-    }
-    .footer{
-        margin-top: 7em;
     }
 }

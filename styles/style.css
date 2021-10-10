@@ -266,16 +266,18 @@ header {
       height: 1px;
       opacity: 0.5;
       color: #9CAFC3; }
-    .home .browser .noResultSearchGifos .containerImgNoResult {
-      padding-top: 1em;
-      text-align: center; }
-      .home .browser .noResultSearchGifos .containerImgNoResult img {
-        width: 6em;
-        height: 7em;
-        padding-top: 6em; }
-      .home .browser .noResultSearchGifos .containerImgNoResult h3 {
-        font-size: 15px;
-        color: #50E3C2; }
+    .home .browser .noResultSearchGifos {
+      padding-top: 2.2em; }
+      .home .browser .noResultSearchGifos .containerImgNoResult {
+        padding-top: 1em;
+        text-align: center; }
+        .home .browser .noResultSearchGifos .containerImgNoResult img {
+          width: 6em;
+          height: 7em;
+          padding-top: 6em; }
+        .home .browser .noResultSearchGifos .containerImgNoResult h3 {
+          font-size: 15px;
+          color: #50E3C2; }
   .home #listGifs #titleGifs {
     color: #572EE5;
     text-align: center;
@@ -362,13 +364,6 @@ header {
           .home #listGifs .showSearchGif .singleImgSearch .searchInfo .pInfo .titleGifSearch {
             font-weight: 900;
             font-size: 16px; }
-      .home #listGifs .showSearchGif .singleImgSearch:hover {
-        width: 16.25em;
-        height: 12.5em; }
-        .home #listGifs .showSearchGif .singleImgSearch:hover .searchInfo {
-          background-color: #572EE5;
-          opacity: 0.7;
-          display: block; }
   .home #listGifs .btnSearchGif {
     color: #572EE5;
     border: 1px solid #572EE5;
@@ -388,7 +383,7 @@ header {
   .home .subtitle {
     width: 100vw;
     padding-top: 1.9em;
-    padding-bottom: 2.8em;
+    padding-bottom: 2em;
     color: #572EE5;
     text-align: center;
     font-family: 'Montserrat';
@@ -494,7 +489,8 @@ header {
       font-size: 30px;
       line-height: 30px;
       text-transform: capitalize;
-      padding-bottom: 2em; }
+      padding-bottom: 1.3em;
+      padding-top: 1em; }
     .home #listGifs .showSearchGif {
       width: 68em;
       display: grid;
@@ -658,13 +654,17 @@ header {
       height: 3em;
       position: absolute;
       top: 4rem;
-      left: 80vw;
+      left: 74vw;
       z-index: 50; }
-    #containerTrending .modalShow .containerImgExpand .modalImg {
-      width: 23.4em;
-      height: 14.1em;
-      padding-left: 18em;
-      padding-top: 6em; }
+    #containerTrending .modalShow .containerImgExpand {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
+      #containerTrending .modalShow .containerImgExpand .modalImg {
+        width: 23.4em;
+        height: 14.1em;
+        padding-left: 18em;
+        padding-top: 6em; }
     #containerTrending .modalShow .trendingExpand {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -815,18 +815,18 @@ header {
   color: #572EE5;
   text-align: center;
   display: inline-block;
-  width: 100vw; }
+  width: 100vw;
+  font-family: "Montserrat"; }
   #containerFavorites .titleFavorite {
-    font-family: "Montserrat";
     font-size: 20px;
     line-height: 30px;
     text-align: center;
     text-transform: capitalize;
     padding-bottom: 2.9em; }
-  #containerFavorites #noContentFavorites .iconHeart {
+  #containerFavorites .noContentFavorites .iconHeart {
     width: 1.5em;
     height: 1.3em; }
-  #containerFavorites #noContentFavorites h3 {
+  #containerFavorites .noContentFavorites h3 {
     text-align: center;
     color: #50E3C2; }
   #containerFavorites .imagesFavorites {
@@ -844,6 +844,12 @@ header {
       #containerFavorites .imagesFavorites .singleImgFav .imgGifFav {
         width: 9.75em;
         height: 7.5em; }
+      #containerFavorites .imagesFavorites .singleImgFav .favInfo {
+        display: none; }
+        #containerFavorites .imagesFavorites .singleImgFav .favInfo .hoverIcons {
+          display: none; }
+        #containerFavorites .imagesFavorites .singleImgFav .favInfo .pInfo {
+          display: none; }
   #containerFavorites .buttonFavorites {
     color: #572EE5;
     text-align: center;
@@ -862,6 +868,8 @@ header {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     display: none; }
+  #containerFavorites .modalFavExpand {
+    display: none; }
 
 @media screen and (min-width: 768px) {
   #containerFavorites {
@@ -875,10 +883,10 @@ header {
       line-height: 30px;
       padding-bottom: 2.25em;
       padding-top: 0.7em; }
-    #containerFavorites #noContentFavorites .iconHeart {
+    #containerFavorites .noContentFavorites .iconHeart {
       width: 9.375em;
       height: 9.438em; }
-    #containerFavorites #noContentFavorites h3 {
+    #containerFavorites .noContentFavorites h3 {
       text-align: center;
       color: #50E3C2; }
     #containerFavorites .imagesFavorites {
@@ -931,6 +939,13 @@ header {
               width: 2em;
               height: 2em;
               padding: .2em; }
+          #containerFavorites .imagesFavorites .singleImgFav .favInfo .btnHeartPressed {
+            width: 2em;
+            height: 2em;
+            padding: .2em;
+            background-color: #FFFFFF;
+            border-radius: 5px;
+            opacity: 0.7; }
           #containerFavorites .imagesFavorites .singleImgFav .favInfo .pInfo {
             height: 5em;
             color: #FFFFFF;
@@ -1001,13 +1016,17 @@ header {
         height: 3em;
         position: absolute;
         top: 4rem;
-        left: 80vw;
+        left: 73vw;
         z-index: 50; }
-      #containerFavorites .modalShow .containerImgExpand .modalImg {
-        width: 43.4em;
-        height: 24.1em;
-        padding-left: 18em;
-        padding-top: 6em; }
+      #containerFavorites .modalShow .containerImgExpand {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        #containerFavorites .modalShow .containerImgExpand .modalImg {
+          width: 43.4em;
+          height: 24.1em;
+          padding-left: 18em;
+          padding-top: 6em; }
       #containerFavorites .modalShow .trendingExpand {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1036,11 +1055,11 @@ header {
             font-size: 16px; } }
 .containerMisGifos {
   color: #572EE5;
+  text-align: center;
+  font-family: "Montserrat";
   text-align: center; }
   .containerMisGifos .titleMisGifos {
-    font-family: "Montserrat";
     font-size: 20px;
-    text-align: center;
     line-height: 30px;
     text-transform: capitalize;
     padding-bottom: 2.9em; }
@@ -1048,9 +1067,7 @@ header {
     width: 1.4em;
     height: 1.3em; }
   .containerMisGifos .noContentMisGifos h3 {
-    font-family: "Montserrat";
     font-size: 18px;
-    text-align: center;
     color: #50E3C2; }
   .containerMisGifos .imagesMisGifos {
     width: 20.8em;
@@ -1059,17 +1076,24 @@ header {
     grid-gap: 1.3em 1.3em;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center; }
-    .containerMisGifos .imagesMisGifos .imgMisGifos {
-      width: 12em;
-      height: 8em; }
-    .containerMisGifos .imagesMisGifos #titleGifs {
-      color: #572EE5;
-      text-align: center;
-      font-family: "Montserrat";
-      font-size: 25px;
-      line-height: 30px;
-      text-transform: capitalize; }
+            justify-content: center;
+    padding-left: 1.3em; }
+    .containerMisGifos .imagesMisGifos .singleImgMisGifos {
+      width: 9.75em;
+      height: 7.5em; }
+      .containerMisGifos .imagesMisGifos .singleImgMisGifos .imgMisGifos {
+        width: 9.75em;
+        height: 7.5em; }
+      .containerMisGifos .imagesMisGifos .singleImgMisGifos #titleGifs {
+        font-size: 25px;
+        line-height: 30px;
+        text-transform: capitalize; }
+      .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo {
+        display: none; }
+        .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .hoverIcons {
+          display: none; }
+        .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .pInfo {
+          display: none; }
   .containerMisGifos .btnMoreMisGifos {
     color: #572EE5;
     border: 1px solid #572EE5;
@@ -1116,9 +1140,83 @@ header {
       -webkit-box-pack: center;
           -ms-flex-pack: center;
               justify-content: center; }
-      .containerMisGifos .imagesMisGifos .imgMisGifos {
+      .containerMisGifos .imagesMisGifos .singleImgMisGifos {
         width: 16.25em;
         height: 12.5em; }
+        .containerMisGifos .imagesMisGifos .singleImgMisGifos .imgMisGifos {
+          width: 16.25em;
+          height: 12.5em; }
+        .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo {
+          position: relative;
+          height: 12.5em;
+          -webkit-transform: translate(0%, -102.5%);
+                  transform: translate(0%, -102.5%);
+          grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+          text-transform: capitalize;
+          display: none; }
+          .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .hoverIcons {
+            width: 20vw;
+            height: 3em;
+            grid-area: 1/3/2/4;
+            padding-top: .5em;
+            padding-right: .16em;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -webkit-box-pack: end;
+                -ms-flex-pack: end;
+                    justify-content: flex-end;
+            -webkit-box-align: start;
+                -ms-flex-align: start;
+                    align-items: flex-start;
+            -ms-flex-line-pack: end;
+                align-content: flex-end; }
+            .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .hoverIcons img {
+              width: 2em;
+              height: 2em;
+              padding: .2em; }
+          .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .pInfo {
+            height: 5em;
+            color: #FFFFFF;
+            font-family: 'Roboto';
+            padding-left: 1em;
+            padding-top: 1em;
+            margin-top: 2em;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -webkit-box-pack: start;
+                -ms-flex-pack: start;
+                    justify-content: flex-start;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            -webkit-box-align: end;
+                -ms-flex-align: end;
+                    align-items: flex-end;
+            -ms-flex-line-pack: end;
+                align-content: flex-end; }
+            .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .pInfo .user {
+              width: 13em;
+              font-weight: 400;
+              font-size: 15px; }
+            .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .pInfo .titleGititleMisGifosfSearch {
+              font-weight: 900;
+              font-size: 16px; }
+        .containerMisGifos .imagesMisGifos .singleImgMisGifos:hover {
+          width: 16.25em;
+          height: 12.5em; }
+          .containerMisGifos .imagesMisGifos .singleImgMisGifos:hover .gifoInfo {
+            background-color: #572EE5;
+            opacity: 0.7;
+            display: block; }
     .containerMisGifos .btnMoreMisGifos {
       color: #572EE5;
       border: 1px solid #572EE5;
@@ -1156,6 +1254,56 @@ header {
       .containerMisGifos .modalShow .containerImgExpand .modalImg {
         width: 43.4em;
         height: 24.1em;
+        padding-left: 18em;
+        padding-top: 6em; }
+      .containerMisGifos .modalShow .trendingExpand {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+        -ms-flex-pack: distribute;
+            justify-content: space-around; }
+        .containerMisGifos .modalShow .trendingExpand .hoverIcons {
+          padding-right: 8em; }
+          .containerMisGifos .modalShow .trendingExpand .hoverIcons img {
+            padding-top: .8em; }
+        .containerMisGifos .modalShow .trendingExpand .infoExpand {
+          color: #000000;
+          font-family: 'Roboto';
+          padding-left: 8em;
+          padding-top: 1em;
+          text-transform: capitalize; }
+          .containerMisGifos .modalShow .trendingExpand .infoExpand .userExpand {
+            font-weight: 400;
+            font-size: 15px; }
+          .containerMisGifos .modalShow .trendingExpand .infoExpand .titleExpand {
+            font-weight: 900;
+            font-size: 16px; }
+    .containerMisGifos .modalShow {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 100;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      background-color: #FFFFFF;
+      display: none; }
+      .containerMisGifos .modalShow .btnCloseModal {
+        width: 3em;
+        height: 3em;
+        position: absolute;
+        top: 4rem;
+        left: 80vw;
+        z-index: 50; }
+      .containerMisGifos .modalShow .containerImgExpand .modalImg {
+        width: 23.4em;
+        height: 14.1em;
         padding-left: 18em;
         padding-top: 6em; }
       .containerMisGifos .modalShow .trendingExpand {
@@ -1397,6 +1545,7 @@ header {
           justify-self: flex-end; }
       #containerCreateGifos .stepByStep .buttonsNumber {
         width: 85%;
+        padding: 1.5em;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -1406,8 +1555,7 @@ header {
                 flex-direction: column;
         -webkit-box-pack: center;
             -ms-flex-pack: center;
-                justify-content: center;
-        padding: 1.6em; }
+                justify-content: center; }
         #containerCreateGifos .stepByStep .buttonsNumber .containerNumbers {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -1422,7 +1570,7 @@ header {
           #containerCreateGifos .stepByStep .buttonsNumber .containerNumbers .number {
             width: 2em;
             height: 2em;
-            margin-left: 1.6em;
+            margin: 0 .8em 0 .8em;
             font-size: 18px;
             color: #572EE5;
             text-align: center;
@@ -1435,12 +1583,12 @@ header {
           font-family: "Montserrat";
           font-weight: bold;
           font-size: 14px;
+          -ms-flex-item-align: end;
+              align-self: flex-end;
           -webkit-text-decoration: underline #50E3C2;
                   text-decoration: underline #50E3C2;
           background-color: #FFFFFF;
           color: #572EE5;
-          -ms-flex-item-align: end;
-              align-self: flex-end;
           border: none;
           display: none; }
       #containerCreateGifos .stepByStep hr {
@@ -1465,10 +1613,7 @@ header {
       #containerCreateGifos .stepByStep .finalizar {
         display: none; }
       #containerCreateGifos .stepByStep .subir {
-        display: none; }
-
-  .footer {
-    margin-top: 7em; } }
+        display: none; } }
 .footer {
   width: 100vw;
   display: -webkit-box;
@@ -1531,7 +1676,7 @@ header {
             align-items: center;
     -ms-flex-line-pack: center;
         align-content: center;
-    padding-top: 3em; }
+    padding-top: 5em; }
     .footer .socialMedia {
       width: 13em;
       display: -webkit-box;

@@ -14,14 +14,12 @@ const favoritesGifos = () => {
 }
 const arrayFavorites = [];
 
-
 document.addEventListener("DOMContentLoaded", async () => {
     
     const imagesApiTrending = await getTrendingGifos();
     const trendingImgs = await trendingImages(imagesApiTrending);
     favoritesGifos();
 });
-
 
 //----------------------------HEADER:  cuando scrolleas aparece sombra en el header-------------------
 const shadowHeader = () => {

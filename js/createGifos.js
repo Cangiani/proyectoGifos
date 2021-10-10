@@ -1,7 +1,6 @@
 //PASOS: Pedir permisos, grabar y subir a giphy
 const containerCreateGifos = document.getElementById("containerCreateGifos");
 const containerVideo = document.querySelector(".containerVideo");
-
 const btnComenzar = document.querySelector(".comenzar");
 const btnGrabar = document.querySelector(".grabar");
 const btnFinalizar = document.querySelector(".finalizar");
@@ -20,44 +19,8 @@ async function uploadGif(formData){
 }
 
 function previewGif ({id}) {
-    containerVideo.innerHTML= `<img class='preview' data-id='${id}' src='https://i.giphy.com/${id}.gif' />`;
+    containerVideo.innerHTML= `<img class='preview' data-id='${id}' src='https://i.giphy.com/${id}.gif' alt="misGifos">`;
 }
-
-btnSubir.addEventListener('click', function (ev) {
-    const actualPreviewId = document.querySelector('.preview').getAttribute('data-id');
-    const previewUrl = document.querySelector('.preview').getAttribute('src');  
-    const misGifos = JSON.parse(localStorage.getItem('misGifos')) || [];
-    misGifos.push(actualPreviewId);
-    localStorage.setItem('misGifos',JSON.stringify(misGifos));
-
-    containerCreateGifos.querySelector(".num2").style.backgroundColor = "white";
-    containerCreateGifos.querySelector(".num2").style.color = "#572EE5";
-    containerCreateGifos.querySelector(".num3").style.backgroundColor = "#572EE5";
-    containerCreateGifos.querySelector(".num3").style.color = "white";
-    btnRepeat.style.display = "none";
-    btnSubir.style.display = "none";
-    //Loading upload
-    document.querySelector(".containerVideo").style.backgroundColor = "#572EE5";
-    //document.querySelector(".containerVideo").classList.add('backgroundVideo');
-
-    // const divLoading = document.createElement("div");
-    // divLoading.classList.add("loadingUpload");
-    // divLoading.innerHTML = `
-    // <img class="loader" src="./images/loader.svg" alt="loadingUpload">
-    // <p class="loadingText">Estamos subiendo tu GIFO</p>`;
-    document.querySelector(".loadingUpload").style.display = 'block';
-    
-    setTimeout(() => {
-        document.querySelector(".loadingUpload").style.display = 'none';
-        //Loading check
-        document.querySelector(".uploadCheck").style.display = 'block';
-        
-        //DOWNLOAD
-
-        //LINK
-
-    }, 5000);
-});
 
 const startVideo = () =>{                                     //función que inicie las funciones de captura.
     containerVideo.innerHTML = '<video>';
@@ -66,7 +29,6 @@ const startVideo = () =>{                                     //función que ini
     containerCreateGifos.querySelector(".text2").style.display = "block";
     containerCreateGifos.querySelector(".num1").style.backgroundColor = "#572EE5";
     containerCreateGifos.querySelector(".num1").style.color = "white";
-
     btnGrabar.style.display = "none";         
 }
 
@@ -96,12 +58,10 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
         btnGrabar.addEventListener('click', function(){
             btnGrabar.style.display = "none";
             btnFinalizar.style.display = "block";
-            
             containerCreateGifos.querySelector(".num2").style.backgroundColor = "#572EE5";
             containerCreateGifos.querySelector(".num2").style.color = "white";
             containerCreateGifos.querySelector(".num1").style.backgroundColor = "white";
             containerCreateGifos.querySelector(".num1").style.color = "#572EE5";
-            
             recorder.startRecording();
             recordStarted = true;
             timerRecording();
@@ -118,11 +78,8 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
                 form.append('file', recorder.getBlob(), 'misGifos.gif');        //info para subir a giphy
                 btnFinalizar.style.display = "none";
                 btnSubir.style.display = "block";
-                // document.querySelector(".containerVideo").classList.add('backgroundVideo');
-
                 const { data:gifData } =  await uploadGif(form);
                 previewGif(gifData);
-
                 btnRepeat.style.display = "block";
                 btnRepeat.innerHTML = "REPETIR CAPTURA";
                 btnRepeat.addEventListener("click", function repeatGifo() {
@@ -138,12 +95,65 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
         })
     }).catch(function(err) { console.log(err.name + ": " + err.message); });
 };
-
 btnComenzar.addEventListener("click", getStreamAndRecord); //que el video aparezca o desaparezca según haga falta, esto se puede resolver con listeners e interactuando con el DOM.
 
+btnSubir.addEventListener('click', function (ev) {
+    const actualPreviewId = document.querySelector('.preview').getAttribute('data-id');
+    const previewUrl = document.querySelector('.preview').getAttribute('src');  
+    const misGifos = JSON.parse(localStorage.getItem('misGifos')) || [];
+    misGifos.push(actualPreviewId);
+    localStorage.setItem('misGifos',JSON.stringify(misGifos));
+    containerCreateGifos.querySelector(".num2").style.backgroundColor = "white";
+    containerCreateGifos.querySelector(".num2").style.color = "#572EE5";
+    containerCreateGifos.querySelector(".num3").style.backgroundColor = "#572EE5";
+    containerCreateGifos.querySelector(".num3").style.color = "white";
+    btnRepeat.style.display = "none";
+    btnSubir.style.display = "none";
+    document.querySelector(".containerVideo").style.backgroundColor = "#572EE5";
+    document.querySelector(".loadingUpload").style.display = 'block';                               //Loading upload
+    
+    setTimeout(() => {
+        document.querySelector(".loadingUpload").style.display = 'none';
+        document.querySelector(".uploadCheck").style.display = 'block';                             //Loading check
+        //DOWNLOAD
+        const downloadPreview = async (ev) => {    
+            const id = document.querySelector('.preview').getAttribute('data-id');
+            let downloadUrl = await fetch(`https://media2.giphy.com/media/${id}/giphy.gif`);
+            let file = await downloadUrl.blob();  
+            const anchor = document.createElement('a');  
+            const urlGifs = URL.createObjectURL(file);
+            anchor.href = urlGifs;
+            const titleGif = document.querySelector('.preview').alt;
+            anchor.download = `${titleGif}.gif`;
+            anchor.style = 'display: "none"';
+            document.body.appendChild(anchor);
+            anchor.click();                              
+            document.body.removeChild(anchor);
+        };
+        containerCreateGifos.querySelector('.downloadIcon').addEventListener("click", downloadPreview);
+      
+        //LINK
+        const linkPreview = async (ev) => {
+            // btnLink.href = previewUrl;
+            const idGifo = document.querySelector('.preview').getAttribute('data-id');
+            // const urlLink = `https://i.giphy.com/${idGifo}.gif`;          
+            btnLink = ev.target;
+            // btnLink.setAttribute('href', urlLink);
+            location.href = `https://i.giphy.com/${idGifo}.gif`;
+            console.log(btnLink.href);
 
+            // const baseUrl = "http://fakedomain.com";
+            // const link = {
+                // Generator: {
+                //     go: (id) => `${baseUrl}/id/${id}`
+                // }
+            // };
+            // document.querySelectorAll('.automatic').forEach(a => (a.href = link.Generator.go(a.dataset.href)));
+        };
+        containerCreateGifos.querySelector('.btnLink').addEventListener("click", linkPreview);
 
-//ROCIO:
+    }, 5000);
+});
 
 function timerRecording() {
     let seconds = 0;
@@ -154,30 +164,20 @@ function timerRecording() {
                 if (seconds <= 9) {
                     seconds = '0' + seconds;
                 }
+                // document.querySelector(".containerNumbers").style.paddingLeft = '9em';
                 btnRepeat.style.display = "block";
                 btnRepeat.innerHTML = `00:0${minute}:${seconds}`;
                 seconds++;
-            } else {
+            }else{
                 minute++;
                 seconds = 0;
             }
         }
-        else {
+        else{
             clearInterval(timer)
         }
     }, 1000);
 }
-
-// btnRepeatRecord.addEventListener('click', (ev) => {
-//     location.reload();
-//     startUpVideo();
-// });
-
-
-
-
-
-
 
 //LÓGICA
 // StartRecording: comienza la grabación y no requiere de ningún parámetro extra.

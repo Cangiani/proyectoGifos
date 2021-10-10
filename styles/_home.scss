@@ -12,7 +12,6 @@
     font-weight: bold;
 }
 
-
 .home{
     display: flex;
     flex-direction: column;
@@ -130,7 +129,7 @@
         }
 
         .noResultSearchGifos{
-
+            padding-top: 2.2em;
             .containerImgNoResult{        
                 padding-top: 1em;
                 text-align: center;
@@ -224,17 +223,16 @@
                         } 
                     }
                 } 
-
-                &:hover{
-                    width: 16.25em;
-                    height: 12.5em;
+                // &:hover{
+                //     width: 16.25em;
+                //     height: 12.5em;
                     
-                    .searchInfo{
-                        background-color: $color-principal;
-                        opacity: 0.7;
-                        display: block                           
-                    }
-                }
+                //     .searchInfo{
+                //         background-color: $color-principal;
+                //         opacity: 0.7;
+                //         display: block                           
+                //     }
+                // }
             }
         }
         .btnSearchGif{              
@@ -253,7 +251,7 @@
     .subtitle{
         width: 100vw;
         padding-top: 1.9em;
-        padding-bottom: 2.8em;
+        padding-bottom: 2em;
         @include titles;
         font-family: 'Montserrat'; 
         display: block;
@@ -274,11 +272,9 @@
     } 
 }
 
-
 // --------------------------------------------------- DESKTOP --------------------------------------------------
 
 @media screen and (min-width: 768px){
-
     .home{
         width: 100vw;
         display: flex;
@@ -395,7 +391,8 @@
                 font-size: 30px;
                 line-height: 30px;
                 text-transform: capitalize;
-                padding-bottom: 2em;
+                padding-bottom: 1.3em;
+                padding-top: 1em;
             }
 
             .showSearchGif{

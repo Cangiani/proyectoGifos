@@ -2,17 +2,16 @@
     @include titles;
     display: inline-block;
     width: 100vw;
+    font-family: "Montserrat";
 
-    .titleFavorite{           
-        font-family: "Montserrat";
+    .titleFavorite{  
         font-size: 20px;
         line-height: 30px;
         text-align: center;
         text-transform: capitalize;
         padding-bottom: 2.9em;
     }
-
-    #noContentFavorites{
+    .noContentFavorites{
         .iconHeart{
             width: 1.5em;
             height: 1.3em;
@@ -43,71 +42,61 @@
                 height: 7.5em;
             }
 
-            // .searchInfo{
-            //     position: relative;
-            //     height: 12.5em;
-            //     transform: translate(0%, -102.5%);
-            //     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-            //     text-transform: capitalize;
-            //     display: none;
+            .favInfo{
+                // position: relative;
+                // height: 12.5em;
+                // transform: translate(0%, -102.5%);
+                // grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+                // text-transform: capitalize;
+                display: none;
 
-            //     .hoverIcons {
-            //         width: 20vw;
-            //         height: 3em;
-            //         grid-area: 1/3/2/4;
-            //         padding-top: .5em;
-            //         padding-right: .16em;
-            //         display: flex;
-            //         flex-direction: row;
-            //         justify-content: flex-end;
-            //         align-items: flex-start;
-            //         align-content: flex-end;
-            //         img{
-            //             width: 2em;
-            //             height: 2em;
-            //             padding: .2em;
-            //         }
-            //     }
+                .hoverIcons {
+                    display: none;
+                    // width: 20vw;
+                    // height: 3em;
+                    // grid-area: 1/3/2/4;
+                    // padding-top: .5em;
+                    // padding-right: .16em;
+                    // display: flex;
+                    // flex-direction: row;
+                    // justify-content: flex-end;
+                    // align-items: flex-start;
+                    // align-content: flex-end;
+                    // img{
+                    //     width: 2em;
+                    //     height: 2em;
+                    //     padding: .2em;
+                    // }
+                }
 
-            //     .pInfo{   
-            //         height: 5em;
-            //         color: $color-blanco;
-            //         font-family: 'Roboto'; 
-            //         padding-left: 1em;
-            //         padding-top: 1em;
-            //         margin-top: 2em;
-            //         display: flex;
-            //         flex-direction: row;
-            //         justify-content: flex-start;
-            //         flex-wrap: wrap;
-            //         align-items: flex-end;
-            //         align-content: flex-end;
+                .pInfo{   
+                    display: none;
+                    // height: 5em;
+                    // color: $color-blanco;
+                    // font-family: 'Roboto'; 
+                    // padding-left: 1em;
+                    // padding-top: 1em;
+                    // margin-top: 2em;
+                    // display: flex;
+                    // flex-direction: row;
+                    // justify-content: flex-start;
+                    // flex-wrap: wrap;
+                    // align-items: flex-end;
+                    // align-content: flex-end;
 
-            //         .user{ 
-            //             width: 13em;
-            //             font-weight: 400;     
-            //             font-size: 15px;
-            //         }
-            //         .titleGifSearch{
-            //             font-weight: 900;  
-            //             font-size: 16px;
-            //         } 
-            //     }
-            // } 
-
-            // &:hover{
-            //     width: 16.25em;
-            //     height: 12.5em;
-                
-            //     .searchInfo{
-            //         background-color: $color-principal;
-            //         opacity: 0.7;
-            //         display: block                           
-            //     }
-            // }
+                    // .user{ 
+                    //     width: 13em;
+                    //     font-weight: 400;     
+                    //     font-size: 15px;
+                    // }
+                    // .titleGifSearch{
+                    //     font-weight: 900;  
+                    //     font-size: 16px;
+                    // } 
+                }
+            } 
         }
     }
-
     .buttonFavorites{
         @include titles;
         @include button;
@@ -120,13 +109,85 @@
         transform: translateX(-50%);
         display: none;
     }
-}
 
+
+    .modalFavExpand{
+        display: none;
+        // .hoverIcons{
+
+        // }
+        // .infoExpand{
+
+        // }
+    }
+}
 
 //------------------------------------------ DESKTOP ---------------------------------------
 
 @media screen and (min-width: 768px){   
     
+    // #home{
+    //     .modalShow{
+    //         position: absolute;
+    //         width: 100vw; 
+    //         height: 100vh;
+    //         top:0;
+    //         margin: 0;
+    //         padding: 0;
+    //         z-index: 100;
+    //         box-sizing: border-box;
+    //         background-color: $color-blanco;              
+    //         display: none;
+
+    //         .btnCloseModal {
+    //             width: 3em;
+    //             height: 3em;
+    //             position: absolute;
+    //             top: 4rem; 
+    //             left: 80vw; 
+    //             z-index: 50;
+    //         }
+
+    //         .containerImgExpand {
+    //             .modalImg {
+    //                 width: 43.4em;
+    //                 height: 24.1em;
+    //                 padding-left: 18em;
+    //                 padding-top: 6em;
+    //             }
+    //         }
+
+    //         .trendingExpand{
+    //             display: flex;
+    //             flex-direction: row-reverse;
+    //             justify-content: space-around;
+
+    //             .hoverIcons{
+    //                 padding-right: 8em;
+    //                 img{
+    //                     padding-top: .8em;
+    //                 }
+    //             }
+    //             .infoExpand{
+    //                 color: $color-negro;
+    //                 font-family: 'Roboto'; 
+    //                 padding-left: 8em;
+    //                 padding-top: 1em;
+    //                 text-transform: capitalize;
+
+    //                 .userExpand{ 
+    //                     font-weight: 400;     
+    //                     font-size: 15px;
+    //                 }
+    //                 .titleExpand{
+    //                     font-weight: 900;  
+    //                     font-size: 16px;
+    //                 } 
+    //             }
+    //         }
+    //     }
+    // }
+
     #containerFavorites{
         width: 100vw;
         // height: 73em;      
@@ -141,8 +202,7 @@
             padding-top: 0.7em;
         }
 
-        #noContentFavorites{
-
+        .noContentFavorites{
             .iconHeart{
                 width: 9.375em;
                 height: 9.438em;
@@ -201,6 +261,14 @@
                             padding: .2em;
                         }
                     }
+                    .btnHeartPressed{
+                        width: 2em;
+                        height: 2em;
+                        padding: .2em;
+                        background-color: $color-blanco;
+                        border-radius: 5px;
+                        opacity: 0.7;
+                    }
 
                     .pInfo{   
                         height: 5em;
@@ -239,7 +307,6 @@
                 }
             }
         }
-
         .buttonFavorites{
             @include button;            
             font-size: 13px;              
@@ -252,7 +319,6 @@
         }
 
 
-        //                                          MODAL
         .modalShow{
             position: absolute;
             width: 100vw; 
@@ -264,17 +330,16 @@
             box-sizing: border-box;
             background-color: $color-blanco;              
             display: none;
-
             .btnCloseModal {
                 width: 3em;
                 height: 3em;
                 position: absolute;
                 top: 4rem; 
-                left: 80vw; 
+                left: 73vw; 
                 z-index: 50;
             }
-
             .containerImgExpand {
+                display: flex;
                 .modalImg {
                     width: 43.4em;
                     height: 24.1em;
@@ -282,7 +347,6 @@
                     padding-top: 6em;
                 }
             }
-
             .trendingExpand{
                 display: flex;
                 flex-direction: row-reverse;
@@ -313,4 +377,5 @@
             }
         }
     } 
+
 }

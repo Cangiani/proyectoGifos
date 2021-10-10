@@ -59,17 +59,17 @@
         box-sizing: border-box;
         background-color: $color-blanco;              
         display: none;
-
+        
         .btnCloseModal {
             width: 3em;
             height: 3em;
             position: absolute;
             top: 4rem; 
-            left: 80vw; 
+            left: 74vw; 
             z-index: 50;
         }
-
         .containerImgExpand {
+            display: flex;
             .modalImg {
                 width: 23.4em;
                 height: 14.1em;
@@ -77,7 +77,6 @@
                 padding-top: 6em;
             }
         }
-
         .trendingExpand{
             display: flex;
             flex-direction: row-reverse;
@@ -109,8 +108,8 @@
     }
 }
 
-//                                                  DESKTOP
-@media screen and (min-width: 768px){                                   // HOVER BOTONES TRENDING GIFOS
+// ------------------------------------------     DESKTOP         -----------------------------------------------
+@media screen and (min-width: 768px){                                 
     
     #containerTrending{
         width: 100vw; 
@@ -122,7 +121,7 @@
                 @include titles; 
                 font-weight: bold;
                 font-size: 25px;
-                line-height: 30px;              //px????
+                line-height: 30px;              
                 padding-top: 3em;  
             }
             h3{
