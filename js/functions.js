@@ -332,6 +332,19 @@ const showModalExpand = (img, id, user, title) => {
   modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {        //CERRAR MODAL
     modalExpand.style.display = "none";
   });
+
+  const downloadGif = async (ev) => {                              //  DOWNLOAD
+    let downloadUrl = await fetch(`https://media2.giphy.com/media/${id}/giphy.gif`);
+    let file = await downloadUrl.blob();
+    const anchor = document.createElement("a");
+    const urlGifs = URL.createObjectURL(file);
+    anchor.href = urlGifs;
+    anchor.download = `${title}.gif`;
+    document.body.appendChild(anchor);
+    anchor.click(); 
+    document.body.removeChild(anchor);
+  };
+  modalExpand.querySelector(".downloadIcon").addEventListener("click", downloadGif);
 }
 
 // const getGifs = (gifs) => {         

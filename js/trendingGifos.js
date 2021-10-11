@@ -1,9 +1,9 @@
 const trendingImages = async (trending) => {
-  trending.data.forEach((imgGifo) => {
-    const containerTrending = document.getElementById("trendingGifos");
-    const imagesLatestGifos = document.createElement("div");
-    imagesLatestGifos.classList.add("singleGifo");
-    imagesLatestGifos.innerHTML = `
+    trending.data.forEach((imgGifo) => {
+        const containerTrending = document.getElementById("trendingGifos");
+        const imagesLatestGifos = document.createElement("div");
+        imagesLatestGifos.classList.add("singleGifo");
+        imagesLatestGifos.innerHTML = `
         <img class="singleImg" src="${imgGifo.images.fixed_height.url}" alt="${imgGifo.title}">
         <div class="trendingInfo"> 
             <div class="hoverIcons">
@@ -24,63 +24,45 @@ const trendingImages = async (trending) => {
                 <p class="title">${imgGifo.title}</p> 
             </div>
         </div>`;
-    containerTrending.appendChild(imagesLatestGifos);
+        containerTrending.appendChild(imagesLatestGifos);
+            
+        //MODAL EXPAND
+        if (window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+            const clickGif = imagesLatestGifos.querySelector('.singleImg');
+            clickGif.addEventListener("click", function() {
+                showModalExpand(
+                    imgGifo.images.fixed_height.url,
+                    imgGifo.id,
+                    imgGifo.username,
+                    imgGifo.title
+                );
+            });
+        } else{
+            imagesLatestGifos.querySelector(".btnExpand").addEventListener("click", function () {
+                showModalExpand(
+                    imgGifo.images.fixed_height.url,
+                    imgGifo.id,
+                    imgGifo.username,
+                    imgGifo.title
+                );
+            });
+        }
 
-    //MOBILE
-    // if (window.matchMedia("(max-width: 768px)").matches){
+        imagesLatestGifos.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);// FAVORITES
 
-    //     const clickGif = imagesLatestGifos.querySelector('.singleImg');
-    //     clickGif.addEventListener("click", function() {
-    //         showModalExpand;
-    //     });
-    // } else{
-    const expandGif = imagesLatestGifos.querySelector(".btnExpand"); //MODAL EXPAND
-    expandGif.addEventListener("click", function () {
-      showModalExpand(
-        imgGifo.images.fixed_height.url,
-        imgGifo.id,
-        imgGifo.username,
-        imgGifo.title
-      );
+        const downloadGif = async (ev) => {                              //  DOWNLOAD
+            let downloadUrl = await fetch(`https://media2.giphy.com/media/${imgGifo.id}/giphy.gif`);
+            let file = await downloadUrl.blob();
+            // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+            const anchor = document.createElement("a");
+            const urlGifs = URL.createObjectURL(file);
+            anchor.href = urlGifs;
+            const titleGif = document.querySelector(".singleImg").alt;
+            anchor.download = `${titleGif}.gif`;
+            document.body.appendChild(anchor);
+            anchor.click(); // click on element to start download
+            document.body.removeChild(anchor);
+        };
+        imagesLatestGifos.querySelector(".downloadIcon").addEventListener("click", downloadGif);
     });
-    // }
-
-    // FAVORITES
-    imagesLatestGifos.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);
-
-    //  DOWNLOAD
-    const downloadGif = async (ev) => {
-      let downloadUrl = await fetch(
-        `https://media2.giphy.com/media/${imgGifo.id}/giphy.gif`
-      );
-      let file = await downloadUrl.blob();
-      // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
-      const anchor = document.createElement("a");
-      const urlGifs = URL.createObjectURL(file);
-      anchor.href = urlGifs;
-      const titleGif = document.querySelector(".singleImg").alt;
-      anchor.download = `${titleGif}.gif`;
-      //anchor.style = 'display: "none"';
-      document.body.appendChild(anchor);
-      anchor.click(); // click on element to start download
-      document.body.removeChild(anchor);
-      //     store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-      //anchor.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-      // const downloadUrl = ('https://media2.giphy.com/media/${imgGifo.id}/giphy.gif');   //poner await fetch?
-      // const fetchFile = fetch(downloadUrl);//.blob();            //use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
-      // const blobFile = (await fetchFile).blob();
-      // const urlGifs = URL.createObjectURL(await blobFile);
-      // const anchor = document.createElement('a');
-      // anchor.href = urlGifs;
-      // const titleGif = document.querySelector('.singleImg').alt;
-      // anchor.download = `${titleGif}.gif`;
-      // //anchor.style = 'display: "none"';
-      // document.body.appendChild(anchor);
-      // anchor.click();                             // click on element to start download
-      // document.body.removeChild(anchor);
-      // //     store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
-      // //anchor.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-    };
-    imagesLatestGifos.querySelector(".downloadIcon").addEventListener("click", downloadGif);
-  });
 };
