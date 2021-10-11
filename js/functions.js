@@ -45,7 +45,15 @@ const getMoreGifs = async () =>{
     <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
     <div class="searchInfo"> 
       <div class= "hoverIcons">
-        <a href="#" class="btnHeart"> <img data-id="${gif.id}" src="./images/icon-fav.svg" alt="heart"></a>
+        <a href="#" class="btnHeart">
+          <img 
+            data-id="${gif.id}" 
+            data-url="${gif.images.fixed_height.url}" 
+            data-user="${gif.username}" 
+            data-title="${gif.title}"
+            src="./images/icon-fav.svg" 
+            alt="heart">
+        </a>
         <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
         <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
       </div>
@@ -56,12 +64,9 @@ const getMoreGifs = async () =>{
     </div>`
     containerShowSearchGifs.appendChild(imagesLatestGifos);
 
-    // FAVORITES
-    //arrayFavorites.push(gif); 
-    imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+    imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); // FAVORITES
 
-    //MODAL EXPAND
-    const expandGif = imagesLatestGifos.querySelector('.btnExpand');
+    const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
     expandGif.addEventListener("click", function() {
       showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
     });
@@ -124,7 +129,15 @@ const getSuggestionsGifos = async (ev) => {
           <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
           <div class="searchInfo"> 
             <div class= "hoverIcons">
-              <a href="#" class="btnHeart"> <img data-id="${gif.id}" src="./images/icon-fav.svg" alt="heart"></a>
+              <a href="#" class="btnHeart">
+                <img 
+                  data-id="${gif.id}" 
+                  data-url="${gif.images.fixed_height.url}" 
+                  data-user="${gif.username}" 
+                  data-title="${gif.title}"
+                  src="./images/icon-fav.svg" 
+                  alt="heart">
+              </a>
               <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
               <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
             </div>
@@ -135,14 +148,26 @@ const getSuggestionsGifos = async (ev) => {
           </div>`;
           containerGifs.appendChild(imagesLatestGifos);
 
-          // //FAVORITES
-          // arrayFavorites.push(gif); 
-          // imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+          imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); //FAVORITES
   
-          // const expandGif = imagesLatestGifos.querySelector('.btnExpand');        //MODAL EXPAND
-          // expandGif.addEventListener("click", function() {
-          //   showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
-          // });
+          const expandGif = imagesLatestGifos.querySelector('.btnExpand');        //MODAL EXPAND
+          expandGif.addEventListener("click", function() {
+            showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+          });
+
+          const downloadMyGifo = async (ev) => {                                    //DOWNLOAD
+            let downloadUrl = await fetch(`https://media2.giphy.com/media/${gif.id}/giphy.gif`);
+            let file = await downloadUrl.blob();  
+            const anchor = document.createElement('a');  
+            const urlGifs = URL.createObjectURL(file);
+            anchor.href = urlGifs;
+            anchor.download = `${gif.title}.gif`;
+            anchor.style = 'display: "none"';
+            document.body.appendChild(anchor);
+            anchor.click();                              
+            document.body.removeChild(anchor);
+          };
+          imagesLatestGifos.querySelector('.downloadIcon').addEventListener("click", downloadMyGifo);
         });
         document.querySelector(".btnSearchGif").style.display = "block";
         document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);     
@@ -155,11 +180,10 @@ const getSuggestionsGifos = async (ev) => {
     
     const gifs = await getSearchGifsByKeyword(ev.target.value, 0); //0 significa la primer pagina (0*12,1*12,2*12...)
     showTitle.textContent = ev.target.value; 
-    // document.querySelector(".home .subtitle").style.height = "22em";
     document.querySelector(".home .subtitle").style.height = "14em";
 
     const tags = await getSearchTags(API_KEY, ev.target.value); 
-    if(ev.target.value === "" || tags.data.length === 0 ){         //no funciona null, poner gifs === 0 ?     
+    if(ev.target.value === "" || tags.data.length === 0 ){             
       document.querySelector(".showSearchGif").classList.remove("showSearchGif");
       divContainerSearch.classList.remove("searchActive");
       document.querySelector(".borderBottomSearch").style.display = "none";
@@ -176,11 +200,10 @@ const getSuggestionsGifos = async (ev) => {
 
     }else{
       const containerShowSearchGifs = document.querySelector(".showSearchGif");
-      
       containerShowSearchGifs.classList.add("showSearchGif");
       //divNoResult.classList.remove = ("noResultSearchGifos");
       //divNoResult.innerHTML = "";
-      // document.querySelector(".noResultSearchGifos").style.display = "none";
+      //document.querySelector(".noResultSearchGifos").style.display = "none";
 
       document.querySelector(".borderBottomSearch").style.display = "none";
       divContainerSearch.classList.remove("searchActive");
@@ -196,7 +219,15 @@ const getSuggestionsGifos = async (ev) => {
         <img class="imgGifsSearch" src="${gif.images.fixed_height.url}" alt="imgGifos"> 
         <div class="searchInfo"> 
           <div class= "hoverIcons">
-            <a href="#" class="btnHeart"> <img data-id="${gif.id}" src="./images/icon-fav.svg" alt="heart"></a>
+            <a href="#" class="btnHeart">
+              <img 
+                data-id="${gif.id}" 
+                data-url="${gif.images.fixed_height.url}" 
+                data-user="${gif.username}" 
+                data-title="${gif.title}"
+                src="./images/icon-fav.svg" 
+                alt="heart">
+            </a>
             <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
             <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
           </div>
@@ -207,13 +238,26 @@ const getSuggestionsGifos = async (ev) => {
         </div>`;
         containerShowSearchGifs.appendChild(imagesLatestGifos);
 
-        //arrayFavorites.push(gif);                                                 // FAVORITES
-        imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+        imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); //FAVORITES
 
         const expandGif = imagesLatestGifos.querySelector('.btnExpand');          //MODAL EXPAND
         expandGif.addEventListener("click", function() {
           showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
         });
+
+        const downloadMyGifo = async (ev) => {                                    //DOWNLOAD
+          let downloadUrl = await fetch(`https://media2.giphy.com/media/${gif.id}/giphy.gif`);
+          let file = await downloadUrl.blob();  
+          const anchor = document.createElement('a');  
+          const urlGifs = URL.createObjectURL(file);
+          anchor.href = urlGifs;
+          anchor.download = `${gif.title}.gif`;
+          anchor.style = 'display: "none"';
+          document.body.appendChild(anchor);
+          anchor.click();                              
+          document.body.removeChild(anchor);
+        };
+        imagesLatestGifos.querySelector('.downloadIcon').addEventListener("click", downloadMyGifo);
       });
       document.querySelector(".btnSearchGif").style.display = "block";
       document.querySelector(".btnSearchGif").addEventListener("click", getMoreGifs);     
@@ -223,8 +267,6 @@ const getSuggestionsGifos = async (ev) => {
 if (inputSuggestions !== null) {
   inputSuggestions.addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
 }
-
-//----------------------------------------------------MODAL-----------------------------------------------------
 
 //Expand Mobile
 
@@ -249,9 +291,7 @@ if (inputSuggestions !== null) {
 //   </div>`;
 // }
 
-
 //Expand Desktop
-
 const showModalExpand = (img, id, user, title) => {
   
   const modalExpand = document.createElement("div");
@@ -264,7 +304,15 @@ const showModalExpand = (img, id, user, title) => {
   </div>
   <div class="trendingExpand"> 
     <div class="hoverIcons">
-      <a href="#" class="btnHeart"> <img data-id="${id}" src="./images/icon-fav.svg" alt="heart"></a>
+      <a href="#" class="btnHeart">
+        <img 
+          data-id="${id}" 
+          data-url="${img}" 
+          data-user="${user}" 
+          data-title="${title}"
+          src="./images/icon-fav.svg" 
+          alt="heart">
+      </a>
       <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
     </div>
     <div class="infoExpand">
@@ -278,9 +326,8 @@ const showModalExpand = (img, id, user, title) => {
     document.querySelector('#containerFavorites').appendChild(modalExpand);
   } else if (document.querySelector('.containerMisGifos')) {
     document.querySelector('.containerMisGifos').appendChild(modalExpand);
-  }
-  //arrayFavorites.push(img);                 // FAVORITES                //???????????????????'
-  modalExpand.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
+  }                   
+  modalExpand.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);     // FAVORITES 
 
   modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {        //CERRAR MODAL
     modalExpand.style.display = "none";

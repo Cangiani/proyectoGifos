@@ -784,7 +784,8 @@ header {
         width: 43.4em;
         height: 24.1em;
         padding-left: 18em;
-        padding-top: 6em; }
+        padding-top: 6em;
+        margin-top: 2em; }
       #containerTrending .modalShow .trendingExpand {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -942,13 +943,6 @@ header {
               width: 2em;
               height: 2em;
               padding: .2em; }
-          #containerFavorites .imagesFavorites .singleImgFav .favInfo .btnHeartPressed {
-            width: 2em;
-            height: 2em;
-            padding: .2em;
-            background-color: #FFFFFF;
-            border-radius: 5px;
-            opacity: 0.7; }
           #containerFavorites .imagesFavorites .singleImgFav .favInfo .pInfo {
             height: 5em;
             color: #FFFFFF;

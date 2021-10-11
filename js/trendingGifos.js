@@ -1,7 +1,5 @@
 const trendingImages = async (trending) => {
   trending.data.forEach((imgGifo) => {
-    //conviene un forEach? VUELVO AL MAP?
-
     const containerTrending = document.getElementById("trendingGifos");
     const imagesLatestGifos = document.createElement("div");
     imagesLatestGifos.classList.add("singleGifo");
@@ -48,14 +46,7 @@ const trendingImages = async (trending) => {
     // }
 
     // FAVORITES
-    //arrayFavorites.push(imgGifo);
-    // const localGifs = JSON.parse(localStorage.getItem('gifs'));
-    // localGifs.gifs.push(imgGifo);
-    // localStorage.setItem('gifs', JSON.stringify(localGifs));
-
-    imagesLatestGifos
-      .querySelector(".btnHeart")
-      .addEventListener("click", agregarFavoritoHandler);
+    imagesLatestGifos.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);
 
     //  DOWNLOAD
     const downloadGif = async (ev) => {
@@ -75,7 +66,6 @@ const trendingImages = async (trending) => {
       document.body.removeChild(anchor);
       //     store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
       //anchor.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
-
       // const downloadUrl = ('https://media2.giphy.com/media/${imgGifo.id}/giphy.gif');   //poner await fetch?
       // const fetchFile = fetch(downloadUrl);//.blob();            //use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
       // const blobFile = (await fetchFile).blob();
@@ -91,8 +81,6 @@ const trendingImages = async (trending) => {
       // //     store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
       // //anchor.dataset.downloadurl = ['application/octet-stream', a.download, a.href].join(':');
     };
-    imagesLatestGifos
-      .querySelector(".downloadIcon")
-      .addEventListener("click", downloadGif);
+    imagesLatestGifos.querySelector(".downloadIcon").addEventListener("click", downloadGif);
   });
 };

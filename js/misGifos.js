@@ -24,8 +24,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
             </div>`;
 
             //DELETE
-            const deleteGif = divMisGifos.querySelector('.iconTrash');
-            deleteGif.addEventListener("click", deleteMiGifo);
+            divMisGifos.querySelector('.iconTrash').addEventListener("click", removeMiGifo);
 
             //MODAL EXPAND
             const expandGif = divMisGifos.querySelector('.btnExpand');
@@ -100,19 +99,18 @@ const expandMisGifos = (img, id) => {
     });
 }
 
-const deleteMiGifo = (ev => {
+const removeMiGifo = (ev => {
     const buttonRemove = ev.target;
     const idGifRemove = buttonRemove.getAttribute('data-id');
     const localMisGifos = JSON.parse(localStorage.getItem('misGifos'));
-    for (i = 0; i < localMisGifos.favorites.length; i++) {
-        if (localMisGifos.favorites[i].id == idGifRemove) {
-            localMisGifos.favorites.splice(i, 1);
+    for (i = 0; i < localMisGifos.length; i++) {
+        if (localMisGifos[i].id == idGifRemove) {
+            localMisGifos.splice(i, 1);
         }
     };
-    localStorage.setItem('favorites', JSON.stringify(localMisGifos));
-    // location.reload();
+    localStorage.setItem('misGifos', JSON.stringify(localMisGifos));
+    //FALTA CARGAR EL DOM DE NUEVO
 });
-
 
 //LOCAL STORAGE
 
