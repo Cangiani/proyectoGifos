@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', ()=> {
     const misGifos = JSON.parse (localStorage.getItem('misGifos'));
-    const containerMisGifos = document.querySelector(".imagesMisGifos"); 
-    if (containerMisGifos != null) {         //if (localFavorites.favorites.length >0) {           //MEJOR >=1?
+    
+    if (misGifos.length >= 1) {           
         
         document.querySelector(".noContentMisGifos").style.display = "none";
-
         const urls = misGifos.map (id => `https://i.giphy.com/${id}.gif`);
+        
         const gifElements = urls.map (url =>  {
             const divMisGifos = document.createElement("div");
             divMisGifos.classList.add("singleImgMisGifos");                       
@@ -23,19 +23,16 @@ document.addEventListener('DOMContentLoaded', ()=> {
                 </div>
             </div>`;
 
-            //DELETE
-            divMisGifos.querySelector('.iconTrash').addEventListener("click", removeMiGifo);
+            divMisGifos.querySelector('.iconTrash').addEventListener("click", removeMiGifo);   //DELETE
 
-            //MODAL EXPAND
-            const expandGif = divMisGifos.querySelector('.btnExpand');
+            const expandGif = divMisGifos.querySelector('.btnExpand');       //MODAL EXPAND
             expandGif.addEventListener("click", function() {
                 expandMisGifos(url.images.fixed_height.url, url.id);
                 console.log(url.images.fixed_height.url);
                 console.log(url.id);
             });
     
-            //DOWNLOAD
-            const downloadMyGifo = async (ev) => {    
+            const downloadMyGifo = async (ev) => {                           //DOWNLOAD 
                 let downloadUrl = await fetch(`https://media2.giphy.com/media/${url.id}/giphy.gif`);
                 let file = await downloadUrl.blob();  
                 const anchor = document.createElement('a');  
@@ -87,15 +84,10 @@ const expandMisGifos = (img, id) => {
     document.querySelector('.containerMisGifos').appendChild(modalExp);
     }
 
-    // FAVORITES
-    const localGifs = JSON.parse(localStorage.getItem('gifs'));
-    localGifs.gifs.push(imgGifo);
-    localStorage.setItem('gifs', JSON.stringify(localGifs));
-    modalExp.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);
-
-    //CERRAR MODAL
-    modalExp.querySelector(".btnCloseModal").addEventListener("click", () => {
-    modalExp.style.display = "none";
+    modalExp.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);// FAVORITES
+    
+    modalExp.querySelector(".btnCloseModal").addEventListener("click", () => {     //CERRAR MODAL
+        modalExp.style.display = "none";
     });
 }
 

@@ -138,9 +138,12 @@
         }
         
         .noContentMisGifos{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             .iconGifos{
                 width: 9.375em;
-                height: 9.438em;
+                height: 3em;
             }
             h3{
                 text-align: center;

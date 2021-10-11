@@ -874,7 +874,8 @@ header {
 
 @media screen and (min-width: 768px) {
   #containerFavorites {
-    width: 100vw; }
+    width: 100vw;
+    padding-bottom: 3em; }
     #containerFavorites .titleFavorite {
       color: #572EE5;
       text-align: center;
@@ -1118,14 +1119,25 @@ header {
       font-size: 25px;
       padding-bottom: 2.25em;
       padding-top: 0.7em; }
-    .containerMisGifos .noContentMisGifos .iconGifos {
-      width: 9.375em;
-      height: 9.438em; }
-    .containerMisGifos .noContentMisGifos h3 {
-      text-align: center;
-      color: #50E3C2; }
-      .containerMisGifos .noContentMisGifos h3 .spanFavorites {
-        display: block; }
+    .containerMisGifos .noContentMisGifos {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .containerMisGifos .noContentMisGifos .iconGifos {
+        width: 9.375em;
+        height: 3em; }
+      .containerMisGifos .noContentMisGifos h3 {
+        text-align: center;
+        color: #50E3C2; }
+        .containerMisGifos .noContentMisGifos h3 .spanFavorites {
+          display: block; }
     .containerMisGifos .imagesMisGifos {
       width: 70.5em;
       margin: auto;

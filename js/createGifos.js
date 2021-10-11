@@ -70,6 +70,7 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
         //     let blob = recorder.getBlob();               // getBlob inside callback function
         //     invokeSaveAsDialog(blob);                    //stopRecording: function(blobURL) {},
         // });
+
         btnFinalizar.addEventListener("click", function stopRecording() {
             recorder.stopRecording(async function () {
                 const blob = this.blob;
@@ -85,7 +86,7 @@ function getStreamAndRecord() {         //Devuelve una promesa,manejar la respue
                 btnRepeat.addEventListener("click", function repeatGifo() {
                     btnSubir.style.display = "none";
                     btnRepeat.style.display = "none";
-                    getStreamAndRecord()
+                    getStreamAndRecord();
                     containerCreateGifos.querySelector(".num2").style.backgroundColor = "white";
                     containerCreateGifos.querySelector(".num2").style.color = "#572EE5";
                     containerCreateGifos.querySelector(".num1").style.backgroundColor = "#572EE5";

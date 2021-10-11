@@ -14,7 +14,7 @@ const getTrendingGifos = async () => {
 
 const favoritesGifos = () => {                          //Inicializar Favoritos 
     if (localStorage.getItem("favorites")){                                 
-        //pintarGifFav();
+        pintarGifFav();
     }else {                                                                      
         localStorage.setItem("favorites", JSON.stringify({favorites: []}));    
     }
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const trendingImgs = await trendingImages(imagesApiTrending);       //se lo paso a la función que pinta trending
     
     favoritesGifos();                                                 //inicializar favorites
-    pintarGifFav();
 });
 
 //----------------------------HEADER:  cuando scrolleas aparece sombra en el header-------------------
