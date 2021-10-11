@@ -205,7 +205,12 @@
         .noContentFavorites{
             .iconHeart{
                 width: 9.375em;
-                height: 9.438em;
+                height: 8em;
+                
+                img{
+                  width: 4em;  
+                  padding-left: 47vw;
+                }
             }
             h3{
                 text-align: center;

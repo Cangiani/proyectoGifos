@@ -1,6 +1,3 @@
-const API_URL = "https://api.giphy.com/v1/gifs";
-const API_KEY = "u97suGng8xUtL28uyoZRwdmODNFgxzIY";
-
 let suggestionLoading = false;                            // Semaforo del buscador search Gifos
 
 const getSearchTags = async (apiKey, query) => {            //get search

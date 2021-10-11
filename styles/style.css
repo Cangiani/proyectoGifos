@@ -885,7 +885,10 @@ header {
       padding-top: 0.7em; }
     #containerFavorites .noContentFavorites .iconHeart {
       width: 9.375em;
-      height: 9.438em; }
+      height: 8em; }
+      #containerFavorites .noContentFavorites .iconHeart img {
+        width: 4em;
+        padding-left: 47vw; }
     #containerFavorites .noContentFavorites h3 {
       text-align: center;
       color: #50E3C2; }
