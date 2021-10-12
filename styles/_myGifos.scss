@@ -104,6 +104,66 @@
             }
         }
     }
+    
+    // .modalShow{                              //va acá??????
+    //     position: absolute;
+    //     width: 100vw; 
+    //     height: 100vh;
+    //     top:0;
+    //     margin: 0;
+    //     padding: 0;
+    //     z-index: 100;
+    //     box-sizing: border-box;
+    //     background-color: $color-blanco;              
+    //     display: none;
+
+    //     .btnCloseModal {
+    //         width: 3em;
+    //         height: 3em;
+    //         position: absolute;
+    //         top: 4rem; 
+    //         left: 80vw; 
+    //         z-index: 50;
+    //     }
+
+    //     .containerImgExpand {
+    //         .modalImg {
+    //             width: 23.4em;
+    //             height: 14.1em;
+    //             padding-left: 18em;
+    //             padding-top: 6em;
+    //         }
+    //     }
+
+    //     .trendingExpand{
+    //         display: flex;
+    //         flex-direction: row-reverse;
+    //         justify-content: space-around;
+
+    //         .hoverIcons{
+    //             padding-right: 8em;
+    //             img{
+    //                 padding-top: .8em;
+    //             }
+    //         }
+    //         .infoExpand{
+    //             color: $color-negro;
+    //             font-family: 'Roboto'; 
+    //             padding-left: 8em;
+    //             padding-top: 1em;
+    //             text-transform: capitalize;
+
+    //             .userExpand{ 
+    //                 font-weight: 400;     
+    //                 font-size: 15px;
+    //             }
+    //             .titleExpand{
+    //                 font-weight: 900;  
+    //                 font-size: 16px;
+    //             } 
+    //         }
+    //     }
+    // }
 
     .btnMoreMisGifos{              
         @include button;
@@ -295,66 +355,6 @@
                     padding-top: 1em;
                     text-transform: capitalize;
 
-                    .userExpand{ 
-                        font-weight: 400;     
-                        font-size: 15px;
-                    }
-                    .titleExpand{
-                        font-weight: 900;  
-                        font-size: 16px;
-                    } 
-                }
-            }
-        }
-
-        .modalShow{
-            position: absolute;
-            width: 100vw; 
-            height: 100vh;
-            top:0;
-            margin: 0;
-            padding: 0;
-            z-index: 100;
-            box-sizing: border-box;
-            background-color: $color-blanco;              
-            display: none;
-    
-            .btnCloseModal {
-                width: 3em;
-                height: 3em;
-                position: absolute;
-                top: 4rem; 
-                left: 80vw; 
-                z-index: 50;
-            }
-    
-            .containerImgExpand {
-                .modalImg {
-                    width: 23.4em;
-                    height: 14.1em;
-                    padding-left: 18em;
-                    padding-top: 6em;
-                }
-            }
-    
-            .trendingExpand{
-                display: flex;
-                flex-direction: row-reverse;
-                justify-content: space-around;
-    
-                .hoverIcons{
-                    padding-right: 8em;
-                    img{
-                        padding-top: .8em;
-                    }
-                }
-                .infoExpand{
-                    color: $color-negro;
-                    font-family: 'Roboto'; 
-                    padding-left: 8em;
-                    padding-top: 1em;
-                    text-transform: capitalize;
-    
                     .userExpand{ 
                         font-weight: 400;     
                         font-size: 15px;

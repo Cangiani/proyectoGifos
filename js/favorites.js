@@ -66,6 +66,9 @@ const pintarGifFav = () => {
             };
             divFav.querySelector(".downloadIcon").addEventListener("click", downloadFav);
         });
+        
+    }else{
+        document.querySelector(".noContentFavorites").style.display = "block";
     }
 };
 
@@ -144,76 +147,7 @@ const removeFavHandler = (ev) => {
     pintarGifFav();
 
     if(localFavorites.favorites.length < 1){
-        document.querySelector(".noContentFavorites").style.display = "inline-block";
+        //document.querySelector(".noContentFavorites").style.display = "inline-block";
         location.reload();
     }
 };
-
-// let clickCounter = 0;
-
-// const getMoreGifs = async () =>{
-//   clickCounter += 1;
-//   const localFavorites = JSON.parse(localStorage.getItem("favorites"));
-
-//   localFavorites.favorites.forEach((fav) => {
-
-//     containerFav.classList.add("imagesFavorites");
-//     const divFav = document.createElement("div");
-//     divFav.classList.add("singleImgFav");
-//     divFav.innerHTML = `
-//     <img class="imgGifFav" src="${fav.url}" alt="imgGifos">
-//     <div class="favInfo"> 
-//         <div class="hoverIcons">
-//             <a href="#"> <img data-id="${fav.id}" class="btnHeartRemove" src="./images/icon-fav.svg" alt="heart"></a>
-//             <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-//             <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
-//         </div>
-//         <div class="pInfo">
-//             <p class="user">${fav.user}</p>
-//             <p class="title">${fav.title}</p> 
-//         </div>
-//     </div>`;
-//     containerFav.appendChild(divFav);
-
-//     // buttonHeart.src = "./images/icon-fav-active.svg";   
-//     document.querySelector(".btnHeartRemove").addEventListener("click", removeFavHandler);              //Eliminar favorite
-            
-//     //Modal Expand Mobile
-//     // if (window.matchMedia("(max-width: 768px)").matches){
-//     // const expandImg = containerFav.querySelector('.imgGifFav');
-//     // expandImg.addEventListener("click", function() {
-//     //     showModalExpand(fav.images.fixed_height.url, fav.id, fav.username, fav.title);
-//     // });
-
-//     //     const clickGif = imagesLatestGifos.querySelector('.singleImg');
-//     //     clickGif.addEventListener("click", function() {
-//     //         showModalExpand;
-//     //     });
-//     // } else{
-//     // const expandGif = containerFav.querySelector('.btnExpand');       //Modal Expand Desktop
-//     // expandGif.addEventListener("click", function() {
-//     //     showModalExpand(fav.images.fixed_height.url, fav.id, fav.username, fav.title);
-//     // });
-//     // }
-
-//     const expandGif = containerFav.querySelector(".btnExpand");             //Modal Expand
-//     expandGif.addEventListener("click", function() {
-//         showModalExpand(fav.url, fav.id, fav.user, fav.title);
-//     });
-
-//     const downloadFav = async (ev) => {                     //Download
-//         let downloadUrl = await fetch(`https://media2.giphy.com/media/${fav.id}/giphy.gif`);
-//         let file = await downloadUrl.blob();
-//         const anchor = document.createElement("a");
-//         const urlGifs = URL.createObjectURL(file);
-//         anchor.href = urlGifs;
-//         const titleGif = document.querySelector(".imgGifFav").alt;
-//         anchor.download = `${titleGif}.gif`;
-//         document.body.appendChild(anchor);
-//         anchor.click(); 
-//         document.body.removeChild(anchor);
-//     };
-//     document.querySelector(".downloadIcon").addEventListener("click", downloadFav);
-// });
-// }
-// const inputSuggestions = document.getElementById('searchGifos');

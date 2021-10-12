@@ -116,8 +116,8 @@ btnSubir.addEventListener('click', function (ev) {
     setTimeout(() => {
         document.querySelector(".loadingUpload").style.display = 'none';
         document.querySelector(".uploadCheck").style.display = 'block';                             //Loading check
-        //DOWNLOAD
-        const downloadPreview = async (ev) => {    
+        
+        const downloadPreview = async (ev) => {                                                     //DOWNLOAD
             const id = document.querySelector('.preview').getAttribute('data-id');
             let downloadUrl = await fetch(`https://media2.giphy.com/media/${id}/giphy.gif`);
             let file = await downloadUrl.blob();  
@@ -133,8 +133,7 @@ btnSubir.addEventListener('click', function (ev) {
         };
         containerCreateGifos.querySelector('.downloadIcon').addEventListener("click", downloadPreview);
       
-        //LINK
-        const linkPreview = async (ev) => {
+        const linkPreview = async (ev) => {                                             //LINK
             // btnLink.href = previewUrl;
             const idGifo = document.querySelector('.preview').getAttribute('data-id');
             // const urlLink = `https://i.giphy.com/${idGifo}.gif`;          

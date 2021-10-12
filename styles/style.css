@@ -1290,56 +1290,6 @@ header {
             font-size: 15px; }
           .containerMisGifos .modalShow .trendingExpand .infoExpand .titleExpand {
             font-weight: 900;
-            font-size: 16px; }
-    .containerMisGifos .modalShow {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      margin: 0;
-      padding: 0;
-      z-index: 100;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      background-color: #FFFFFF;
-      display: none; }
-      .containerMisGifos .modalShow .btnCloseModal {
-        width: 3em;
-        height: 3em;
-        position: absolute;
-        top: 4rem;
-        left: 80vw;
-        z-index: 50; }
-      .containerMisGifos .modalShow .containerImgExpand .modalImg {
-        width: 23.4em;
-        height: 14.1em;
-        padding-left: 18em;
-        padding-top: 6em; }
-      .containerMisGifos .modalShow .trendingExpand {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: reverse;
-            -ms-flex-direction: row-reverse;
-                flex-direction: row-reverse;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
-        .containerMisGifos .modalShow .trendingExpand .hoverIcons {
-          padding-right: 8em; }
-          .containerMisGifos .modalShow .trendingExpand .hoverIcons img {
-            padding-top: .8em; }
-        .containerMisGifos .modalShow .trendingExpand .infoExpand {
-          color: #000000;
-          font-family: 'Roboto';
-          padding-left: 8em;
-          padding-top: 1em;
-          text-transform: capitalize; }
-          .containerMisGifos .modalShow .trendingExpand .infoExpand .userExpand {
-            font-weight: 400;
-            font-size: 15px; }
-          .containerMisGifos .modalShow .trendingExpand .infoExpand .titleExpand {
-            font-weight: 900;
             font-size: 16px; } }
 @media screen and (min-width: 768px) {
   #containerCreateGifos {
