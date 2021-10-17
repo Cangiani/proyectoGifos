@@ -27,9 +27,10 @@ const trendingImages = async (trending) => {
         containerTrending.appendChild(imagesLatestGifos);
             
         //MODAL EXPAND
-        if (window.matchMedia("(max-width: 768px)").matches){               //MOBILE
-            const clickGif = imagesLatestGifos.querySelector('.singleImg');
-            clickGif.addEventListener("click", function() {
+        
+        if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+            //const clickGif = imagesLatestGifos.querySelector('.singleImg');
+            imagesLatestGifos.querySelector('img').addEventListener("click", function() {
                 showModalExpand(
                     imgGifo.images.fixed_height.url,
                     imgGifo.id,
@@ -37,7 +38,15 @@ const trendingImages = async (trending) => {
                     imgGifo.title
                 );
             });
-        } else{
+            // imagesLatestGifos.querySelector('img').addEventListener("touchstart", function() {
+            //     showModalExpand(
+            //         imgGifo.images.fixed_height.url,
+            //         imgGifo.id,
+            //         imgGifo.username,
+            //         imgGifo.title
+            //     );
+            // }, {passive: true});
+        }else{
             imagesLatestGifos.querySelector(".btnExpand").addEventListener("click", function () {
                 showModalExpand(
                     imgGifo.images.fixed_height.url,

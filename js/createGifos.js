@@ -1,4 +1,3 @@
-//PASOS: Pedir permisos, grabar y subir a giphy
 const containerCreateGifos = document.getElementById("containerCreateGifos");
 const containerVideo = document.querySelector(".containerVideo");
 const btnComenzar = document.querySelector(".comenzar");
@@ -100,7 +99,7 @@ btnComenzar.addEventListener("click", getStreamAndRecord); //que el video aparez
 
 btnSubir.addEventListener('click', function (ev) {
     const actualPreviewId = document.querySelector('.preview').getAttribute('data-id');
-    const previewUrl = document.querySelector('.preview').getAttribute('src');  
+    const previewUrl = document.querySelector('.preview').getAttribute('src');              //no se lo envié
     const misGifos = JSON.parse(localStorage.getItem('misGifos')) || [];
     misGifos.push(actualPreviewId);
     localStorage.setItem('misGifos',JSON.stringify(misGifos));
@@ -137,21 +136,15 @@ btnSubir.addEventListener('click', function (ev) {
             // btnLink.href = previewUrl;
             const idGifo = document.querySelector('.preview').getAttribute('data-id');
             // const urlLink = `https://i.giphy.com/${idGifo}.gif`;          
-            btnLink = ev.target;
-            // btnLink.setAttribute('href', urlLink);
+            btnLink = ev.target;                            // btnLink.setAttribute('href', urlLink);
             location.href = `https://i.giphy.com/${idGifo}.gif`;
             console.log(btnLink.href);
-
-            // const baseUrl = "http://fakedomain.com";
-            // const link = {
-                // Generator: {
-                //     go: (id) => `${baseUrl}/id/${id}`
-                // }
-            // };
-            // document.querySelectorAll('.automatic').forEach(a => (a.href = link.Generator.go(a.dataset.href)));
         };
         containerCreateGifos.querySelector('.btnLink').addEventListener("click", linkPreview);
 
+        setTimeout(() => {          //luego de subir el gif, se recarga la página
+            location.reload();
+        }, 15000);
     }, 5000);
 });
 

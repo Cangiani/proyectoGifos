@@ -650,21 +650,17 @@ header {
     background-color: #FFFFFF;
     display: none; }
     #containerTrending .modalShow .btnCloseModal {
-      width: 3em;
-      height: 3em;
+      width: 0.9em;
+      height: 0.9em;
       position: absolute;
-      top: 4rem;
-      left: 74vw;
       z-index: 50; }
     #containerTrending .modalShow .containerImgExpand {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
       #containerTrending .modalShow .containerImgExpand .modalImg {
-        width: 23.4em;
-        height: 14.1em;
-        padding-left: 18em;
-        padding-top: 6em; }
+        width: 19.8em;
+        height: 15.3em; }
     #containerTrending .modalShow .trendingExpand {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -1258,13 +1254,17 @@ header {
         height: 3em;
         position: absolute;
         top: 4rem;
-        left: 80vw;
+        left: 73vw;
         z-index: 50; }
-      .containerMisGifos .modalShow .containerImgExpand .modalImg {
-        width: 43.4em;
-        height: 24.1em;
-        padding-left: 18em;
-        padding-top: 6em; }
+      .containerMisGifos .modalShow .containerImgExpand {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+        .containerMisGifos .modalShow .containerImgExpand .modalImg {
+          width: 43.4em;
+          height: 24.1em;
+          padding-left: 18em;
+          padding-top: 6em; }
       .containerMisGifos .modalShow .trendingExpand {
         display: -webkit-box;
         display: -ms-flexbox;

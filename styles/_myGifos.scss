@@ -179,10 +179,7 @@
 
 }
 
-
-
-//------------------------------------------ DESKTOP ---------------------------------------
-
+//----------------------------------------------- DESKTOP ---------------------------------------
 @media screen and (min-width: 768px){  
 
     .containerMisGifos{
@@ -318,17 +315,17 @@
             box-sizing: border-box;
             background-color: $color-blanco;              
             display: none;
-
             .btnCloseModal {
                 width: 3em;
                 height: 3em;
                 position: absolute;
                 top: 4rem; 
-                left: 80vw; 
+                left: 73vw;             //80? 
                 z-index: 50;
             }
 
             .containerImgExpand {
+                display: flex;
                 .modalImg {
                     width: 43.4em;
                     height: 24.1em;

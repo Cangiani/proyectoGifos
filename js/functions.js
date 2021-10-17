@@ -66,10 +66,16 @@ const getMoreGifs = async () =>{
 
     imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); // FAVORITES
 
-    const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
-    expandGif.addEventListener("click", function() {
-      showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
-    });
+    if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+      imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
+        showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+      });
+    }else{
+      const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
+      expandGif.addEventListener("click", function() {
+        showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+      });
+    }
   });
 }
 const inputSuggestions = document.getElementById('searchGifos');
@@ -150,10 +156,16 @@ const getSuggestionsGifos = async (ev) => {
 
           imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); //FAVORITES
   
-          const expandGif = imagesLatestGifos.querySelector('.btnExpand');        //MODAL EXPAND
-          expandGif.addEventListener("click", function() {
-            showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
-          });
+          if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+            imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
+              showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+            });
+          }else{
+            const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
+            expandGif.addEventListener("click", function() {
+              showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+            });
+          }
 
           const downloadMyGifo = async (ev) => {                                    //DOWNLOAD
             let downloadUrl = await fetch(`https://media2.giphy.com/media/${gif.id}/giphy.gif`);
@@ -240,10 +252,16 @@ const getSuggestionsGifos = async (ev) => {
 
         imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); //FAVORITES
 
-        const expandGif = imagesLatestGifos.querySelector('.btnExpand');          //MODAL EXPAND
-        expandGif.addEventListener("click", function() {
-          showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
-        });
+        if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+          imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
+            showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+          });
+        }else{
+          const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
+          expandGif.addEventListener("click", function() {
+            showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+          });
+        }
 
         const downloadMyGifo = async (ev) => {                                    //DOWNLOAD
           let downloadUrl = await fetch(`https://media2.giphy.com/media/${gif.id}/giphy.gif`);

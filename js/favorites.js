@@ -8,7 +8,7 @@ const pintarGifFav = () => {
         const containerFav = document.querySelector(".imagesFavorites");
         containerFav.innerHTML = '';                                      //Para que no se repitan los favoritos
         
-        localFavorites.favorites.forEach((fav) => {
+        localFavorites.favorites.forEach(fav => {
 
             const divFav = document.createElement("div");
             divFav.classList.add("singleImgFav");
@@ -66,7 +66,7 @@ const pintarGifFav = () => {
             };
             divFav.querySelector(".downloadIcon").addEventListener("click", downloadFav);
         });
-        
+
     }else{
         document.querySelector(".noContentFavorites").style.display = "block";
     }
