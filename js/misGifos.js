@@ -119,6 +119,7 @@ const expandMisGifos = async (ev) => {    //Expand
             type: "gif",
             id: idGifSelected,
             url: `https://i.giphy.com/${idGifSelected}.gif`,
+            user: "MyGifo",
             title: "MyGifo",
         });
         localStorage.setItem("favorites", JSON.stringify(localFavorites)); 

@@ -640,10 +640,13 @@ header {
   #containerTrending .modalShow {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 45em;
     top: 0;
     margin: 0;
     padding: 0;
+    padding-left: 1.5em;
+    margin-top: 30em;
+    padding-top: 10em;
     z-index: 100;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -653,15 +656,15 @@ header {
       width: 0.9em;
       height: 0.9em;
       position: absolute;
+      -webkit-transform: translate(8em, -1.5em);
+              transform: translate(8em, -1.5em);
       z-index: 50; }
-    #containerTrending .modalShow .containerImgExpand {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex; }
-      #containerTrending .modalShow .containerImgExpand .modalImg {
-        width: 19.8em;
-        height: 15.3em; }
+    #containerTrending .modalShow .containerImgExpand .modalImg {
+      width: 20em;
+      height: 15.3em;
+      padding-right: 2em; }
     #containerTrending .modalShow .trendingExpand {
+      width: 85vw;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -672,20 +675,25 @@ header {
       -ms-flex-pack: distribute;
           justify-content: space-around; }
       #containerTrending .modalShow .trendingExpand .hoverIcons {
-        padding-right: 8em; }
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row; }
         #containerTrending .modalShow .trendingExpand .hoverIcons img {
           padding-top: .8em; }
       #containerTrending .modalShow .trendingExpand .infoExpand {
         color: #000000;
         font-family: 'Roboto';
-        padding-left: 8em;
         padding-top: 1em;
         text-transform: capitalize; }
         #containerTrending .modalShow .trendingExpand .infoExpand .userExpand {
           font-weight: 400;
           font-size: 15px; }
         #containerTrending .modalShow .trendingExpand .infoExpand .titleExpand {
-          font-weight: 900;
+          font-weight: 400;
           font-size: 16px; }
 
 @media screen and (min-width: 768px) {
@@ -820,12 +828,12 @@ header {
     text-align: center;
     text-transform: capitalize;
     padding-bottom: 2.9em; }
-  #containerFavorites .noContentFavorites .iconHeart {
-    width: 1.5em;
-    height: 1.3em; }
+  #containerFavorites .noContentFavorites .iconHeart img {
+    width: 3.2em; }
   #containerFavorites .noContentFavorites h3 {
     text-align: center;
-    color: #50E3C2; }
+    color: #50E3C2;
+    font-size: 16px; }
   #containerFavorites .imagesFavorites {
     width: 20.8em;
     display: grid;
@@ -885,11 +893,14 @@ header {
       width: 9.375em;
       height: 8em; }
       #containerFavorites .noContentFavorites .iconHeart img {
-        width: 4em;
-        padding-left: 47vw; }
+        width: 7em;
+        padding-left: 45.7vw; }
     #containerFavorites .noContentFavorites h3 {
       text-align: center;
-      color: #50E3C2; }
+      color: #50E3C2;
+      font-size: 22px; }
+      #containerFavorites .noContentFavorites h3 .spanFavorites {
+        display: block; }
     #containerFavorites .imagesFavorites {
       width: 70.5em;
       margin: auto;

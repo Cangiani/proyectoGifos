@@ -2,7 +2,6 @@
     @include titles;
     width: 100vw;
     background-color: $color-background;
-
     .trendingTitle{
         h2{
             font-family: 'Montserrat';  
@@ -23,7 +22,6 @@
             }
         }
     }
-
     #trendingGifos{
         height: 20em;
         display: flex;
@@ -45,10 +43,13 @@
     .modalShow{
         position: absolute;
         width: 100vw; 
-        height: 100vh;
+        height: 45em;
         top:0;
         margin: 0;
         padding: 0;
+        padding-left: 1.5em;
+        margin-top: 30em;
+        padding-top: 10em;
         z-index: 100;
         box-sizing: border-box;
         background-color: $color-blanco;              
@@ -58,25 +59,24 @@
             width: 0.9em;
             height: 0.9em;
             position: absolute;
-            // top: 4rem; 
-            // left: 74vw; 
+            transform: translate(8em, -1.5em);
             z-index: 50;
         }
         .containerImgExpand {
-            display: flex;
             .modalImg {
-                width: 19.8em;
+                width: 20em;
                 height: 15.3em;
-                // padding-left: 18em;
-                // padding-top: 6em;
+                padding-right: 2em;
             }
         }
         .trendingExpand{
+            width: 85vw;
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-around;
             .hoverIcons{
-                padding-right: 8em;
+                display: flex;
+                flex-direction: row;
                 img{
                     padding-top: .8em;
                 }
@@ -84,16 +84,14 @@
             .infoExpand{
                 color: $color-negro;
                 font-family: 'Roboto'; 
-                padding-left: 8em;
                 padding-top: 1em;
                 text-transform: capitalize;
-
                 .userExpand{ 
                     font-weight: 400;     
                     font-size: 15px;
                 }
-                .titleExpand{
-                    font-weight: 900;  
+                .titleExpand{ 
+                    font-weight: 400;     
                     font-size: 16px;
                 } 
             }

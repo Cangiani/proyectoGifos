@@ -3,12 +3,13 @@ const trendingImages = async (trending) => {
         const containerTrending = document.getElementById("trendingGifos");
         const imagesLatestGifos = document.createElement("div");
         imagesLatestGifos.classList.add("singleGifo");
+        // onclick="showModalExpandMobile('${imgGifo.images.fixed_height.url}', '${imgGifo.id}', '${imgGifo.username}', '${imgGifo.title}')"
         imagesLatestGifos.innerHTML = `
         <img class="singleImg" src="${imgGifo.images.fixed_height.url}" alt="${imgGifo.title}">
         <div class="trendingInfo"> 
             <div class="hoverIcons">
                 <a href="#" class="btnHeart">
-                    <img 
+                    <img
                         data-id="${imgGifo.id}" 
                         data-url="${imgGifo.images.fixed_height.url}" 
                         data-user="${imgGifo.username}" 
@@ -26,27 +27,17 @@ const trendingImages = async (trending) => {
         </div>`;
         containerTrending.appendChild(imagesLatestGifos);
             
-        //MODAL EXPAND
-        
-        if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
-            //const clickGif = imagesLatestGifos.querySelector('.singleImg');
-            imagesLatestGifos.querySelector('img').addEventListener("click", function() {
-                showModalExpand(
+        if(window.matchMedia("(max-width: 768px)").matches){                                         //MODAL EXPAND  
+            imagesLatestGifos.querySelector(".singleImg").addEventListener("click", function() {         //MOBILE
+                showModalExpandMobile(
                     imgGifo.images.fixed_height.url,
                     imgGifo.id,
                     imgGifo.username,
                     imgGifo.title
                 );
+                console.log("hola");
             });
-            // imagesLatestGifos.querySelector('img').addEventListener("touchstart", function() {
-            //     showModalExpand(
-            //         imgGifo.images.fixed_height.url,
-            //         imgGifo.id,
-            //         imgGifo.username,
-            //         imgGifo.title
-            //     );
-            // }, {passive: true});
-        }else{
+        }else{                                                                                          //DESKTOP
             imagesLatestGifos.querySelector(".btnExpand").addEventListener("click", function () {
                 showModalExpand(
                     imgGifo.images.fixed_height.url,
@@ -59,10 +50,9 @@ const trendingImages = async (trending) => {
 
         imagesLatestGifos.querySelector(".btnHeart").addEventListener("click", agregarFavoritoHandler);// FAVORITES
 
-        const downloadGif = async (ev) => {                              //  DOWNLOAD
+        const downloadGif = async (ev) => {                                                           //  DOWNLOAD
             let downloadUrl = await fetch(`https://media2.giphy.com/media/${imgGifo.id}/giphy.gif`);
             let file = await downloadUrl.blob();
-            // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
             const anchor = document.createElement("a");
             const urlGifs = URL.createObjectURL(file);
             anchor.href = urlGifs;

@@ -12,16 +12,13 @@
         padding-bottom: 2.9em;
     }
     .noContentFavorites{
-        .iconHeart{
-            width: 1.5em;
-            height: 1.3em;
+        .iconHeart img{
+            width: 3.2em;
         }
         h3{
             text-align: center;
             color: $color-celeste;
-            // .spanFavorites{
-            //     display: block;                 //NO FUNCIONA
-            // }
+            font-size: 16px;
         }
     }
 
@@ -110,7 +107,6 @@
         display: none;
     }
 
-
     .modalFavExpand{
         display: none;
         // .hoverIcons{
@@ -122,72 +118,9 @@
     }
 }
 
-//------------------------------------------ DESKTOP ---------------------------------------
-
+//------------------------------------------------- DESKTOP ---------------------------------------
 @media screen and (min-width: 768px){   
     
-    // #home{
-    //     .modalShow{
-    //         position: absolute;
-    //         width: 100vw; 
-    //         height: 100vh;
-    //         top:0;
-    //         margin: 0;
-    //         padding: 0;
-    //         z-index: 100;
-    //         box-sizing: border-box;
-    //         background-color: $color-blanco;              
-    //         display: none;
-
-    //         .btnCloseModal {
-    //             width: 3em;
-    //             height: 3em;
-    //             position: absolute;
-    //             top: 4rem; 
-    //             left: 80vw; 
-    //             z-index: 50;
-    //         }
-
-    //         .containerImgExpand {
-    //             .modalImg {
-    //                 width: 43.4em;
-    //                 height: 24.1em;
-    //                 padding-left: 18em;
-    //                 padding-top: 6em;
-    //             }
-    //         }
-
-    //         .trendingExpand{
-    //             display: flex;
-    //             flex-direction: row-reverse;
-    //             justify-content: space-around;
-
-    //             .hoverIcons{
-    //                 padding-right: 8em;
-    //                 img{
-    //                     padding-top: .8em;
-    //                 }
-    //             }
-    //             .infoExpand{
-    //                 color: $color-negro;
-    //                 font-family: 'Roboto'; 
-    //                 padding-left: 8em;
-    //                 padding-top: 1em;
-    //                 text-transform: capitalize;
-
-    //                 .userExpand{ 
-    //                     font-weight: 400;     
-    //                     font-size: 15px;
-    //                 }
-    //                 .titleExpand{
-    //                     font-weight: 900;  
-    //                     font-size: 16px;
-    //                 } 
-    //             }
-    //         }
-    //     }
-    // }
-
     #containerFavorites{
         width: 100vw;
         padding-bottom: 3em;
@@ -207,18 +140,18 @@
             .iconHeart{
                 width: 9.375em;
                 height: 8em;
-                
                 img{
-                  width: 4em;  
-                  padding-left: 47vw;
+                  width: 7em;  
+                  padding-left: 45.7vw;
                 }
             }
             h3{
                 text-align: center;
                 color: $color-celeste;
-                // .spanFavorites{
-                //     display: block;                 //NO FUNCIONA
-                // }
+                font-size: 22px;
+                .spanFavorites{
+                    display: block;                
+                }
             }
         }
         
@@ -228,7 +161,6 @@
             margin: auto;
             box-sizing: border-box;
             display: grid;
-            // grid-template: repeat(5,1fr) / repeat(4,1fr);
             grid-template: repeat(2,1fr) / repeat(4,1fr);
             grid-gap: 2.19em 1.81em;
             justify-content: center;                //?????
@@ -326,7 +258,6 @@
             transform: translateX(-50%);
         }
 
-
         .modalShow{
             position: absolute;
             width: 100vw; 
@@ -385,5 +316,4 @@
             }
         }
     } 
-
 }
