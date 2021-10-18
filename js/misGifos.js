@@ -43,9 +43,7 @@ const removeMiGifo = (ev) => {
         }
     };
     localStorage.setItem('misGifos', JSON.stringify(localMisGifos));
-
-    // Falta repitan el HTML para que refleje que se borro
-    //remove child?
+    location.reload();                                                          // Falta repitan el HTML para que refleje que se borro. Remove child?
 };
 
 const downloadMyGifo = async (ev) => {                                          //Download
@@ -87,14 +85,49 @@ const expandMisGifos = async (ev) => {    //Expand
     <div class="trendingExpand"> 
         <div class="hoverIcons">
             <a href="#"> <img data-id="${idGif}" class="btnHeart" src="./images/icon-fav.svg" alt="heart"></a>
-            <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
+            <a href="#"> <img data-id="${idGif}" class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
         </div>
     </div>`;
     containerModal.appendChild(modalExp);
 
-    modalExp.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);  //Favorites
-    modalExp.querySelector(".downloadIcon").addEventListener("click", downloadMyGifo);
-    modalExp.querySelector(".btnCloseModal").addEventListener("click", () => {     //CERRAR MODAL
+    const addMyGifoToFavorites = (ev) => {
+        const buttonPressed = ev.target;
+        buttonPressed.src = "./images/icon-fav-active.svg";
+        buttonPressed.style.backgroundColor = "#FFFFFF";
+        buttonPressed.style.opacity = 0.8;
+        buttonPressed.style.borderRadius = "6px";   
+        buttonPressed.style.height = "1.6em";
+        buttonPressed.style.width = "1.6em";
+        buttonPressed.style.padding = ".2em";
+        buttonPressed.style.marginTop = ".15em";
+        buttonPressed.style.marginRight = ".3em";
+        const idGifSelected = buttonPressed.getAttribute("data-id");                      const localFavorites = JSON.parse(localStorage.getItem("favorites"));
+    
+        if (localFavorites.favorites.length > 0) {
+            let duplicado = false;                            
+            localFavorites.favorites.find((favorite) => {
+                if (favorite.id === idGifSelected) {
+                    duplicado = true;
+                }
+            });
+            if (duplicado) {
+                console.log("El gif ya se encuentra en favoritos, no lo agregamos");
+                return;
+            }
+        }   
+        localFavorites.favorites.push({    
+            type: "gif",
+            id: idGifSelected,
+            url: `https://i.giphy.com/${idGifSelected}.gif`,
+            title: "MyGifo",
+        });
+        localStorage.setItem("favorites", JSON.stringify(localFavorites)); 
+        pintarGifFav(); 
+    };
+
+    modalExp.querySelector('.btnHeart').addEventListener("click", addMyGifoToFavorites);  //Favorites
+    modalExp.querySelector(".downloadIcon").addEventListener("click", downloadMyGifo);      //Download
+    modalExp.querySelector(".btnCloseModal").addEventListener("click", () => {              //Cerrar modal
         modalExp.style.display = "none";
         modalExp.classList.remove("modalShow");
         modalExpandido = false;

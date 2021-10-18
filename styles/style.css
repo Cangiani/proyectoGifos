@@ -1127,7 +1127,7 @@ header {
           -ms-flex-align: center;
               align-items: center; }
       .containerMisGifos .noContentMisGifos .iconGifos {
-        width: 9.375em;
+        width: 100vw;
         height: 3em; }
       .containerMisGifos .noContentMisGifos h3 {
         text-align: center;
@@ -1266,6 +1266,7 @@ header {
           padding-left: 18em;
           padding-top: 6em; }
       .containerMisGifos .modalShow .trendingExpand {
+        width: 75vw;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -1273,12 +1274,11 @@ header {
         -webkit-box-direction: reverse;
             -ms-flex-direction: row-reverse;
                 flex-direction: row-reverse;
-        -ms-flex-pack: distribute;
-            justify-content: space-around; }
-        .containerMisGifos .modalShow .trendingExpand .hoverIcons {
-          padding-right: 8em; }
-          .containerMisGifos .modalShow .trendingExpand .hoverIcons img {
-            padding-top: .8em; }
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: end; }
+        .containerMisGifos .modalShow .trendingExpand .hoverIcons img {
+          padding-top: .8em; }
         .containerMisGifos .modalShow .trendingExpand .infoExpand {
           color: #000000;
           font-family: 'Roboto';
