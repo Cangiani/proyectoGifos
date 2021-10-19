@@ -74,7 +74,6 @@ const downloadMyGifo = async (ev) => {                                          
     });
 };
 
-
 const expandMisGifos = async (ev) => {                                                    //Expand
     const buttonExpand = ev.target;   
     const idGif = buttonExpand.getAttribute("data-id");  

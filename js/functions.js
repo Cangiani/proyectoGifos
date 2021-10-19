@@ -1,6 +1,6 @@
-let suggestionLoading = false;                            // Semaforo del buscador search Gifos
+let suggestionLoading = false;                                            // Semaforo del buscador search Gifos
 
-const getSearchTags = async (apiKey, query) => {            //get search
+const getSearchTags = async (apiKey, query) => {                                         //get search
   const API_URL_SEARCH = "https://api.giphy.com/v1/gifs/search/tags";
   try {
     const tags = await fetch(`${API_URL_SEARCH}?api_key=${apiKey}&q=${query}&limit=4`);
@@ -10,7 +10,7 @@ const getSearchTags = async (apiKey, query) => {            //get search
   }
 }
 
-const getSearchGifsByKeyword = async (keyword, offset) => {   //input suggestions
+const getSearchGifsByKeyword = async (keyword, offset) => {                         //input suggestions
   try {
     const tags = await fetch(`${API_URL}/search?api_key=${API_KEY}&q=${keyword}&offset=${offset*12}&limit=12`);
     return tags.json()
@@ -66,12 +66,12 @@ const getMoreGifs = async () =>{
 
     imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); // FAVORITES
 
-    if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+    if(window.matchMedia("(max-width: 768px)").matches){                                             //MOBILE
       imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
         showModalExpandMobile(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
       });
     }else{
-      const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
+      const expandGif = imagesLatestGifos.querySelector('.btnExpand');                            //MODAL EXPAND
       expandGif.addEventListener("click", function() {
         showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
       });
@@ -252,18 +252,18 @@ const getSuggestionsGifos = async (ev) => {
 
         imagesLatestGifos.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler); //FAVORITES
 
-        if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
+        if(window.matchMedia("(max-width: 768px)").matches){                                              //MOBILE
           imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
             showModalExpandMobile(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
           });
         }else{
-          const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
+          const expandGif = imagesLatestGifos.querySelector('.btnExpand');                           //MODAL EXPAND
           expandGif.addEventListener("click", function() {
             showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
           });
         }
 
-        const downloadMyGifo = async (ev) => {                                    //DOWNLOAD
+        const downloadMyGifo = async (ev) => {                                                    //DOWNLOAD
           let downloadUrl = await fetch(`https://media2.giphy.com/media/${gif.id}/giphy.gif`);
           let file = await downloadUrl.blob();  
           const anchor = document.createElement('a');  
@@ -283,12 +283,10 @@ const getSuggestionsGifos = async (ev) => {
   }
 }
 if (inputSuggestions !== null) {
-  inputSuggestions.addEventListener("keyup", getSuggestionsGifos);   //buscador autocomplete
+  inputSuggestions.addEventListener("keyup", getSuggestionsGifos);                      //buscador autocomplete
 }
 
-//Expand Desktop
-const showModalExpand = (img, id, user, title) => {
-  
+const showModalExpand = (img, id, user, title) => {                                         //Expand Desktop
   const modalExpand = document.createElement("div");
   modalExpand.classList.add("modalShow");
   modalExpand.style.paddingTop = "15em";
@@ -318,11 +316,11 @@ const showModalExpand = (img, id, user, title) => {
   }                   
   modalExpand.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);     // FAVORITES 
 
-  modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {        //CERRAR MODAL
+  modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {                 //CERRAR MODAL
     modalExpand.style.display = "none";
   });
 
-  const downloadGif = async (ev) => {                              //  DOWNLOAD
+  const downloadGif = async (ev) => {                                                           //  DOWNLOAD
     let downloadUrl = await fetch(`https://media2.giphy.com/media/${id}/giphy.gif`);
     let file = await downloadUrl.blob();
     const anchor = document.createElement("a");
@@ -334,10 +332,9 @@ const showModalExpand = (img, id, user, title) => {
     document.body.removeChild(anchor);
   };
   modalExpand.querySelector(".downloadIcon").addEventListener("click", downloadGif);
-}
+};
 
-//Expand Mobile
-const showModalExpandMobile = (img, id, user, title) => {
+const showModalExpandMobile = (img, id, user, title) => {                                       //Expand Mobile
 
   if(window.matchMedia("(max-width: 768px)").matches){
       const modalExpand = document.createElement("div");
@@ -367,11 +364,11 @@ const showModalExpandMobile = (img, id, user, title) => {
       }                   
       modalExpand.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);     // FAVORITES 
 
-      modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {        //CERRAR MODAL
+      modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {                //CERRAR MODAL
         modalExpand.style.display = "none";
       });
 
-      const downloadGif = async (ev) => {                              //  DOWNLOAD
+      const downloadGif = async (ev) => {                                                          //  DOWNLOAD
           let downloadUrl = await fetch(`https://media2.giphy.com/media/${id}/giphy.gif`);
           let file = await downloadUrl.blob();
           const anchor = document.createElement("a");
@@ -384,25 +381,4 @@ const showModalExpandMobile = (img, id, user, title) => {
       };
       modalExpand.querySelector(".downloadIcon").addEventListener("click", downloadGif);
   }
-}
-
-// const getGifs = (gifs) => {         
-//   gifs.data.forEach(gif => {
-//     const containerTrending = document.querySelector("#trendingGifos");
-//     const containerGifosSearch = document.createElement("div");
-//     containerGifosSearch.classList.add("singleGifo");
-//     containerGifosSearch.innerHTML = `
-//       <img class="singleImg" src="${gif.images.fixed_height.url}" alt="imgGifos">
-//       <div class="trendingInfo"> 
-//         <div class="hoverIcons">
-//           <a href="#" class="btnHeart"> <img data-id="${gif.id}"  src="./images/icon-fav.svg" alt="heart"></a>
-//           <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-//           <a href="#"> <img class="btnExpand" src="./images/icon-max-normal.svg" alt="max"></a>
-//         </div>
-//         <div class="pInfo">
-//           <p class="user">${gif.username}</p>
-//           <p class="title">${gif.title}</p> 
-//         </div>
-//       </div>`;
-//     containerTrending.appendChild(containerGifosSearch);  
-// }
+};
