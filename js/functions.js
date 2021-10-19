@@ -359,14 +359,14 @@ const showModalExpandMobile = (img, id, user, title) => {
       if (document.querySelector('#containerTrending')) {
           document.querySelector('#containerTrending').appendChild(modalExpand);
       } else if (document.querySelector('#containerFavorites')) {
-          document.querySelector('#containerFavorites').appendChild(modalExpand);
+        document.querySelector('#containerFavorites').appendChild(modalExpand);
       } else if (document.querySelector('.containerMisGifos')) {
-          document.querySelector('.containerMisGifos').appendChild(modalExpand);
+        document.querySelector('.containerMisGifos').appendChild(modalExpand);
       }                   
       modalExpand.querySelector('.btnHeart').addEventListener("click", agregarFavoritoHandler);     // FAVORITES 
 
       modalExpand.querySelector(".btnCloseModal").addEventListener("click", () => {        //CERRAR MODAL
-          modalExpand.style.display = "none";
+        modalExpand.style.display = "none";
       });
 
       const downloadGif = async (ev) => {                              //  DOWNLOAD

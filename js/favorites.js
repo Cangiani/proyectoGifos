@@ -30,28 +30,17 @@ const pintarGifFav = () => {
             // buttonHeart.src = "./images/icon-fav-active.svg";   
             divFav.querySelector(".btnRemove").addEventListener("click", removeFavHandler);   //Eliminar favorite
                     
-            //Modal Expand Mobile
-            // if (window.matchMedia("(max-width: 768px)").matches){
-            // const expandImg = containerFav.querySelector('.imgGifFav');
-            // expandImg.addEventListener("click", function() {
-            //     showModalExpand(fav.images.fixed_height.url, fav.id, fav.username, fav.title);
-            // });
-
-            //     const clickGif = imagesLatestGifos.querySelector('.singleImg');
-            //     clickGif.addEventListener("click", function() {
-            //         showModalExpand;
-            //     });
-            // } else{
-            // const expandGif = containerFav.querySelector('.btnExpand');       //Modal Expand Desktop
-            // expandGif.addEventListener("click", function() {
-            //     showModalExpand(fav.images.fixed_height.url, fav.id, fav.username, fav.title);
-            // });
-            // }
+            if(window.matchMedia("(max-width: 768px)").matches){                             //MODAL EXPAND  
+                divFav.querySelector(".imgGifFav").addEventListener("click", function() {       //Mobile
+                    showModalExpandMobile(fav.url, fav.id, fav.user, fav.title);
+                    document.querySelector(".modalShow").style.marginTop = "10em";
+                });
+            }else{                                                                             //Desktop
+                divFav.querySelector(".btnExpand").addEventListener("click", function() {   
+                    showModalExpand(fav.url, fav.id, fav.user, fav.title);
+                });
+            };
             
-            divFav.querySelector(".btnExpand").addEventListener("click", function() {   //Modal Expand
-                showModalExpand(fav.url, fav.id, fav.user, fav.title);
-            });
-
             const downloadFav = async (ev) => {                     //Download
                 let downloadUrl = await fetch(`https://media2.giphy.com/media/${fav.id}/giphy.gif`);
                 let file = await downloadUrl.blob();
@@ -70,27 +59,6 @@ const pintarGifFav = () => {
     }else{
         document.querySelector(".noContentFavorites").style.display = "block";
     }
-};
-
-const showModalExpandFav = (ev) => {
-    const modalExpand = document.createElement("div");
-    modalExpand.classList.add("modalShow");
-    modalExpand.style.display = "block";
-    modalExpand.innerHTML = `
-    <a class= "btnCloseModal"> <img src="./images/close.svg"> </a>
-    <div class= "containerImgExpand">
-        <img class="modalImg" src="${ev.target.image}" alt="imgGifos"> 
-    </div>
-    <div class="modalFavExpand"> 
-        <div class="hoverIcons">
-            <a href="#" class="btnHeartRemove"> <img data-id="${ev.target.id}" src="./images/icon-fav.svg" alt="heart"></a>
-            <a href="#"> <img class="downloadIcon" src="./images/icon-download.svg" alt="download"></a>
-        </div>
-        <div class="infoExpand">
-            <p class="userExpand">${ev.target.username}</p>
-            <p class="titleExpand">${ev.target.title}</p> 
-        </div>
-    </div>`;
 };
 
 //Antes de agregar un GIF a favoritos, recuperes del LocalStorage los favoritos que tienes en ese momento,le hagas un parse, y busques (por id, por ejemplo), usando el método FIND o FILTER, si ya existe ese GIF.Si NO existe lo pusheas y vuelves a guardar el array en el LocalStorage. En en el caso de existir simplemente haces un return.

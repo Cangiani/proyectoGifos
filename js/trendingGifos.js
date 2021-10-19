@@ -3,7 +3,6 @@ const trendingImages = async (trending) => {
         const containerTrending = document.getElementById("trendingGifos");
         const imagesLatestGifos = document.createElement("div");
         imagesLatestGifos.classList.add("singleGifo");
-        // onclick="showModalExpandMobile('${imgGifo.images.fixed_height.url}', '${imgGifo.id}', '${imgGifo.username}', '${imgGifo.title}')"
         imagesLatestGifos.innerHTML = `
         <img class="singleImg" src="${imgGifo.images.fixed_height.url}" alt="${imgGifo.title}">
         <div class="trendingInfo"> 
@@ -35,7 +34,6 @@ const trendingImages = async (trending) => {
                     imgGifo.username,
                     imgGifo.title
                 );
-                console.log("hola");
             });
         }else{                                                                                          //DESKTOP
             imagesLatestGifos.querySelector(".btnExpand").addEventListener("click", function () {

@@ -768,10 +768,11 @@ header {
     #containerTrending .modalShow {
       position: absolute;
       width: 100vw;
-      height: 100vh;
+      height: 90em;
       top: 0;
       margin: 0;
       padding: 0;
+      padding-top: 45em;
       z-index: 100;
       -webkit-box-sizing: border-box;
               box-sizing: border-box;
@@ -781,13 +782,12 @@ header {
         width: 3em;
         height: 3em;
         position: absolute;
-        top: 4rem;
-        left: 80vw;
+        bottom: 35em;
+        right: 27em;
         z-index: 50; }
       #containerTrending .modalShow .containerImgExpand .modalImg {
         width: 43.4em;
         height: 24.1em;
-        padding-left: 18em;
         padding-top: 6em;
         margin-top: 2em; }
       #containerTrending .modalShow .trendingExpand {
@@ -801,13 +801,13 @@ header {
         -ms-flex-pack: distribute;
             justify-content: space-around; }
         #containerTrending .modalShow .trendingExpand .hoverIcons {
-          padding-right: 8em; }
+          padding-right: 4em; }
           #containerTrending .modalShow .trendingExpand .hoverIcons img {
             padding-top: .8em; }
         #containerTrending .modalShow .trendingExpand .infoExpand {
           color: #000000;
           font-family: 'Roboto';
-          padding-left: 8em;
+          padding-left: 13em;
           padding-top: 1em;
           text-transform: capitalize; }
           #containerTrending .modalShow .trendingExpand .infoExpand .userExpand {
@@ -851,10 +851,63 @@ header {
         height: 7.5em; }
       #containerFavorites .imagesFavorites .singleImgFav .favInfo {
         display: none; }
-        #containerFavorites .imagesFavorites .singleImgFav .favInfo .hoverIcons {
-          display: none; }
-        #containerFavorites .imagesFavorites .singleImgFav .favInfo .pInfo {
-          display: none; }
+  #containerFavorites .modalShow {
+    position: absolute;
+    width: 100vw;
+    height: 47em;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    padding-left: 1.5em;
+    padding-top: 15em;
+    z-index: 100;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: #FFFFFF;
+    display: none; }
+    #containerFavorites .modalShow .btnCloseModal {
+      width: 0.9em;
+      height: 0.9em;
+      position: absolute;
+      -webkit-transform: translate(8em, -1.5em);
+              transform: translate(8em, -1.5em);
+      z-index: 50; }
+    #containerFavorites .modalShow .containerImgExpand .modalImg {
+      width: 20em;
+      height: 15.3em;
+      padding-right: 2em; }
+    #containerFavorites .modalShow .trendingExpand {
+      width: 85vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+      #containerFavorites .modalShow .trendingExpand .hoverIcons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row; }
+        #containerFavorites .modalShow .trendingExpand .hoverIcons img {
+          padding-top: .8em; }
+      #containerFavorites .modalShow .trendingExpand .infoExpand {
+        color: #000000;
+        font-family: 'Roboto';
+        padding-top: 1em;
+        text-transform: capitalize; }
+        #containerFavorites .modalShow .trendingExpand .infoExpand .userExpand {
+          font-weight: 400;
+          font-size: 15px; }
+        #containerFavorites .modalShow .trendingExpand .infoExpand .titleExpand {
+          font-weight: 400;
+          font-size: 16px; }
   #containerFavorites .buttonFavorites {
     color: #572EE5;
     text-align: center;
@@ -872,8 +925,6 @@ header {
     margin-left: 50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    display: none; }
-  #containerFavorites .modalFavExpand {
     display: none; }
 
 @media screen and (min-width: 768px) {
@@ -1070,7 +1121,8 @@ header {
     padding-bottom: 2.9em; }
   .containerMisGifos .noContentMisGifos .iconGifos {
     width: 1.4em;
-    height: 1.3em; }
+    height: 1.3em;
+    padding-left: 47vw; }
   .containerMisGifos .noContentMisGifos h3 {
     font-size: 18px;
     color: #50E3C2; }
@@ -1095,10 +1147,61 @@ header {
         text-transform: capitalize; }
       .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo {
         display: none; }
-        .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .hoverIcons {
-          display: none; }
-        .containerMisGifos .imagesMisGifos .singleImgMisGifos .gifoInfo .pInfo {
-          display: none; }
+  .containerMisGifos .modalShow {
+    position: absolute;
+    width: 100vw;
+    height: 47em;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    padding-left: 1.5em;
+    padding-top: 15em;
+    z-index: 100;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: #FFFFFF;
+    display: none; }
+    .containerMisGifos .modalShow .btnCloseModal {
+      width: 0.9em;
+      height: 0.9em;
+      position: absolute;
+      -webkit-transform: translate(8em, -1.5em);
+              transform: translate(8em, -1.5em);
+      z-index: 50; }
+    .containerMisGifos .modalShow .containerImgExpand .modalImg {
+      width: 20em;
+      height: 15.3em;
+      padding-right: 2em; }
+    .containerMisGifos .modalShow .trendingExpand {
+      width: 85vw;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse; }
+      .containerMisGifos .modalShow .trendingExpand .hoverIcons {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row; }
+        .containerMisGifos .modalShow .trendingExpand .hoverIcons img {
+          padding-top: .8em; }
+      .containerMisGifos .modalShow .trendingExpand .infoExpand {
+        color: #000000;
+        font-family: 'Roboto';
+        padding-top: 1em;
+        text-transform: capitalize; }
+        .containerMisGifos .modalShow .trendingExpand .infoExpand .userExpand {
+          font-weight: 400;
+          font-size: 15px; }
+        .containerMisGifos .modalShow .trendingExpand .infoExpand .titleExpand {
+          font-weight: 400;
+          font-size: 16px; }
   .containerMisGifos .btnMoreMisGifos {
     color: #572EE5;
     border: 1px solid #572EE5;
@@ -1139,7 +1242,8 @@ header {
               align-items: center; }
       .containerMisGifos .noContentMisGifos .iconGifos {
         width: 100vw;
-        height: 3em; }
+        height: 3em;
+        padding-left: 0; }
       .containerMisGifos .noContentMisGifos h3 {
         text-align: center;
         color: #50E3C2; }
@@ -1251,7 +1355,7 @@ header {
     .containerMisGifos .modalShow {
       position: absolute;
       width: 100vw;
-      height: 100vh;
+      height: 40em;
       top: 0;
       margin: 0;
       padding: 0;
@@ -1264,8 +1368,8 @@ header {
         width: 3em;
         height: 3em;
         position: absolute;
-        top: 4rem;
-        left: 73vw;
+        top: 5em;
+        left: 63vw;
         z-index: 50; }
       .containerMisGifos .modalShow .containerImgExpand {
         display: -webkit-box;

@@ -8,7 +8,7 @@ const getMisGifos = () => {
             const divMisGifos = document.createElement("div");
             divMisGifos.classList.add("singleImgMisGifos");                       
             divMisGifos.innerHTML = `
-            <img class="imgMisGifos" src="https://i.giphy.com/${id}.gif" alt="misGifos"> 
+            <img class="imgMisGifos" src="https://i.giphy.com/${id}.gif" data-id="${id}" alt="misGifos"> 
             <div class="gifoInfo"> 
                 <div class= "hoverIcons">
                     <a> <img class="iconTrash" data-id="${id}" src="./images/icon-trash-normal.svg" alt="trash"></a>
@@ -25,7 +25,12 @@ const getMisGifos = () => {
 
             divMisGifos.querySelector('.iconTrash').addEventListener("click", removeMiGifo);   //Delete
             divMisGifos.querySelector('.downloadIcon').addEventListener("click", downloadMyGifo);    //Download
-            divMisGifos.querySelector('.btnExpand').addEventListener("click", expandMisGifos);
+            
+            if(window.matchMedia("(max-width: 768px)").matches){                             //MODAL EXPAND  
+                divMisGifos.querySelector(".imgMisGifos").addEventListener("click", expandMisGifos);       //Mobile
+            }else{                                                                             //Desktop
+                divMisGifos.querySelector('.btnExpand').addEventListener("click", expandMisGifos);
+            };
         });
 
     }else{
@@ -69,7 +74,8 @@ const downloadMyGifo = async (ev) => {                                          
     });
 };
 
-const expandMisGifos = async (ev) => {    //Expand
+
+const expandMisGifos = async (ev) => {                                                    //Expand
     const buttonExpand = ev.target;   
     const idGif = buttonExpand.getAttribute("data-id");  
 

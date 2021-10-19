@@ -99,7 +99,7 @@
     }
 }
 
-// ------------------------------------------     DESKTOP         -----------------------------------------------
+// ------------------------------------------      DESKTOP       -----------------------------------------------
 @media screen and (min-width: 768px){                                 
     
     #containerTrending{
@@ -122,7 +122,7 @@
         }
 
         #trendingGifos{
-            height: 25em;               //deberia ser 40em?         
+            height: 25em;                     
             display: grid;
             grid-template: 15em / repeat(3, 20em);  
             justify-content: center;
@@ -200,10 +200,11 @@
         .modalShow{
             position: absolute;
             width: 100vw; 
-            height: 100vh;
+            height: 90em;
             top:0;
             margin: 0;
             padding: 0;
+            padding-top: 45em;
             z-index: 100;
             box-sizing: border-box;
             background-color: $color-blanco;              
@@ -213,8 +214,8 @@
                 width: 3em;
                 height: 3em;
                 position: absolute;
-                top: 4rem; 
-                left: 80vw; 
+                bottom: 35em;
+                right: 27em;
                 z-index: 50;
             }
 
@@ -222,7 +223,6 @@
                 .modalImg {
                     width: 43.4em;
                     height: 24.1em;
-                    padding-left: 18em;
                     padding-top: 6em;
                     margin-top: 2em;
                 }
@@ -234,7 +234,7 @@
                 justify-content: space-around;
 
                 .hoverIcons{
-                    padding-right: 8em;
+                    padding-right: 4em;
                     img{
                         padding-top: .8em;
                     }
@@ -242,7 +242,7 @@
                 .infoExpand{
                     color: $color-negro;
                     font-family: 'Roboto'; 
-                    padding-left: 8em;
+                    padding-left: 13em;
                     padding-top: 1em;
                     text-transform: capitalize;
 
