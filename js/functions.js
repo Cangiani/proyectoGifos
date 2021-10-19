@@ -68,7 +68,7 @@ const getMoreGifs = async () =>{
 
     if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
       imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
-        showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+        showModalExpandMobile(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
       });
     }else{
       const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
@@ -158,7 +158,7 @@ const getSuggestionsGifos = async (ev) => {
   
           if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
             imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
-              showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+              showModalExpandMobile(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
             });
           }else{
             const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
@@ -254,7 +254,7 @@ const getSuggestionsGifos = async (ev) => {
 
         if(window.matchMedia("(max-width: 768px)").matches){               //MOBILE
           imagesLatestGifos.querySelector('.imgGifsSearch').addEventListener("click", function() {
-            showModalExpand(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
+            showModalExpandMobile(gif.images.fixed_height.url, gif.id, gif.username, gif.title);
           });
         }else{
           const expandGif = imagesLatestGifos.querySelector('.btnExpand');            //MODAL EXPAND
@@ -291,6 +291,7 @@ const showModalExpand = (img, id, user, title) => {
   
   const modalExpand = document.createElement("div");
   modalExpand.classList.add("modalShow");
+  modalExpand.style.paddingTop = "15em";
   modalExpand.style.display = "block";
   modalExpand.innerHTML = `
   <a class= "btnCloseModal"> <img src="./images/close.svg"> </a>
@@ -307,6 +308,7 @@ const showModalExpand = (img, id, user, title) => {
       <p class="titleExpand">${title}</p> 
     </div>
   </div>`;
+  modalExpand.querySelector(".btnCloseModal").style.top = "22em";
   if (document.querySelector('#containerTrending')) {
     document.querySelector('#containerTrending').appendChild(modalExpand);
   } else if (document.querySelector('#containerFavorites')) {

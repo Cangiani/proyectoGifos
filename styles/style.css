@@ -227,20 +227,23 @@ header {
       margin-left: .7em; }
       .home .browser .search .autocomplete {
         width: 20em;
-        height: 3.3em;
+        height: 2.3em;
         padding-top: 1.4em;
         border: none;
         outline: none;
         margin-left: 3em; }
       .home .browser .search .imageSearch {
         width: 1.3em;
-        height: 2em; }
+        height: 2em;
+        position: absolute;
+        top: 20em;
+        left: 20em; }
       .home .browser .search .closeSearch {
-        width: 1em;
+        width: .9em;
         height: 1em;
         position: absolute;
-        top: 30.7em;
-        left: 50.6em;
+        top: 20.5em;
+        left: 20em;
         display: none; }
       .home .browser .search #containerSuggestions {
         width: 15em;
@@ -451,7 +454,9 @@ header {
           padding-top: 0; }
         .home .browser .search .imageSearch {
           width: 1.3em;
-          height: 2em; }
+          height: 2em;
+          top: 30.4em;
+          left: 50.6em; }
         .home .browser .search .closeSearch {
           width: 1em;
           height: 1em;

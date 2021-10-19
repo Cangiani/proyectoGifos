@@ -15,14 +15,12 @@
 .home{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;   //???????''
+    justify-content: space-between;   
     box-sizing: border-box;
 
     .title{
         max-width: 100vw;
         box-sizing: border-box;
-        // width: 17.9em;
-        // height: 6.2em;
         margin-left: 2.8em;
         margin-top: 0.4em;   
         
@@ -44,7 +42,6 @@
     }
 
     .browser{
-        // padding-top: 1.94em;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
@@ -56,7 +53,6 @@
             margin-left: 3.19em;
             display: block;
         }
-
         .search{
             width: 20em;     
             height: 3em;
@@ -73,25 +69,27 @@
 
             .autocomplete{
                 width: 20em;
-                height: 3.3em;
+                height: 2.3em;
                 padding-top: 1.4em;
                 border: none;
                 outline: none;
-                margin-left: 3em;                                  //CAMBIAR LETRA
+                margin-left: 3em;                                  
             }
 
             .imageSearch{
                 width: 1.3em;
                 height: 2em;
-                // top: 2.7em;       //es necesario?
+                position: absolute;
+                top: 20em;
+                left: 20em;
             }
 
             .closeSearch{
-                width: 1em;
+                width: .9em;
                 height: 1em;                  
                 position: absolute;
-                top: 30.7em;
-                left: 50.6em;
+                top: 20.5em;
+                left: 20em;
                 display: none;
             }
 
@@ -115,11 +113,9 @@
                 }
             }
         }
-
         .searchActive{
             height: 10em;
         }
-
         .borderBottomSearch{
             display: none;
             width: 20em;
@@ -127,7 +123,6 @@
             opacity: 0.5;
             color: #9CAFC3;
         }
-
         .noResultSearchGifos{
             padding-top: 2.2em;
             .containerImgNoResult{        
@@ -145,16 +140,14 @@
             }
         }
     }
-
     #listGifs{
         #titleGifs{
-            @include titles;            //PONERLE EL ESTILO CORRESPONDIENTE
+            @include titles;           
             font-family: "Montserrat";
             font-size: 25px;
             line-height: 30px;
             text-transform: capitalize;
         }
-
         .showSearchGif{
             width: 20.8em;                  
             display: grid;
@@ -197,7 +190,6 @@
                             padding: .2em;
                         }
                     }
-
                     .pInfo{   
                         height: 5em;
                         color: $color-blanco;
@@ -223,16 +215,6 @@
                         } 
                     }
                 } 
-                // &:hover{
-                //     width: 16.25em;
-                //     height: 12.5em;
-                    
-                //     .searchInfo{
-                //         background-color: $color-principal;
-                //         opacity: 0.7;
-                //         display: block                           
-                //     }
-                // }
             }
         }
         .btnSearchGif{              
@@ -247,7 +229,6 @@
             display: none;
         }
     }
-
     .subtitle{
         width: 100vw;
         padding-top: 1.9em;
@@ -255,17 +236,14 @@
         @include titles;
         font-family: 'Montserrat'; 
         display: block;
-
         h2{
             font-size: 16px;
             font-weight: bold;
         }
-
         h3{
             font-size: 14px;
             font-weight: 500;
         }
-
         .span{
             display: block;
         }
@@ -279,7 +257,7 @@
         width: 100vw;
         display: flex;
         flex-direction: column;
-        align-content: center;          //no sirve?
+        align-content: center;          
         align-items: center;
         justify-content: space-between;
         box-sizing: border-box;
@@ -304,19 +282,15 @@
                 }
             }
         }
-
         .browser{
             margin-top: 1.5em; 
             margin-left: 0px;
             box-sizing: border-box;
-
             .imageHome{
                 width: 399px;   
                 height: 190px;  
-                // padding-left: 32.6em;
                 margin: auto;
             }
-
             .search{
                 width: 34.4em;    
                 height: 3.3em;  
@@ -325,19 +299,15 @@
                 .autocomplete{
                     width: 30em;
                     height: 3.3em;
-                    top: 2em;       //es necesario?
+                    top: 2em;       
                     padding-top: 0;
-                    // border: none;
-                    // // outline: none;
-                    // margin-left: 3em;                                  //CAMBIAR LETRA
                 }
-
                 .imageSearch{
                     width: 1.3em;
                     height: 2em;
-                    // top: 2.7em;       //es necesario?
+                    top: 30.4em;
+                    left: 50.6em;
                 }
-
                 .closeSearch{
                     width: 1em;
                     height: 1em;                  
@@ -346,7 +316,6 @@
                     left: 50.6em;
                     display: none;
                 }
-
                 #containerSuggestions{
                     width: 30em;
                     height: 7em;
@@ -355,11 +324,9 @@
                     font-size: 16px;
                 }
             }
-
             .searchActive{
                 height: 12em;
             }
-
             .borderBottomSearch{
                 display: none;
                 width: 32em;
@@ -367,7 +334,6 @@
                 opacity: 0.5;
                 color: #9CAFC3;
             }
-            
             .noResultSearchGifos{
                 .containerImgNoResult{   
                     text-align: center;
@@ -383,10 +349,9 @@
                 }
             }
         }
-
         #listGifs{
             #titleGifs{
-                @include titles;            //PONERLE EL ESTILO CORRESPONDIENTE
+                @include titles;           
                 font-family: "Montserrat";
                 font-size: 30px;
                 line-height: 30px;
@@ -394,9 +359,8 @@
                 padding-bottom: 1.3em;
                 padding-top: 1em;
             }
-
             .showSearchGif{
-                width: 68em;                    // o 65em?
+                width: 68em;                 
                 display: grid;
                 grid-template: repeat(3,12em) / repeat(4,1fr);
                 grid-gap: 2.19em 1.81em;
@@ -410,7 +374,6 @@
                         width: 16.25em;
                         height: 12.5em;
                     }
-
                     .searchInfo{
                         position: relative;
                         height: 12.5em;
@@ -436,7 +399,6 @@
                                 padding: .2em;
                             }
                         }
-
                         .pInfo{   
                             height: 5em;
                             color: $color-blanco;
@@ -462,7 +424,6 @@
                             } 
                         }
                     } 
-
                     &:hover{
                         width: 16.25em;
                         height: 12.5em;
@@ -487,18 +448,15 @@
                 display: none;
             }
         }
-
         .subtitle{        
             h2{
                 font-size: 18px;
-                line-height: 25px;           //px????
+                line-height: 25px;           
             }
-            
             h3{
                 font-size: 16px;
-                line-height: 25px;           //px????
+                line-height: 25px;          
             }
-
             .span{
                 display: inline;
             }
